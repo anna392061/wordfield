@@ -1,4 +1,4 @@
-/* Wordfield v1.1 — local-first spaced repetition, intraday relearning and two-button recall. */
+/* Wordfield v1.2 — contextual production practice + continuous learning. */
 (() => {
 'use strict';
 const KEY='wordfield-v1-snapshot';
@@ -11,7 +11,7 @@ const atEnd=(v)=>new Date(v).toLocaleDateString('zh-CN',{month:'short',day:'nume
 const fmtDate=(v)=>new Date(v).toLocaleDateString('zh-CN',{year:'numeric',month:'short',day:'numeric'});
 const now=()=>Date.now();
 const stateFactory=()=>({version:2,books:[{id:'book-ai-industry',title:'AI Industry English',description:'AI 专业词汇 + 行业常用英语表达',createdAt:new Date().toISOString(),icon:'✦'}],entries:(window.WORDFIELD_SEED||[]).map((e,i)=>({...e,id:`ai-${String(i+1).padStart(4,'0')}`,bookId:'book-ai-industry',createdAt:new Date().toISOString(),introducedAt:null,recognition:null,production:null})),settings:{activeBook:'book-ai-industry',dailyNew:10,reviewAll:true},activity:[],studySessions:{}});
-let data=null,db=null,storageKind='浏览器本地存储',page='learn',libraryBookId=null,filterText='',filterCategory='',studyMode='recognition',studySession=null,answerVisible=false,modal=null,pendingImport=null,toastTimer=null,typedDraft='',writeQueue=Promise.resolve(),voiceLastKey='',waitTimer=null;
+let data=null,db=null,storageKind='浏览器本地存储',page='learn',libraryBookId=null,filterText='',filterCategory='',studyMode='recognition',studySession=null,answerVisible=false,modal=null,pendingImport=null,toastTimer=null,typedDraft='',writeQueue=Promise.resolve(),voiceLastKey='';
 function openDb(){return new Promise((resolve,reject)=>{if(!('indexedDB' in window)){reject(new Error('IndexedDB unavailable'));return;}const req=indexedDB.open('wordfield-database',1);req.onupgradeneeded=()=>{if(!req.result.objectStoreNames.contains('kv'))req.result.createObjectStore('kv');};req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error);});}
 function dbGet(){return new Promise((resolve,reject)=>{const tx=db.transaction('kv','readonly');const rq=tx.objectStore('kv').get('snapshot');rq.onsuccess=()=>resolve(rq.result);rq.onerror=()=>reject(rq.error);});}
 function dbPut(snapshot){return new Promise((resolve,reject)=>{const tx=db.transaction('kv','readwrite');tx.objectStore('kv').put(snapshot,'snapshot');tx.oncomplete=()=>resolve();tx.onerror=()=>reject(tx.error);});}
@@ -24,7 +24,7 @@ const wordsOf=bid=>data.entries.filter(e=>e.bookId===bid);
 const norm=x=>String(x??'').trim().toLocaleLowerCase().replace(/\s+/g,' ');
 function learned(e){return Boolean(e.introducedAt||e.recognition?.reviews>0);}
 function mastered(e,mode='recognition'){const s=e[mode];return !!(s&&s.reviews>=3&&s.interval>=21&&s.lastRating>=2);}
-function due(e,mode){const s=e[mode];if(mode==='production'&&!learned(e))return false;if(s?.learningPending)return true;if(!s||!s.reviews)return mode==='production'?!!e.recognition?.reviews:!!e.introducedAt;return !s.due||new Date(s.due).getTime()<=now();}
+function due(e,mode){const s=e[mode];if(mode==='production'&&!canPracticeProduction(e))return false;if(s?.learningPending)return true;if(!s||!s.reviews)return mode==='production'?!!e.recognition?.reviews:!!e.introducedAt;return !s.due||new Date(s.due).getTime()<=now();}
 const bookStats=bid=>{const a=wordsOf(bid);return{total:a.length,learned:a.filter(learned).length,mastered:a.filter(e=>mastered(e)).length,produced:a.filter(e=>e.production?.reviews>0).length};};
 const pct=(a,b)=>b?Math.round(100*a/b):0;
 function countNewToday(){return data.entries.filter(e=>e.bookId===data.settings.activeBook&&e.introducedAt===nDate()).length;}
@@ -74,7 +74,7 @@ function buildQueue(mode){
   const newWords=wordsOf(active).filter(e=>!learned(e)).sort((a,b)=>(a.priority||2)-(b.priority||2)).slice(0,Math.max(0,data.settings.dailyNew-countNewToday()));
   return [...old,...newWords].map((e,i)=>({id:e.id,mode,isNew:!learned(e),needed:(!learned(e)||!!e.recognition?.learningPending)?2:1,streak:0,attempts:0,firstResult:null,hadFailure:false,scored:false,completed:false,nextAt:0,afterTurn:0,seq:i}));
  }
- return pool.filter(e=>due(e,'production')).sort((a,b)=>(a.production?.reviews||0)-(b.production?.reviews||0)||new Date(a.production?.due||0)-new Date(b.production?.due||0)).map((e,i)=>({id:e.id,mode,isNew:!e.production?.reviews,needed:(!e.production?.reviews||!!e.production?.learningPending)?2:1,streak:0,attempts:0,firstResult:null,hadFailure:false,scored:false,completed:false,nextAt:0,afterTurn:0,seq:i}));
+ return pool.filter(e=>due(e,'production')&&canPracticeProduction(e)).sort((a,b)=>(a.production?.reviews||0)-(b.production?.reviews||0)||new Date(a.production?.due||0)-new Date(b.production?.due||0)).map((e,i)=>({id:e.id,mode,isNew:!e.production?.reviews,needed:(!e.production?.reviews||!!e.production?.learningPending)?2:1,streak:0,attempts:0,firstResult:null,hadFailure:false,scored:false,completed:false,nextAt:0,afterTurn:0,seq:i}));
 }
 function startStudy(){
  const existing=activeSession();if(existing){studySession=existing;answerVisible=false;typedDraft='';renderLearn();autoSpeakCurrent();return;}
@@ -85,26 +85,88 @@ function startStudy(){
 function pickCurrent(ss){
  if(ss.currentId){const current=ss.items.find(t=>t.id===ss.currentId&&!t.completed);if(current)return current;ss.currentId=null;}
  const pending=ss.items.filter(t=>!t.completed);if(!pending.length)return null;
- const available=pending.filter(t=>t.attempts>0&&(ss.turn>=t.afterTurn||now()>=t.nextAt));
- // Reinforce the earliest eligible forgotten word, interleaved with other cards.
- let chosen=available.sort((a,b)=>a.nextAt-b.nextAt||a.seq-b.seq)[0];
+ // Prefer a repeat after several other cards, but NEVER block the learner with a timer.
+ const available=pending.filter(t=>t.attempts>0&&ss.turn>=(t.afterTurn||0));
+ let chosen=available.sort((a,b)=>(a.afterTurn||0)-(b.afterTurn||0)||a.seq-b.seq)[0];
  if(!chosen)chosen=pending.find(t=>t.attempts===0);
+ // If every remaining card is waiting for its position gap, select the earliest one now.
+ // This also handles older sessions saved with a future `nextAt` from v1.1.
+ if(!chosen)chosen=pending.sort((a,b)=>(a.afterTurn||0)-(b.afterTurn||0)||a.seq-b.seq)[0];
  if(chosen)ss.currentId=chosen.id;
  return chosen||null;
 }
-function waitSeconds(ss){return Math.max(1,Math.ceil(Math.min(...ss.items.filter(t=>!t.completed).map(t=>t.nextAt-now()).filter(ms=>ms>0))/1000)||1);}
-function scheduleWaitRefresh(){clearTimeout(waitTimer);waitTimer=setTimeout(()=>{if(page==='learn'&&studySession&&!pickCurrent(studySession))renderLearn();else if(page==='learn'&&studySession){renderLearn();autoSpeakCurrent();}},1200);}
+/* Contextual output cards: two authentic bilingual uses per AI term.
+   Keep prompts tied to actual examples instead of auto-inventing translations.
+   The original book and saved learning histories remain unmodified. */
+const OUTPUT_CONTEXT_FIXES={
+  'multimodal':{1:{prompt:'这个多模态模型可以接收文本、图像和音频作为输入。',answer:'The multimodal model accepts text, images, and audio as input.'}},
+  'context window':{2:{prompt:'模型的表现可能会随上下文窗口长度而变化。',answer:'Model performance may vary with context window length.'}},
+  'reward model':{2:{prompt:'校准不佳的奖励模型可能诱发意外行为。',answer:'A poorly calibrated reward model can encourage unintended behavior.'}},
+  'self-supervised learning':{2:{prompt:'预训练通常依赖自监督学习目标。',answer:'Pretraining often relies on self-supervised learning objectives.'}},
+  'mixture of experts':{2:{prompt:'混合专家架构旨在提高计算效率。',answer:'A mixture-of-experts architecture aims to improve compute efficiency.'}},
+  'prompt engineering':{2:{prompt:'他们运用提示词工程为常见任务设计模板。',answer:'They used prompt engineering to create templates for common tasks.'}},
+  'go-to-market':{2:{prompt:'有力的市场进入计划可以加快产品普及。',answer:'A strong go-to-market plan can accelerate adoption.'}},
+  'capital expenditure':{2:{prompt:'投资者正密切关注与 AI 有关的资本支出。',answer:'Investors are watching AI-related capital expenditure closely.'}}
+};
+function productionExercises(e){
+  if(Array.isArray(e.productionExercises)&&e.productionExercises.length){
+    const entries=e.productionExercises.filter(x=>x&&String(x.prompt||'').trim()&&String(x.answer||'').trim());
+    if(entries.length)return entries.map(x=>({prompt:String(x.prompt).trim(),answer:String(x.answer).trim()}));
+  }
+  const cards=[];
+  const isAI=e.bookId==='book-ai-industry';
+  for(let i=1;i<=2;i++){
+    const override=isAI?OUTPUT_CONTEXT_FIXES[norm(e.term)]?.[i]:null;
+    const prompt=override?.prompt||e['translation'+i];
+    const answer=override?.answer||e['example'+i];
+    if(String(prompt||'').trim()&&String(answer||'').trim())cards.push({prompt:String(prompt).trim(),answer:String(answer).trim()});
+  }
+  // A manually entered bespoke output exercise may be used when bilingual examples are absent.
+  if(!cards.length){
+    for(let i=1;i<=2;i++){
+      const suffix=i===1?'':String(i);
+      const prompt=e['productionPrompt'+suffix],answer=e['productionAnswer'+suffix];
+      if(String(prompt||'').trim()&&String(answer||'').trim()&&String(answer).trim()!==String(e.term).trim())
+        cards.push({prompt:String(prompt).trim(),answer:String(answer).trim()});
+    }
+  }
+  return cards;
+}
+function practiceFor(e,task){
+  const cards=productionExercises(e);
+  // Rotate the example on EVERY retry; on a new day rotate by previous long-term reviews.
+  const index=((Number(e.production?.reviews)||0)+(Number(task.attempts)||0))%Math.max(1,cards.length);
+  return cards[index]||null;
+}
+function canPracticeProduction(e){return learned(e)&&productionExercises(e).length>0;}
 function autoSpeakCurrent(){if(!studySession||studySession.mode!=='recognition')return;const task=pickCurrent(studySession);if(!task)return;const key=`${studySession.day}:${studySession.mode}:${studySession.turn}:${task.id}`;if(voiceLastKey===key)return;voiceLastKey=key;const e=data.entries.find(w=>w.id===task.id);if(e)speak(e.term,true);}
-function reviewAnswerHtml(e,output){return `${output?`${typedDraft.trim()?`<div class="answer-feedback"><div class="small muted strong">你的回答</div><div>${esc(typedDraft)}</div></div>`:''}<div class="answer-title">参考答案</div><div class="production-answer">${esc(e.productionAnswer||e.term)}</div><button class="btn small speak-btn" data-action="speak" data-text="${attrs(e.term)}">🔊 发音</button>`:''}<div class="flash-meaning">${esc(e.meaning)}</div>${e.patterns?.length?`<div class="patterns-title">COMMON PATTERNS</div><div class="patterns">${e.patterns.map(p=>`<span class="pattern">${esc(p)}</span>`).join('')}</div>`:''}${e.example1?`<div class="example"><div class="example-en">${esc(e.example1)} <button class="example-speak" data-action="speak" data-text="${attrs(e.example1)}" aria-label="朗读例句1">🔊</button></div><div class="example-zh">${esc(e.translation1)}</div></div>`:''}${e.example2?`<div class="example"><div class="example-en">${esc(e.example2)} <button class="example-speak" data-action="speak" data-text="${attrs(e.example2)}" aria-label="朗读例句2">🔊</button></div><div class="example-zh">${esc(e.translation2)}</div></div>`:''}`;}
+function reviewAnswerHtml(e,output,task){
+ if(output){
+  const practice=practiceFor(e,task);
+  return `${typedDraft.trim()?`<div class="answer-feedback"><div class="small muted strong">你的表达</div><div>${esc(typedDraft)}</div></div>`:''}
+   <div class="answer-title">参考表达</div>
+   <div class="output-reference"><div class="output-answer">${esc(practice?.answer||'暂无参考答案')}</div><button class="example-speak output-speak" data-action="speak" data-text="${attrs(practice?.answer||e.term)}" aria-label="朗读参考答案">🔊</button></div>
+   ${e.patterns?.length?`<div class="patterns-title">COMMON PATTERNS</div><div class="patterns">${e.patterns.map(p=>`<span class="pattern">${esc(p)}</span>`).join('')}</div>`:''}
+   <div class="output-check">表达准确、符合中文语境且自然使用了 <strong>${esc(e.term)}</strong>（允许词形变化），即可选择「记住了」。参考答案不是唯一正确表达。</div>`;
+ }
+ return `<div class="flash-meaning">${esc(e.meaning)}</div>${e.patterns?.length?`<div class="patterns-title">COMMON PATTERNS</div><div class="patterns">${e.patterns.map(p=>`<span class="pattern">${esc(p)}</span>`).join('')}</div>`:''}${e.example1?`<div class="example"><div class="example-en">${esc(e.example1)} <button class="example-speak" data-action="speak" data-text="${attrs(e.example1)}" aria-label="朗读例句1">🔊</button></div><div class="example-zh">${esc(e.translation1)}</div></div>`:''}${e.example2?`<div class="example"><div class="example-en">${esc(e.example2)} <button class="example-speak" data-action="speak" data-text="${attrs(e.example2)}" aria-label="朗读例句2">🔊</button></div><div class="example-zh">${esc(e.translation2)}</div></div>`:''}`;
+}
 function studyHtml(ss){
  const task=pickCurrent(ss),total=ss.items.length,progress=pct(ss.done,total);
  if(!task){if(ss.done>=total){return `<div class="panel empty complete-card"><div class="empty-icon">✓</div><h3>今日巩固完成</h3><p>已完成 ${ss.done} 个词条的练习，后续复习已安排。</p><button class="btn primary large" data-action="finish-study">完成学习</button></div>`;}
- scheduleWaitRefresh();return `<div class="panel empty pause-card"><div class="empty-icon">◷</div><h3>下一轮巩固即将开始</h3><p>还剩 ${total-ss.done} 个词，${waitSeconds(ss)} 秒后继续。</p><button class="btn" data-action="stop-study">暂时退出</button></div>`;}
+ // Defensive recovery: an unfinished session must never display a timed waiting screen.
+ return `<div class="panel empty pause-card"><h3>本轮词卡已完成</h3><button class="btn primary" data-action="finish-study">返回学习</button></div>`;}
  const e=data.entries.find(w=>w.id===task.id);if(!e){task.completed=true;ss.done++;ss.currentId=null;return studyHtml(ss);}
  const output=ss.mode==='production';let html=`<div class="study-card-wrap"><div class="panel study-card"><div class="card-top"><span class="pill ${output?'pink':'green'}">${output?'ACTIVE OUTPUT':'WORD RECOGNITION'}</span><div class="study-progress"><span class="small muted">${ss.done} / ${total}</span>${progressHtml(progress)}</div></div>`;
- if(output){html+=`<div class="production-prompt">${esc(e.productionPrompt||'用英文表达：'+e.meaning)}</div>${!answerVisible?`<div class="answer-area"><textarea class="textarea" id="typed-answer" placeholder="写下你想到的英文表达（可留空）" spellcheck="false"></textarea></div>`:''}`;}
+ if(output){
+  const exercise=practiceFor(e,task);
+  html+=`<div class="output-word-row"><div><div class="output-word-label">TARGET WORD</div><div class="output-target">${esc(e.term)}</div></div><button class="btn small speak-btn" data-action="speak" data-text="${attrs(e.term)}" aria-label="朗读目标词">🔊 发音</button></div>
+   <div class="output-context-label">真实语境 · 中文句子 ${productionExercises(e).length>1?`<span class="context-variant">${((Number(e.production?.reviews)||0)+task.attempts)%productionExercises(e).length+1}/${productionExercises(e).length}</span>`:''}</div>
+   <div class="production-prompt">${esc(exercise?.prompt||'')}</div>
+   ${!answerVisible?`<div class="answer-area"><textarea class="textarea" id="typed-answer" placeholder="写下英文句子，也可以直接口头造句（可留空）" spellcheck="false" aria-label="我的英文句子"></textarea></div>`:''}`;
+ }
  else{html+=`<div class="flash-word">${esc(e.term)}</div><div class="word-meta"><span>${esc(e.pos||'')}</span><button class="btn small speak-btn" data-action="speak" data-text="${attrs(e.term)}" aria-label="朗读单词">🔊 发音</button></div>`;}
- if(answerVisible){html+=reviewAnswerHtml(e,output);}
+ if(answerVisible){html+=reviewAnswerHtml(e,output,task);}
  else{html+=`<div class="reveal-area"><button class="btn primary reveal-btn" data-action="show-answer">显示答案 <span aria-hidden="true">→</span></button></div>`;}
  html+='</div>';
  if(answerVisible){html+=`<div class="study-controls"><button class="btn again" data-action="grade" data-rating="0"><span aria-hidden="true">✕</span> 忘记了</button><button class="btn good" data-action="grade" data-rating="2"><span aria-hidden="true">✓</span> 记住了</button></div>`;}
@@ -129,29 +191,28 @@ function grade(rating){
   e[task.mode].learningPending=false;
  }else{
   e[task.mode].learningPending=true;
-  // Use card-position gap OR time gap, so repeated items don't appear immediately.
+  // Interleave cards by turn count only; do not make the learner wait in real time.
   task.afterTurn=ss.turn+(remembered?3:2);
-  task.nextAt=now()+(remembered?75000:45000);
+  task.nextAt=0;
  }
  const stamp=new Date().toISOString();data.activity.push({entryId:e.id,bookId:e.bookId,mode:task.mode,rating,date:nDate(),at:stamp,kind:'intraday',completed:task.completed});
  ss.currentId=null;answerVisible=false;typedDraft='';save();renderLearn();autoSpeakCurrent();
 }
 function renderLearn(){
- clearTimeout(waitTimer);
  const bid=data.settings.activeBook,book=bookById(bid),stats=book?bookStats(bid):{total:0,learned:0,mastered:0};
  const left=Math.max(0,data.settings.dailyNew-countNewToday()),newDone=data.settings.dailyNew-left,dueR=dueRecCount(),dueP=dueProdCount();
  if(studySession&&studySession.mode!==studyMode)studySession=null;
  const session=studySession&&studySession.mode===studyMode?studySession:null;
  const pending=session?session.items.filter(t=>t.attempts>0&&!t.completed).length:0;
  const pendingSession=activeSession(studyMode);
- let body=`<div class="learn-head"><div><div class="eyebrow">YOUR DAILY WORDS</div><h1>Wordfield <span class="v-tag">V1.1</span></h1></div><button class="btn settings-btn" data-action="settings" aria-label="学习设置">⚙ 设置</button></div>
+ let body=`<div class="learn-head"><div><div class="eyebrow">YOUR DAILY WORDS</div><h1>Wordfield <span class="v-tag">V1.2</span></h1></div><button class="btn settings-btn" data-action="settings" aria-label="学习设置">⚙ 设置</button></div>
  <div class="study-head"><div class="seg" role="tablist" aria-label="练习模式"><button data-action="study-mode" data-mode="recognition" class="${studyMode==='recognition'?'active':''}">识别 <span>Recognition</span></button><button data-action="study-mode" data-mode="production" class="${studyMode==='production'?'active':''}">运用 <span>Production</span></button></div></div>
  <div class="today-stats"><div class="today-chip"><span class="chip-icon lavender">▤</span><div><strong>今日新词</strong><span>${newDone} / ${data.settings.dailyNew}</span></div></div><div class="today-chip"><span class="chip-icon blush">◷</span><div><strong>待巩固</strong><span>${pending||dueR}</span></div></div></div>
  <div class="learn-book-row"><div><div class="small muted">当前单词书</div>${bookSelectHtml('active-book')}</div><button class="btn small" data-nav="books">全部词书 →</button></div>`;
  if(session){body+=studyHtml(session);}
  else{
   const available=studyMode==='recognition'?dueR+Math.min(left,wordsOf(bid).filter(e=>!learned(e)).length):dueP;
-  body+=`<div class="panel empty start-card"><div class="empty-icon">✦</div><h3>${studyMode==='recognition'?'今天的词汇练习':'主动输出练习'}</h3><p>${studyMode==='recognition'?`${dueR} 个到期复习词 · 最多 ${left} 个新词`:`${dueP} 个待练习的表达`}</p><button class="btn primary large" data-action="start-study" ${available||pendingSession?'':'disabled'}>${pendingSession?'继续学习':available?`开始学习 · ${available} 词`:'今日已完成'}</button></div>`;
+  body+=`<div class="panel empty start-card"><div class="empty-icon">✦</div><h3>${studyMode==='recognition'?'今天的词汇练习':'主动输出练习'}</h3><p>${studyMode==='recognition'?`${dueR} 个到期复习词 · 最多 ${left} 个新词`:`${dueP} 个待练习的表达（需有中英对照例句）`}</p><button class="btn primary large" data-action="start-study" ${available||pendingSession?'':'disabled'}>${pendingSession?'继续学习':available?`开始学习 · ${available} 词`:'今日已完成'}</button></div>`;
  }
  $('#content').innerHTML=body;
 }
@@ -169,8 +230,8 @@ $('#modal-root').innerHTML=h;$('#modal-root').classList.add('open');document.bod
 function importPreviewHtml(p){return `<div class="import-preview"><strong>已读取 ${p.entries.length} 条有效词汇</strong>${p.invalid?` · <span style="color:var(--red)">${p.invalid} 条缺少必要字段，已跳过</span>`:''}<ul>${p.entries.slice(0,7).map(e=>`<li><strong>${esc(e.term)}</strong> — ${esc(e.meaning)}</li>`).join('')}</ul>${p.entries.length>7?'<div class="hint">仅展示前 7 条作为预览。</div>':''}</div>`;}
 function closeModal(){modal=null;pendingImport=null;$('#modal-root').classList.remove('open');$('#modal-root').innerHTML='';document.body.style.overflow='';}
 function createBook(title,description=''){const b={id:id(),title,description,createdAt:new Date().toISOString(),icon:'▤'};data.books.push(b);return b;}
-function createWord(raw,bookId){return{id:id(),bookId,term:raw.term.trim(),meaning:raw.meaning.trim(),pos:raw.pos||'',category:raw.category||'自定义词汇',priority:Number(raw.priority)||2,patterns:raw.patterns||[],example1:raw.example1||'',translation1:raw.translation1||'',example2:raw.example2||'',translation2:raw.translation2||'',productionPrompt:raw.productionPrompt||`用英文表达：${raw.meaning}`,productionAnswer:raw.productionAnswer||raw.term,createdAt:new Date().toISOString(),introducedAt:null,recognition:null,production:null};}
-function normalizeImport(r){if(typeof r==='string')return null;const pick=(...keys)=>{for(const k of keys)if(r[k]!=null&&String(r[k]).trim())return String(r[k]).trim();return'';};const term=pick('term','word','english','单词','词汇','英文'),meaning=pick('meaning','translation','definition','chinese','中文','释义');if(!term||!meaning)return null;const patterns=r.patterns instanceof Array?r.patterns.map(String):pick('patterns','collocations','搭配').split(/[;；]/).map(s=>s.trim()).filter(Boolean);return {term,meaning,pos:pick('pos','partOfSpeech','词性'),category:pick('category','group','类别')||'导入词汇',priority:Number(pick('priority')||2),patterns,example1:pick('example1','example','例句1'),translation1:pick('translation1','exampleTranslation1','例句翻译1'),example2:pick('example2','例句2'),translation2:pick('translation2','exampleTranslation2','例句翻译2'),productionPrompt:pick('productionPrompt','输出提示'),productionAnswer:pick('productionAnswer','输出答案')};}
+function createWord(raw,bookId){return{id:id(),bookId,term:raw.term.trim(),meaning:raw.meaning.trim(),pos:raw.pos||'',category:raw.category||'自定义词汇',priority:Number(raw.priority)||2,patterns:raw.patterns||[],example1:raw.example1||'',translation1:raw.translation1||'',example2:raw.example2||'',translation2:raw.translation2||'',productionPrompt:raw.productionPrompt||`用英文表达：${raw.meaning}`,productionAnswer:raw.productionAnswer||raw.term,productionPrompt2:raw.productionPrompt2||'',productionAnswer2:raw.productionAnswer2||'',productionExercises:Array.isArray(raw.productionExercises)?raw.productionExercises:undefined,createdAt:new Date().toISOString(),introducedAt:null,recognition:null,production:null};}
+function normalizeImport(r){if(typeof r==='string')return null;const pick=(...keys)=>{for(const k of keys)if(r[k]!=null&&String(r[k]).trim())return String(r[k]).trim();return'';};const term=pick('term','word','english','单词','词汇','英文'),meaning=pick('meaning','translation','definition','chinese','中文','释义');if(!term||!meaning)return null;const patterns=r.patterns instanceof Array?r.patterns.map(String):pick('patterns','collocations','搭配').split(/[;；]/).map(s=>s.trim()).filter(Boolean);return {term,meaning,pos:pick('pos','partOfSpeech','词性'),category:pick('category','group','类别')||'导入词汇',priority:Number(pick('priority')||2),patterns,example1:pick('example1','example','例句1'),translation1:pick('translation1','exampleTranslation1','例句翻译1'),example2:pick('example2','例句2'),translation2:pick('translation2','exampleTranslation2','例句翻译2'),productionPrompt:pick('productionPrompt','输出提示'),productionAnswer:pick('productionAnswer','输出答案'),productionPrompt2:pick('productionPrompt2','输出提示2'),productionAnswer2:pick('productionAnswer2','输出答案2'),productionExercises:Array.isArray(r.productionExercises)?r.productionExercises.filter(x=>x&&typeof x.prompt==='string'&&typeof x.answer==='string').map(x=>({prompt:x.prompt.trim(),answer:x.answer.trim()})):undefined};}
 function parseCSV(text){text=text.replace(/^\uFEFF/,'');let rows=[],row=[],cell='',quoted=false;for(let i=0;i<text.length;i++){const c=text[i];if(quoted){if(c==='"'&&text[i+1]==='"'){cell+='"';i++;}else if(c==='"')quoted=false;else cell+=c;}else if(c==='"')quoted=true;else if(c===','){row.push(cell);cell='';}else if(c==='\n'||c==='\r'){if(c==='\r'&&text[i+1]==='\n')i++;row.push(cell);if(row.some(s=>s.trim()))rows.push(row);row=[];cell='';}else cell+=c;}row.push(cell);if(row.some(s=>s.trim()))rows.push(row);if(quoted)throw Error('CSV 引号未闭合');if(!rows.length)return[];const header=rows[0].map(x=>x.trim().replace(/^\uFEFF/,''));return rows.slice(1).map(arr=>Object.fromEntries(header.map((h,i)=>[h,arr[i]||''])));}
 async function loadImportFile(file){if(!file)return;if(file.size>12*1024*1024){toast('文件超过 12 MB，请拆分词库。');return;}try{const txt=await file.text();let raw;if(file.name.toLowerCase().endsWith('.csv'))raw=parseCSV(txt);else{const parsed=JSON.parse(txt);if(parsed?.kind==='wordfield-backup')throw Error('这是完整备份文件，请从「数据备份与恢复」中操作。');raw=Array.isArray(parsed)?parsed:parsed.entries;if(!Array.isArray(raw))throw Error('JSON 格式应为词条数组或包含 entries 数组的对象。');}const cleaned=raw.map(normalizeImport).filter(Boolean);const deduped=[...new Map(cleaned.map(e=>[norm(e.term),e])).values()];pendingImport={entries:deduped,invalid:raw.length-cleaned.length+(cleaned.length-deduped.length)};$('#import-preview').innerHTML=importPreviewHtml(pendingImport);const confirm=$('[data-action="confirm-import"]');if(confirm)confirm.disabled=!deduped.length;if(!$('#import-book-title').value)$('#import-book-title').value=file.name.replace(/\.(csv|json)$/i,'').replace(/[_-]/g,' ');toast(`读取成功：${deduped.length} 个不重复词条`);}catch(err){pendingImport=null;$('#import-preview').textContent='无法读取文件：'+err.message;toast('导入解析失败，请检查文件格式。');}}
 function confirmImport(){if(!pendingImport?.entries.length)return;const mode=$('#import-mode')?.value;let b;if(mode==='existing'){b=bookById($('#import-existing-book').value);if(!b){toast('请选择单词书');return;}}else{const title=$('#import-book-title')?.value.trim();if(!title){toast('请输入新单词书名称');return;}b=createBook(title,'手动导入的词汇');}const existing=new Set(wordsOf(b.id).map(e=>norm(e.term)));let added=0,skipped=0;for(const raw of pendingImport.entries){if(existing.has(norm(raw.term))){skipped++;continue;}existing.add(norm(raw.term));data.entries.push(createWord(raw,b.id));added++;}libraryBookId=b.id;data.settings.activeBook=b.id;studySession=null;filterText='';filterCategory='';save();closeModal();page='books';render();toast(`已添加 ${added} 词${skipped?`，跳过 ${skipped} 个同名词条`:''}。旧词和学习记录未受影响。`);}
