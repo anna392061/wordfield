@@ -1,0 +1,3657 @@
+[
+  {
+    "term": "inference",
+    "meaning": "模型推理；用训练后的模型处理输入并生成输出",
+    "pos": "n.",
+    "patterns": [
+      "inference cost",
+      "inference time"
+    ],
+    "example1": "Inference costs can affect the price of an AI product.",
+    "translation1": "推理成本可能影响 AI 产品的定价。",
+    "example2": "The team reduced inference latency.",
+    "translation2": "团队降低了推理延迟。",
+    "category": "AI 核心技术",
+    "priority": 1,
+    "productionPrompt": "用英文表达：模型推理",
+    "productionAnswer": "inference"
+  },
+  {
+    "term": "training",
+    "meaning": "训练；通过数据调整模型参数",
+    "pos": "n.",
+    "patterns": [
+      "model training",
+      "training data"
+    ],
+    "example1": "Training a large model requires considerable computing power.",
+    "translation1": "训练大型模型需要大量算力。",
+    "example2": "The company published details of its training process.",
+    "translation2": "公司公布了其训练过程的细节。",
+    "category": "AI 核心技术",
+    "priority": 1,
+    "productionPrompt": "用英文表达：训练",
+    "productionAnswer": "training"
+  },
+  {
+    "term": "pretraining",
+    "meaning": "预训练；在大规模数据上进行初始训练",
+    "pos": "n.",
+    "patterns": [
+      "pretraining data",
+      "pretraining stage"
+    ],
+    "example1": "Pretraining gives a model broad capabilities.",
+    "translation1": "预训练使模型获得广泛的能力。",
+    "example2": "The researchers improved data quality during pretraining.",
+    "translation2": "研究人员在预训练阶段提升了数据质量。",
+    "category": "AI 核心技术",
+    "priority": 1,
+    "productionPrompt": "用英文表达：预训练",
+    "productionAnswer": "pretraining"
+  },
+  {
+    "term": "fine-tuning",
+    "meaning": "微调；针对特定目标进一步训练模型",
+    "pos": "n.",
+    "patterns": [
+      "fine-tuning data",
+      "fine-tune a model"
+    ],
+    "example1": "Fine-tuning can adapt a model to a specialized task.",
+    "translation1": "微调可以让模型适应专门任务。",
+    "example2": "They fine-tuned a smaller model for customer support.",
+    "translation2": "他们针对客户支持微调了一个较小的模型。",
+    "category": "AI 核心技术",
+    "priority": 1,
+    "productionPrompt": "用英文表达：微调",
+    "productionAnswer": "fine-tuning"
+  },
+  {
+    "term": "alignment",
+    "meaning": "对齐；使模型行为符合预期目标和规范",
+    "pos": "n.",
+    "patterns": [
+      "model alignment",
+      "alignment research"
+    ],
+    "example1": "Alignment remains an important research problem.",
+    "translation1": "对齐仍然是一个重要的研究问题。",
+    "example2": "The company evaluates models for safety and alignment.",
+    "translation2": "公司会评估模型的安全性与对齐程度。",
+    "category": "AI 核心技术",
+    "priority": 1,
+    "productionPrompt": "用英文表达：对齐",
+    "productionAnswer": "alignment"
+  },
+  {
+    "term": "reasoning",
+    "meaning": "推理；逐步分析问题的能力或过程",
+    "pos": "n.",
+    "patterns": [
+      "reasoning model",
+      "reasoning performance"
+    ],
+    "example1": "The new model performs better on reasoning tasks.",
+    "translation1": "新模型在推理任务上表现更好。",
+    "example2": "Reasoning can require additional inference compute.",
+    "translation2": "推理过程可能需要额外的推理算力。",
+    "category": "AI 核心技术",
+    "priority": 1,
+    "productionPrompt": "用英文表达：推理",
+    "productionAnswer": "reasoning"
+  },
+  {
+    "term": "compute",
+    "meaning": "算力；计算资源",
+    "pos": "n.",
+    "patterns": [
+      "compute capacity",
+      "compute budget"
+    ],
+    "example1": "Access to compute is a constraint for some labs.",
+    "translation1": "获得算力对一些实验室而言是一项限制。",
+    "example2": "The project has a limited compute budget.",
+    "translation2": "这个项目的算力预算有限。",
+    "category": "AI 核心技术",
+    "priority": 1,
+    "productionPrompt": "用英文表达：算力",
+    "productionAnswer": "compute"
+  },
+  {
+    "term": "scaling",
+    "meaning": "规模扩展；扩大模型、数据或计算规模",
+    "pos": "n.",
+    "patterns": [
+      "scaling laws",
+      "scaling up"
+    ],
+    "example1": "Scaling a model is not the only path to better performance.",
+    "translation1": "扩大模型规模并不是提升性能的唯一途径。",
+    "example2": "Researchers continue to study scaling laws.",
+    "translation2": "研究人员仍在研究规模定律。",
+    "category": "AI 核心技术",
+    "priority": 1,
+    "productionPrompt": "用英文表达：规模扩展",
+    "productionAnswer": "scaling"
+  },
+  {
+    "term": "parameters",
+    "meaning": "参数；模型在训练中学习到的数值",
+    "pos": "n.pl.",
+    "patterns": [
+      "model parameters",
+      "parameter count"
+    ],
+    "example1": "Parameter count alone does not determine model quality.",
+    "translation1": "参数数量本身不能决定模型质量。",
+    "example2": "The report does not disclose the number of parameters.",
+    "translation2": "报告没有披露参数数量。",
+    "category": "AI 核心技术",
+    "priority": 1,
+    "productionPrompt": "用英文表达：参数",
+    "productionAnswer": "parameters"
+  },
+  {
+    "term": "benchmark",
+    "meaning": "基准测试；用于比较模型表现的评测",
+    "pos": "n./v.",
+    "patterns": [
+      "benchmark results",
+      "benchmark performance"
+    ],
+    "example1": "A high benchmark score does not guarantee reliability.",
+    "translation1": "较高的基准测试分数并不保证可靠性。",
+    "example2": "The team benchmarked the model against several alternatives.",
+    "translation2": "团队将该模型与几个替代方案进行了基准比较。",
+    "category": "AI 核心技术",
+    "priority": 1,
+    "productionPrompt": "用英文表达：基准测试",
+    "productionAnswer": "benchmark"
+  },
+  {
+    "term": "evaluation",
+    "meaning": "评估；对能力或表现的检验",
+    "pos": "n.",
+    "patterns": [
+      "model evaluation",
+      "evaluation framework"
+    ],
+    "example1": "Evaluation should reflect real-world use cases.",
+    "translation1": "评估应该反映真实的使用场景。",
+    "example2": "The company released its latest safety evaluation.",
+    "translation2": "公司发布了最新的安全评估。",
+    "category": "AI 核心技术",
+    "priority": 1,
+    "productionPrompt": "用英文表达：评估",
+    "productionAnswer": "evaluation"
+  },
+  {
+    "term": "architecture",
+    "meaning": "架构；模型或系统的结构设计",
+    "pos": "n.",
+    "patterns": [
+      "model architecture",
+      "system architecture"
+    ],
+    "example1": "The paper introduces a different model architecture.",
+    "translation1": "论文介绍了一种不同的模型架构。",
+    "example2": "Architecture choices influence cost and performance.",
+    "translation2": "架构选择会影响成本和性能。",
+    "category": "AI 核心技术",
+    "priority": 1,
+    "productionPrompt": "用英文表达：架构",
+    "productionAnswer": "architecture"
+  },
+  {
+    "term": "transformer",
+    "meaning": "Transformer；基于注意力机制的一类神经网络架构",
+    "pos": "n.",
+    "patterns": [
+      "transformer architecture",
+      "transformer model"
+    ],
+    "example1": "Many language models use transformer architectures.",
+    "translation1": "许多语言模型使用 Transformer 架构。",
+    "example2": "The paper compares transformers with other architectures.",
+    "translation2": "论文比较了 Transformer 与其他架构。",
+    "category": "AI 核心技术",
+    "priority": 1,
+    "productionPrompt": "用英文表达：Transformer",
+    "productionAnswer": "transformer"
+  },
+  {
+    "term": "attention",
+    "meaning": "注意力机制；模型衡量输入各部分相关性的机制",
+    "pos": "n.",
+    "patterns": [
+      "attention mechanism",
+      "self-attention"
+    ],
+    "example1": "Attention mechanisms help models process context.",
+    "translation1": "注意力机制帮助模型处理上下文。",
+    "example2": "The researchers proposed a more efficient attention method.",
+    "translation2": "研究人员提出了一种更高效的注意力方法。",
+    "category": "AI 核心技术",
+    "priority": 1,
+    "productionPrompt": "用英文表达：注意力机制",
+    "productionAnswer": "attention"
+  },
+  {
+    "term": "token",
+    "meaning": "词元；模型处理文本的基本单位",
+    "pos": "n.",
+    "patterns": [
+      "token count",
+      "input tokens"
+    ],
+    "example1": "Longer prompts often use more tokens.",
+    "translation1": "更长的提示词通常使用更多词元。",
+    "example2": "The API charges by input and output tokens.",
+    "translation2": "该 API 按输入和输出词元收费。",
+    "category": "AI 核心技术",
+    "priority": 1,
+    "productionPrompt": "用英文表达：词元",
+    "productionAnswer": "token"
+  },
+  {
+    "term": "context window",
+    "meaning": "上下文窗口；模型一次能够处理的上下文范围",
+    "pos": "n.",
+    "patterns": [
+      "long context window",
+      "context length"
+    ],
+    "example1": "A larger context window can accommodate longer documents.",
+    "translation1": "更大的上下文窗口可以容纳更长的文档。",
+    "example2": "Performance may vary across different context lengths.",
+    "translation2": "性能可能随上下文长度变化。",
+    "category": "AI 核心技术",
+    "priority": 1,
+    "productionPrompt": "用英文表达：上下文窗口",
+    "productionAnswer": "context window"
+  },
+  {
+    "term": "multimodal",
+    "meaning": "多模态；能够处理多种信息模态的",
+    "pos": "adj.",
+    "patterns": [
+      "multimodal model",
+      "multimodal input"
+    ],
+    "example1": "The model accepts text, images and audio as input.",
+    "translation1": "该模型可以接收文本、图像和音频输入。",
+    "example2": "Multimodal systems create new product opportunities.",
+    "translation2": "多模态系统创造了新的产品机会。",
+    "category": "AI 核心技术",
+    "priority": 1,
+    "productionPrompt": "用英文表达：多模态",
+    "productionAnswer": "multimodal"
+  },
+  {
+    "term": "embedding",
+    "meaning": "嵌入向量；将内容映射为数值表示",
+    "pos": "n.",
+    "patterns": [
+      "vector embedding",
+      "embedding model"
+    ],
+    "example1": "Embeddings can help find semantically similar documents.",
+    "translation1": "嵌入向量可以帮助检索语义相近的文档。",
+    "example2": "The search system relies on an embedding model.",
+    "translation2": "这个搜索系统依赖嵌入模型。",
+    "category": "AI 核心技术",
+    "priority": 1,
+    "productionPrompt": "用英文表达：嵌入向量",
+    "productionAnswer": "embedding"
+  },
+  {
+    "term": "latent",
+    "meaning": "潜在的；在 AI 中常指内部表征空间的",
+    "pos": "adj.",
+    "patterns": [
+      "latent space",
+      "latent representation"
+    ],
+    "example1": "The model learns representations in a latent space.",
+    "translation1": "模型在潜在空间中学习表征。",
+    "example2": "Researchers explored the model's latent representations.",
+    "translation2": "研究人员探索了模型的潜在表征。",
+    "category": "AI 核心技术",
+    "priority": 1,
+    "productionPrompt": "用英文表达：潜在的",
+    "productionAnswer": "latent"
+  },
+  {
+    "term": "generative",
+    "meaning": "生成式的；能够产生新内容的",
+    "pos": "adj.",
+    "patterns": [
+      "generative AI",
+      "generative model"
+    ],
+    "example1": "Generative AI can produce text and images.",
+    "translation1": "生成式 AI 能够生成文本和图像。",
+    "example2": "The company is building generative tools for designers.",
+    "translation2": "该公司正在为设计师开发生成式工具。",
+    "category": "AI 核心技术",
+    "priority": 1,
+    "productionPrompt": "用英文表达：生成式的",
+    "productionAnswer": "generative"
+  },
+  {
+    "term": "foundation model",
+    "meaning": "基础模型；可适配多种下游任务的大型模型",
+    "pos": "n.",
+    "patterns": [
+      "foundation model provider",
+      "foundation model"
+    ],
+    "example1": "A foundation model can support many applications.",
+    "translation1": "一个基础模型可以支持多种应用。",
+    "example2": "The startup builds products on top of foundation models.",
+    "translation2": "这家初创企业基于基础模型开发产品。",
+    "category": "AI 核心技术",
+    "priority": 1,
+    "productionPrompt": "用英文表达：基础模型",
+    "productionAnswer": "foundation model"
+  },
+  {
+    "term": "large language model",
+    "meaning": "大语言模型；以语言处理为核心的大型模型",
+    "pos": "n.",
+    "patterns": [
+      "large language model",
+      "LLM"
+    ],
+    "example1": "A large language model can summarize documents.",
+    "translation1": "大语言模型可以总结文档。",
+    "example2": "The team tested several large language models.",
+    "translation2": "团队测试了多个大语言模型。",
+    "category": "AI 核心技术",
+    "priority": 1,
+    "productionPrompt": "用英文表达：大语言模型",
+    "productionAnswer": "large language model"
+  },
+  {
+    "term": "reinforcement learning",
+    "meaning": "强化学习；通过反馈信号学习策略的方法",
+    "pos": "n.",
+    "patterns": [
+      "reinforcement learning",
+      "RL"
+    ],
+    "example1": "Reinforcement learning can improve selected behaviors.",
+    "translation1": "强化学习可以改善特定行为。",
+    "example2": "The researchers explored reinforcement learning for agents.",
+    "translation2": "研究人员探索将强化学习用于智能体。",
+    "category": "AI 核心技术",
+    "priority": 2,
+    "productionPrompt": "用英文表达：强化学习",
+    "productionAnswer": "reinforcement learning"
+  },
+  {
+    "term": "reward model",
+    "meaning": "奖励模型；对输出质量进行评分的模型",
+    "pos": "n.",
+    "patterns": [
+      "reward model",
+      "reward signal"
+    ],
+    "example1": "The reward model scores candidate responses.",
+    "translation1": "奖励模型会为候选回答评分。",
+    "example2": "Poor reward signals can lead to unintended behavior.",
+    "translation2": "不佳的奖励信号可能导致非预期行为。",
+    "category": "AI 核心技术",
+    "priority": 2,
+    "productionPrompt": "用英文表达：奖励模型",
+    "productionAnswer": "reward model"
+  },
+  {
+    "term": "supervised learning",
+    "meaning": "监督学习；使用带标签数据进行学习",
+    "pos": "n.",
+    "patterns": [
+      "supervised learning",
+      "supervised data"
+    ],
+    "example1": "Supervised learning relies on labeled examples.",
+    "translation1": "监督学习依赖带标签的样本。",
+    "example2": "The course begins with supervised learning methods.",
+    "translation2": "课程从监督学习方法开始。",
+    "category": "AI 核心技术",
+    "priority": 2,
+    "productionPrompt": "用英文表达：监督学习",
+    "productionAnswer": "supervised learning"
+  },
+  {
+    "term": "self-supervised learning",
+    "meaning": "自监督学习；从数据自身构造学习信号",
+    "pos": "n.",
+    "patterns": [
+      "self-supervised learning",
+      "pretraining objective"
+    ],
+    "example1": "Self-supervised learning can use large volumes of unlabeled data.",
+    "translation1": "自监督学习可以利用大量无标签数据。",
+    "example2": "Pretraining often relies on self-supervised objectives.",
+    "translation2": "预训练通常依赖自监督目标。",
+    "category": "AI 核心技术",
+    "priority": 2,
+    "productionPrompt": "用英文表达：自监督学习",
+    "productionAnswer": "self-supervised learning"
+  },
+  {
+    "term": "transfer learning",
+    "meaning": "迁移学习；将学到的知识用于另一任务",
+    "pos": "n.",
+    "patterns": [
+      "transfer learning",
+      "transfer knowledge"
+    ],
+    "example1": "Transfer learning can reduce the need for labeled data.",
+    "translation1": "迁移学习可以减少对标注数据的需求。",
+    "example2": "The team used transfer learning for medical images.",
+    "translation2": "团队将迁移学习用于医学图像。",
+    "category": "AI 核心技术",
+    "priority": 2,
+    "productionPrompt": "用英文表达：迁移学习",
+    "productionAnswer": "transfer learning"
+  },
+  {
+    "term": "distillation",
+    "meaning": "蒸馏；利用较大模型帮助训练较小模型",
+    "pos": "n.",
+    "patterns": [
+      "model distillation",
+      "knowledge distillation"
+    ],
+    "example1": "Distillation can make smaller models more capable.",
+    "translation1": "蒸馏可以提升小模型的能力。",
+    "example2": "The researchers used knowledge distillation to reduce cost.",
+    "translation2": "研究人员利用知识蒸馏来降低成本。",
+    "category": "AI 核心技术",
+    "priority": 2,
+    "productionPrompt": "用英文表达：蒸馏",
+    "productionAnswer": "distillation"
+  },
+  {
+    "term": "quantization",
+    "meaning": "量化；降低数值精度以节省资源",
+    "pos": "n.",
+    "patterns": [
+      "model quantization",
+      "quantized model"
+    ],
+    "example1": "Quantization can reduce model memory requirements.",
+    "translation1": "量化可以降低模型的内存需求。",
+    "example2": "The team tested a quantized version on mobile devices.",
+    "translation2": "团队在移动设备上测试了量化版本。",
+    "category": "AI 核心技术",
+    "priority": 2,
+    "productionPrompt": "用英文表达：量化",
+    "productionAnswer": "quantization"
+  },
+  {
+    "term": "sparsity",
+    "meaning": "稀疏性；部分权重或计算为零或被跳过的特性",
+    "pos": "n.",
+    "patterns": [
+      "model sparsity",
+      "sparse model"
+    ],
+    "example1": "Sparsity can help reduce some computational costs.",
+    "translation1": "稀疏性有助于降低部分计算成本。",
+    "example2": "The paper explores sparsity in neural networks.",
+    "translation2": "论文探讨了神经网络中的稀疏性。",
+    "category": "AI 核心技术",
+    "priority": 2,
+    "productionPrompt": "用英文表达：稀疏性",
+    "productionAnswer": "sparsity"
+  },
+  {
+    "term": "mixture of experts",
+    "meaning": "专家混合架构；根据输入激活部分子网络",
+    "pos": "n.",
+    "patterns": [
+      "mixture of experts",
+      "MoE model"
+    ],
+    "example1": "A mixture-of-experts model activates selected experts.",
+    "translation1": "专家混合模型会激活部分专家网络。",
+    "example2": "The architecture aims to improve compute efficiency.",
+    "translation2": "这种架构旨在提高算力效率。",
+    "category": "AI 核心技术",
+    "priority": 2,
+    "productionPrompt": "用英文表达：专家混合架构",
+    "productionAnswer": "mixture of experts"
+  },
+  {
+    "term": "open-weight",
+    "meaning": "开放权重的；公开模型权重供下载使用的",
+    "pos": "adj.",
+    "patterns": [
+      "open-weight model",
+      "open weights"
+    ],
+    "example1": "Open-weight models give developers more deployment options.",
+    "translation1": "开放权重模型让开发者拥有更多部署选择。",
+    "example2": "Open-weight does not always mean open-source.",
+    "translation2": "开放权重并不总是意味着开源。",
+    "category": "AI 核心技术",
+    "priority": 2,
+    "productionPrompt": "用英文表达：开放权重的",
+    "productionAnswer": "open-weight"
+  },
+  {
+    "term": "open-source",
+    "meaning": "开源的；源代码按相应许可开放的",
+    "pos": "adj.",
+    "patterns": [
+      "open-source software",
+      "open-source license"
+    ],
+    "example1": "Open-source tools are widely used in AI development.",
+    "translation1": "开源工具广泛用于 AI 开发。",
+    "example2": "The project published its code under an open-source license.",
+    "translation2": "该项目以开源许可发布了代码。",
+    "category": "AI 核心技术",
+    "priority": 2,
+    "productionPrompt": "用英文表达：开源的",
+    "productionAnswer": "open-source"
+  },
+  {
+    "term": "proprietary",
+    "meaning": "专有的；由所有者控制且不完全公开的",
+    "pos": "adj.",
+    "patterns": [
+      "proprietary model",
+      "proprietary technology"
+    ],
+    "example1": "The company relies on a proprietary model.",
+    "translation1": "这家公司依赖专有模型。",
+    "example2": "Proprietary systems may limit customization.",
+    "translation2": "专有系统可能限制定制空间。",
+    "category": "AI 核心技术",
+    "priority": 2,
+    "productionPrompt": "用英文表达：专有的",
+    "productionAnswer": "proprietary"
+  },
+  {
+    "term": "latency",
+    "meaning": "延迟；从请求到响应的时间",
+    "pos": "n.",
+    "patterns": [
+      "low latency",
+      "inference latency"
+    ],
+    "example1": "Low latency matters for voice assistants.",
+    "translation1": "低延迟对语音助手很重要。",
+    "example2": "The update reduced average response latency.",
+    "translation2": "这次更新降低了平均响应延迟。",
+    "category": "AI 核心技术",
+    "priority": 2,
+    "productionPrompt": "用英文表达：延迟",
+    "productionAnswer": "latency"
+  },
+  {
+    "term": "throughput",
+    "meaning": "吞吐量；单位时间处理的任务或数据量",
+    "pos": "n.",
+    "patterns": [
+      "high throughput",
+      "request throughput"
+    ],
+    "example1": "Higher throughput can reduce serving costs.",
+    "translation1": "更高的吞吐量可以降低服务成本。",
+    "example2": "The benchmark measures throughput under heavy load.",
+    "translation2": "基准测试测量高负载下的吞吐量。",
+    "category": "AI 核心技术",
+    "priority": 2,
+    "productionPrompt": "用英文表达：吞吐量",
+    "productionAnswer": "throughput"
+  },
+  {
+    "term": "robustness",
+    "meaning": "鲁棒性；在干扰或变化下保持表现的能力",
+    "pos": "n.",
+    "patterns": [
+      "model robustness",
+      "robustness testing"
+    ],
+    "example1": "Robustness matters outside controlled benchmarks.",
+    "translation1": "鲁棒性在受控基准测试之外尤为重要。",
+    "example2": "The researchers tested robustness on noisy inputs.",
+    "translation2": "研究人员测试了模型对噪声输入的鲁棒性。",
+    "category": "AI 核心技术",
+    "priority": 2,
+    "productionPrompt": "用英文表达：鲁棒性",
+    "productionAnswer": "robustness"
+  },
+  {
+    "term": "generalization",
+    "meaning": "泛化；将已学规律应用于新数据的能力",
+    "pos": "n.",
+    "patterns": [
+      "generalization ability",
+      "generalize to"
+    ],
+    "example1": "A model needs to generalize beyond its training data.",
+    "translation1": "模型需要能够泛化到训练数据之外。",
+    "example2": "The team studied generalization across domains.",
+    "translation2": "团队研究了跨领域泛化能力。",
+    "category": "AI 核心技术",
+    "priority": 2,
+    "productionPrompt": "用英文表达：泛化",
+    "productionAnswer": "generalization"
+  },
+  {
+    "term": "overfitting",
+    "meaning": "过拟合；过度适应训练数据的现象",
+    "pos": "n.",
+    "patterns": [
+      "avoid overfitting",
+      "overfitting risk"
+    ],
+    "example1": "Overfitting can hurt performance on new data.",
+    "translation1": "过拟合可能损害模型在新数据上的表现。",
+    "example2": "The team added tests to detect overfitting.",
+    "translation2": "团队增加了检测过拟合的测试。",
+    "category": "AI 核心技术",
+    "priority": 2,
+    "productionPrompt": "用英文表达：过拟合",
+    "productionAnswer": "overfitting"
+  },
+  {
+    "term": "deployment",
+    "meaning": "部署；将模型或软件投入可用环境",
+    "pos": "n.",
+    "patterns": [
+      "model deployment",
+      "production deployment"
+    ],
+    "example1": "Model deployment involves more than choosing an API.",
+    "translation1": "模型部署不仅仅是选择一个 API。",
+    "example2": "The company delayed deployment pending safety tests.",
+    "translation2": "公司在完成安全测试前推迟了部署。",
+    "category": "AI 产品与应用",
+    "priority": 1,
+    "productionPrompt": "用英文表达：部署",
+    "productionAnswer": "deployment"
+  },
+  {
+    "term": "deploy",
+    "meaning": "部署；正式上线使用",
+    "pos": "v.",
+    "patterns": [
+      "deploy a model",
+      "deploy in production"
+    ],
+    "example1": "The team plans to deploy the model next month.",
+    "translation1": "团队计划下个月部署该模型。",
+    "example2": "Enterprises often deploy models in private environments.",
+    "translation2": "企业经常在私有环境中部署模型。",
+    "category": "AI 产品与应用",
+    "priority": 1,
+    "productionPrompt": "用英文表达：部署",
+    "productionAnswer": "deploy"
+  },
+  {
+    "term": "workflow",
+    "meaning": "工作流程；完成任务的一系列步骤",
+    "pos": "n.",
+    "patterns": [
+      "automate a workflow",
+      "workflow integration"
+    ],
+    "example1": "AI can automate parts of a document workflow.",
+    "translation1": "AI 可以自动化文档工作流程的一部分。",
+    "example2": "The product fits into existing employee workflows.",
+    "translation2": "产品融入员工现有的工作流程。",
+    "category": "AI 产品与应用",
+    "priority": 1,
+    "productionPrompt": "用英文表达：工作流程",
+    "productionAnswer": "workflow"
+  },
+  {
+    "term": "integration",
+    "meaning": "集成；使不同系统协同工作",
+    "pos": "n.",
+    "patterns": [
+      "system integration",
+      "API integration"
+    ],
+    "example1": "Integration with existing tools can be difficult.",
+    "translation1": "与现有工具集成可能很困难。",
+    "example2": "The update improves integration with business software.",
+    "translation2": "这次更新改善了与商业软件的集成。",
+    "category": "AI 产品与应用",
+    "priority": 1,
+    "productionPrompt": "用英文表达：集成",
+    "productionAnswer": "integration"
+  },
+  {
+    "term": "API",
+    "meaning": "应用程序编程接口；软件之间交互的接口",
+    "pos": "n.",
+    "patterns": [
+      "API access",
+      "API pricing"
+    ],
+    "example1": "Developers can access the model through an API.",
+    "translation1": "开发者可以通过 API 使用该模型。",
+    "example2": "API pricing depends on usage.",
+    "translation2": "API 定价取决于使用量。",
+    "category": "AI 产品与应用",
+    "priority": 1,
+    "productionPrompt": "用英文表达：应用程序编程接口",
+    "productionAnswer": "API"
+  },
+  {
+    "term": "endpoint",
+    "meaning": "端点；供软件调用的网络接口地址",
+    "pos": "n.",
+    "patterns": [
+      "API endpoint",
+      "inference endpoint"
+    ],
+    "example1": "Each model has its own API endpoint.",
+    "translation1": "每个模型都有自己的 API 端点。",
+    "example2": "The new endpoint supports streaming responses.",
+    "translation2": "新端点支持流式响应。",
+    "category": "AI 产品与应用",
+    "priority": 1,
+    "productionPrompt": "用英文表达：端点",
+    "productionAnswer": "endpoint"
+  },
+  {
+    "term": "prompt",
+    "meaning": "提示词；提供给模型的指令或输入",
+    "pos": "n./v.",
+    "patterns": [
+      "system prompt",
+      "prompt design"
+    ],
+    "example1": "A clear prompt can improve the usefulness of a response.",
+    "translation1": "清晰的提示词可以提高回答的实用性。",
+    "example2": "The team tested prompts for customer support.",
+    "translation2": "团队测试了客服场景的提示词。",
+    "category": "AI 产品与应用",
+    "priority": 1,
+    "productionPrompt": "用英文表达：提示词",
+    "productionAnswer": "prompt"
+  },
+  {
+    "term": "prompt engineering",
+    "meaning": "提示词工程；设计和优化模型输入的方法",
+    "pos": "n.",
+    "patterns": [
+      "prompt engineering",
+      "prompt template"
+    ],
+    "example1": "Prompt engineering remains useful for many applications.",
+    "translation1": "提示词工程对许多应用仍然有用。",
+    "example2": "They created prompt templates for common tasks.",
+    "translation2": "他们为常见任务设计了提示词模板。",
+    "category": "AI 产品与应用",
+    "priority": 1,
+    "productionPrompt": "用英文表达：提示词工程",
+    "productionAnswer": "prompt engineering"
+  },
+  {
+    "term": "agent",
+    "meaning": "智能体；可执行多步任务的 AI 系统",
+    "pos": "n.",
+    "patterns": [
+      "AI agent",
+      "autonomous agent"
+    ],
+    "example1": "An AI agent can call tools to complete tasks.",
+    "translation1": "AI 智能体可以调用工具完成任务。",
+    "example2": "The team is evaluating agents in realistic workflows.",
+    "translation2": "团队正在真实工作流程中评估智能体。",
+    "category": "AI 产品与应用",
+    "priority": 1,
+    "productionPrompt": "用英文表达：智能体",
+    "productionAnswer": "agent"
+  },
+  {
+    "term": "agentic",
+    "meaning": "具有智能体特征的；能够采取步骤完成目标的",
+    "pos": "adj.",
+    "patterns": [
+      "agentic system",
+      "agentic workflow"
+    ],
+    "example1": "Agentic systems can plan and execute multiple steps.",
+    "translation1": "智能体系统可以规划并执行多个步骤。",
+    "example2": "Reliability is crucial for agentic workflows.",
+    "translation2": "可靠性对智能体工作流程至关重要。",
+    "category": "AI 产品与应用",
+    "priority": 1,
+    "productionPrompt": "用英文表达：具有智能体特征的",
+    "productionAnswer": "agentic"
+  },
+  {
+    "term": "orchestration",
+    "meaning": "编排；协调多个组件或智能体的运行",
+    "pos": "n.",
+    "patterns": [
+      "agent orchestration",
+      "workflow orchestration"
+    ],
+    "example1": "Orchestration helps coordinate several tools.",
+    "translation1": "编排有助于协调多个工具。",
+    "example2": "The platform manages orchestration across agents.",
+    "translation2": "平台管理多个智能体之间的编排。",
+    "category": "AI 产品与应用",
+    "priority": 1,
+    "productionPrompt": "用英文表达：编排",
+    "productionAnswer": "orchestration"
+  },
+  {
+    "term": "tool calling",
+    "meaning": "工具调用；模型请求使用外部工具的能力",
+    "pos": "n.",
+    "patterns": [
+      "tool calling",
+      "tool-use capability"
+    ],
+    "example1": "Tool calling lets models interact with external systems.",
+    "translation1": "工具调用让模型能够与外部系统交互。",
+    "example2": "The benchmark tests tool-calling accuracy.",
+    "translation2": "该基准测试评估工具调用的准确率。",
+    "category": "AI 产品与应用",
+    "priority": 1,
+    "productionPrompt": "用英文表达：工具调用",
+    "productionAnswer": "tool calling"
+  },
+  {
+    "term": "retrieval",
+    "meaning": "检索；从数据源查找相关信息",
+    "pos": "n.",
+    "patterns": [
+      "information retrieval",
+      "retrieval system"
+    ],
+    "example1": "Retrieval can improve answers about private documents.",
+    "translation1": "检索可以改善针对私有文档的回答。",
+    "example2": "The system combines retrieval with generation.",
+    "translation2": "系统将检索与生成结合起来。",
+    "category": "AI 产品与应用",
+    "priority": 1,
+    "productionPrompt": "用英文表达：检索",
+    "productionAnswer": "retrieval"
+  },
+  {
+    "term": "RAG",
+    "meaning": "检索增强生成；先检索资料再辅助生成回答",
+    "pos": "n.",
+    "patterns": [
+      "retrieval-augmented generation",
+      "RAG pipeline"
+    ],
+    "example1": "RAG can ground answers in a document collection.",
+    "translation1": "RAG 可以让回答以文档库为依据。",
+    "example2": "The team improved its RAG pipeline.",
+    "translation2": "团队改进了 RAG 流程。",
+    "category": "AI 产品与应用",
+    "priority": 1,
+    "productionPrompt": "用英文表达：检索增强生成",
+    "productionAnswer": "RAG"
+  },
+  {
+    "term": "grounding",
+    "meaning": "依据外部信息来约束或支撑模型回答",
+    "pos": "n.",
+    "patterns": [
+      "grounding data",
+      "grounded response"
+    ],
+    "example1": "Grounding may help reduce unsupported claims.",
+    "translation1": "利用外部依据可能减少缺乏支持的断言。",
+    "example2": "The product cites sources to improve grounding.",
+    "translation2": "产品引用来源以提高回答的依据性。",
+    "category": "AI 产品与应用",
+    "priority": 1,
+    "productionPrompt": "用英文表达：依据外部信息来约束或支撑模型回答",
+    "productionAnswer": "grounding"
+  },
+  {
+    "term": "hallucination",
+    "meaning": "幻觉；模型产生看似合理却不真实的内容",
+    "pos": "n.",
+    "patterns": [
+      "model hallucination",
+      "hallucination rate"
+    ],
+    "example1": "Hallucinations remain a concern in high-stakes uses.",
+    "translation1": "幻觉在高风险应用中仍是一个问题。",
+    "example2": "The system checks answers for hallucinations.",
+    "translation2": "系统会检查回答是否出现幻觉。",
+    "category": "AI 产品与应用",
+    "priority": 1,
+    "productionPrompt": "用英文表达：幻觉",
+    "productionAnswer": "hallucination"
+  },
+  {
+    "term": "guardrails",
+    "meaning": "防护措施；用于约束系统行为的机制",
+    "pos": "n.pl.",
+    "patterns": [
+      "safety guardrails",
+      "product guardrails"
+    ],
+    "example1": "Guardrails can restrict risky actions.",
+    "translation1": "防护措施可以限制高风险操作。",
+    "example2": "The product includes guardrails for financial advice.",
+    "translation2": "该产品对财务建议设置了防护机制。",
+    "category": "AI 产品与应用",
+    "priority": 1,
+    "productionPrompt": "用英文表达：防护措施",
+    "productionAnswer": "guardrails"
+  },
+  {
+    "term": "reliability",
+    "meaning": "可靠性；系统持续正确运行的能力",
+    "pos": "n.",
+    "patterns": [
+      "system reliability",
+      "reliability testing"
+    ],
+    "example1": "Reliability is critical for enterprise customers.",
+    "translation1": "可靠性对企业客户至关重要。",
+    "example2": "The latest release focuses on reliability.",
+    "translation2": "最新版本重点改善可靠性。",
+    "category": "AI 产品与应用",
+    "priority": 1,
+    "productionPrompt": "用英文表达：可靠性",
+    "productionAnswer": "reliability"
+  },
+  {
+    "term": "scalability",
+    "meaning": "可扩展性；系统应对不断增长需求的能力",
+    "pos": "n.",
+    "patterns": [
+      "system scalability",
+      "scalability challenge"
+    ],
+    "example1": "Scalability becomes important as usage grows.",
+    "translation1": "随着使用量增加，可扩展性变得重要。",
+    "example2": "The team redesigned the service to improve scalability.",
+    "translation2": "团队重新设计服务以提高可扩展性。",
+    "category": "AI 产品与应用",
+    "priority": 1,
+    "productionPrompt": "用英文表达：可扩展性",
+    "productionAnswer": "scalability"
+  },
+  {
+    "term": "observability",
+    "meaning": "可观测性；从日志和指标理解系统状态的能力",
+    "pos": "n.",
+    "patterns": [
+      "system observability",
+      "observability tools"
+    ],
+    "example1": "Observability helps teams diagnose failures.",
+    "translation1": "可观测性帮助团队诊断故障。",
+    "example2": "Enterprise customers asked for better observability.",
+    "translation2": "企业客户希望获得更好的可观测性。",
+    "category": "AI 产品与应用",
+    "priority": 1,
+    "productionPrompt": "用英文表达：可观测性",
+    "productionAnswer": "observability"
+  },
+  {
+    "term": "monitoring",
+    "meaning": "监测；持续检查系统状态与表现",
+    "pos": "n.",
+    "patterns": [
+      "production monitoring",
+      "model monitoring"
+    ],
+    "example1": "Production monitoring can detect performance changes.",
+    "translation1": "生产环境监测可以发现性能变化。",
+    "example2": "The company monitors model responses after deployment.",
+    "translation2": "公司在部署后持续监测模型回答。",
+    "category": "AI 产品与应用",
+    "priority": 1,
+    "productionPrompt": "用英文表达：监测",
+    "productionAnswer": "monitoring"
+  },
+  {
+    "term": "feedback loop",
+    "meaning": "反馈回路；利用结果改进系统的循环",
+    "pos": "n.",
+    "patterns": [
+      "user feedback loop",
+      "feedback cycle"
+    ],
+    "example1": "A feedback loop helps improve product quality.",
+    "translation1": "反馈回路有助于改善产品质量。",
+    "example2": "The team built a feedback loop into its application.",
+    "translation2": "团队在应用中建立了反馈回路。",
+    "category": "AI 产品与应用",
+    "priority": 1,
+    "productionPrompt": "用英文表达：反馈回路",
+    "productionAnswer": "feedback loop"
+  },
+  {
+    "term": "iteration",
+    "meaning": "迭代；通过多轮改进产品或模型",
+    "pos": "n.",
+    "patterns": [
+      "rapid iteration",
+      "product iteration"
+    ],
+    "example1": "Fast iteration helps startups test assumptions.",
+    "translation1": "快速迭代帮助初创企业验证假设。",
+    "example2": "The next iteration addresses user complaints.",
+    "translation2": "下一轮迭代将解决用户投诉。",
+    "category": "AI 产品与应用",
+    "priority": 2,
+    "productionPrompt": "用英文表达：迭代",
+    "productionAnswer": "iteration"
+  },
+  {
+    "term": "prototype",
+    "meaning": "原型；用于验证想法的早期版本",
+    "pos": "n.",
+    "patterns": [
+      "working prototype",
+      "prototype testing"
+    ],
+    "example1": "The team built a prototype in two weeks.",
+    "translation1": "团队用两周时间做出了原型。",
+    "example2": "Early prototypes are useful for collecting feedback.",
+    "translation2": "早期原型有助于收集反馈。",
+    "category": "AI 产品与应用",
+    "priority": 2,
+    "productionPrompt": "用英文表达：原型",
+    "productionAnswer": "prototype"
+  },
+  {
+    "term": "proof of concept",
+    "meaning": "概念验证；证明某个想法可行的小规模测试",
+    "pos": "n.",
+    "patterns": [
+      "proof of concept",
+      "PoC"
+    ],
+    "example1": "The pilot began as a proof of concept.",
+    "translation1": "试点最初是一个概念验证项目。",
+    "example2": "A proof of concept does not guarantee commercial success.",
+    "translation2": "概念验证并不保证商业成功。",
+    "category": "AI 产品与应用",
+    "priority": 2,
+    "productionPrompt": "用英文表达：概念验证",
+    "productionAnswer": "proof of concept"
+  },
+  {
+    "term": "pilot",
+    "meaning": "试点；在有限范围内测试新方案",
+    "pos": "n./v.",
+    "patterns": [
+      "pilot program",
+      "pilot customer"
+    ],
+    "example1": "The hospital launched a pilot of the AI tool.",
+    "translation1": "医院启动了 AI 工具试点。",
+    "example2": "Several customers agreed to pilot the product.",
+    "translation2": "几位客户同意试用该产品。",
+    "category": "AI 产品与应用",
+    "priority": 2,
+    "productionPrompt": "用英文表达：试点",
+    "productionAnswer": "pilot"
+  },
+  {
+    "term": "production",
+    "meaning": "生产环境；面向真实用户运行的系统环境",
+    "pos": "n.",
+    "patterns": [
+      "in production",
+      "production environment"
+    ],
+    "example1": "The agent works in demos but struggles in production.",
+    "translation1": "智能体在演示中运行良好，但在生产环境中遇到困难。",
+    "example2": "The team is preparing the model for production.",
+    "translation2": "团队正在准备将模型投入生产环境。",
+    "category": "AI 产品与应用",
+    "priority": 2,
+    "productionPrompt": "用英文表达：生产环境",
+    "productionAnswer": "production"
+  },
+  {
+    "term": "rollout",
+    "meaning": "逐步推出；分阶段向用户开放",
+    "pos": "n.",
+    "patterns": [
+      "gradual rollout",
+      "product rollout"
+    ],
+    "example1": "The company announced a gradual rollout.",
+    "translation1": "公司宣布将逐步推出该功能。",
+    "example2": "The rollout begins with a small group of users.",
+    "translation2": "此次推出将先面向一小部分用户。",
+    "category": "AI 产品与应用",
+    "priority": 2,
+    "productionPrompt": "用英文表达：逐步推出",
+    "productionAnswer": "rollout"
+  },
+  {
+    "term": "release",
+    "meaning": "发布；推出某个新版本",
+    "pos": "n./v.",
+    "patterns": [
+      "model release",
+      "release notes"
+    ],
+    "example1": "The latest release improves response quality.",
+    "translation1": "最新版本改善了响应质量。",
+    "example2": "The company released a new developer tool.",
+    "translation2": "公司发布了一款新的开发者工具。",
+    "category": "AI 产品与应用",
+    "priority": 2,
+    "productionPrompt": "用英文表达：发布",
+    "productionAnswer": "release"
+  },
+  {
+    "term": "capability",
+    "meaning": "能力；系统能够完成的任务或表现",
+    "pos": "n.",
+    "patterns": [
+      "model capability",
+      "capability gap"
+    ],
+    "example1": "The model shows strong coding capabilities.",
+    "translation1": "该模型展现出较强的编程能力。",
+    "example2": "The update adds a new speech capability.",
+    "translation2": "更新增加了新的语音能力。",
+    "category": "AI 产品与应用",
+    "priority": 2,
+    "productionPrompt": "用英文表达：能力",
+    "productionAnswer": "capability"
+  },
+  {
+    "term": "limitation",
+    "meaning": "局限；能力或适用范围的限制",
+    "pos": "n.",
+    "patterns": [
+      "known limitation",
+      "technical limitation"
+    ],
+    "example1": "The report describes the model's limitations.",
+    "translation1": "报告描述了模型的局限性。",
+    "example2": "Every approach has technical limitations.",
+    "translation2": "每种方法都有技术局限。",
+    "category": "AI 产品与应用",
+    "priority": 2,
+    "productionPrompt": "用英文表达：局限",
+    "productionAnswer": "limitation"
+  },
+  {
+    "term": "constraint",
+    "meaning": "约束；资源、技术或规则方面的限制",
+    "pos": "n.",
+    "patterns": [
+      "compute constraint",
+      "design constraint"
+    ],
+    "example1": "Latency is a major constraint for voice products.",
+    "translation1": "延迟是语音产品的一项主要约束。",
+    "example2": "The team worked within a strict budget constraint.",
+    "translation2": "团队在严格的预算限制下工作。",
+    "category": "AI 产品与应用",
+    "priority": 2,
+    "productionPrompt": "用英文表达：约束",
+    "productionAnswer": "constraint"
+  },
+  {
+    "term": "interoperability",
+    "meaning": "互操作性；不同系统协同工作的能力",
+    "pos": "n.",
+    "patterns": [
+      "system interoperability",
+      "interoperability standard"
+    ],
+    "example1": "Interoperability matters in complex enterprise environments.",
+    "translation1": "互操作性在复杂企业环境中很重要。",
+    "example2": "The standard aims to improve interoperability.",
+    "translation2": "该标准旨在改善互操作性。",
+    "category": "AI 产品与应用",
+    "priority": 2,
+    "productionPrompt": "用英文表达：互操作性",
+    "productionAnswer": "interoperability"
+  },
+  {
+    "term": "privacy",
+    "meaning": "隐私；个人信息不被不当获取或使用的状态",
+    "pos": "n.",
+    "patterns": [
+      "data privacy",
+      "privacy concern"
+    ],
+    "example1": "Customers ask detailed questions about data privacy.",
+    "translation1": "客户会详细询问数据隐私。",
+    "example2": "The product offers additional privacy controls.",
+    "translation2": "产品提供了额外的隐私控制。",
+    "category": "AI 产品与应用",
+    "priority": 2,
+    "productionPrompt": "用英文表达：隐私",
+    "productionAnswer": "privacy"
+  },
+  {
+    "term": "compliance",
+    "meaning": "合规；符合适用法律、规则或要求",
+    "pos": "n.",
+    "patterns": [
+      "regulatory compliance",
+      "compliance review"
+    ],
+    "example1": "Compliance requirements differ across industries.",
+    "translation1": "不同产业的合规要求有所不同。",
+    "example2": "The company hired specialists to review compliance.",
+    "translation2": "公司聘请专家审查合规情况。",
+    "category": "AI 产品与应用",
+    "priority": 2,
+    "productionPrompt": "用英文表达：合规",
+    "productionAnswer": "compliance"
+  },
+  {
+    "term": "security",
+    "meaning": "安全；防止未授权访问或损害的措施",
+    "pos": "n.",
+    "patterns": [
+      "data security",
+      "security audit"
+    ],
+    "example1": "Security is a priority for enterprise deployments.",
+    "translation1": "安全是企业部署的优先事项。",
+    "example2": "The team conducts regular security audits.",
+    "translation2": "团队定期开展安全审计。",
+    "category": "AI 产品与应用",
+    "priority": 2,
+    "productionPrompt": "用英文表达：安全",
+    "productionAnswer": "security"
+  },
+  {
+    "term": "failure mode",
+    "meaning": "故障模式；系统可能以何种方式失败",
+    "pos": "n.",
+    "patterns": [
+      "failure mode",
+      "identify failure modes"
+    ],
+    "example1": "Testing should cover common failure modes.",
+    "translation1": "测试应该覆盖常见的故障模式。",
+    "example2": "The researchers identified several failure modes.",
+    "translation2": "研究人员识别出几种故障模式。",
+    "category": "AI 产品与应用",
+    "priority": 2,
+    "productionPrompt": "用英文表达：故障模式",
+    "productionAnswer": "failure mode"
+  },
+  {
+    "term": "edge case",
+    "meaning": "边缘情况；少见但可能影响运行的情形",
+    "pos": "n.",
+    "patterns": [
+      "edge case",
+      "handle edge cases"
+    ],
+    "example1": "The model fails on some unusual edge cases.",
+    "translation1": "模型在一些罕见边缘情况中会失败。",
+    "example2": "The team added tests for edge cases.",
+    "translation2": "团队增加了针对边缘情况的测试。",
+    "category": "AI 产品与应用",
+    "priority": 2,
+    "productionPrompt": "用英文表达：边缘情况",
+    "productionAnswer": "edge case"
+  },
+  {
+    "term": "adoption",
+    "meaning": "采用；用户或组织开始使用产品或技术",
+    "pos": "n.",
+    "patterns": [
+      "enterprise adoption",
+      "adoption rate"
+    ],
+    "example1": "Enterprise AI adoption is uneven across industries.",
+    "translation1": "企业采用 AI 的程度在行业间并不均衡。",
+    "example2": "Price is one factor affecting adoption.",
+    "translation2": "价格是影响采用率的因素之一。",
+    "category": "产业与商业",
+    "priority": 1,
+    "productionPrompt": "用英文表达：采用",
+    "productionAnswer": "adoption"
+  },
+  {
+    "term": "monetization",
+    "meaning": "商业变现；将产品或能力转化为收入",
+    "pos": "n.",
+    "patterns": [
+      "monetization strategy",
+      "monetization model"
+    ],
+    "example1": "The startup is still testing monetization strategies.",
+    "translation1": "这家初创企业仍在测试变现策略。",
+    "example2": "Monetization depends on customer willingness to pay.",
+    "translation2": "商业变现取决于客户的支付意愿。",
+    "category": "产业与商业",
+    "priority": 1,
+    "productionPrompt": "用英文表达：商业变现",
+    "productionAnswer": "monetization"
+  },
+  {
+    "term": "revenue",
+    "meaning": "营收；企业销售商品或服务获得的收入",
+    "pos": "n.",
+    "patterns": [
+      "annual revenue",
+      "recurring revenue"
+    ],
+    "example1": "Subscription revenue increased last quarter.",
+    "translation1": "订阅收入在上个季度增长。",
+    "example2": "Revenue growth does not necessarily mean profitability.",
+    "translation2": "营收增长不一定意味着盈利。",
+    "category": "产业与商业",
+    "priority": 1,
+    "productionPrompt": "用英文表达：营收",
+    "productionAnswer": "revenue"
+  },
+  {
+    "term": "margin",
+    "meaning": "利润率；收入中剩余利润的比例",
+    "pos": "n.",
+    "patterns": [
+      "gross margin",
+      "profit margin"
+    ],
+    "example1": "High inference costs can put pressure on margins.",
+    "translation1": "较高的推理成本可能挤压利润率。",
+    "example2": "The company aims to improve gross margins.",
+    "translation2": "公司希望改善毛利率。",
+    "category": "产业与商业",
+    "priority": 1,
+    "productionPrompt": "用英文表达：利润率",
+    "productionAnswer": "margin"
+  },
+  {
+    "term": "profitability",
+    "meaning": "盈利能力；持续赚取利润的能力",
+    "pos": "n.",
+    "patterns": [
+      "path to profitability",
+      "reach profitability"
+    ],
+    "example1": "Rapid growth does not ensure profitability.",
+    "translation1": "快速增长不保证盈利。",
+    "example2": "Investors asked about the path to profitability.",
+    "translation2": "投资者询问公司实现盈利的路径。",
+    "category": "产业与商业",
+    "priority": 1,
+    "productionPrompt": "用英文表达：盈利能力",
+    "productionAnswer": "profitability"
+  },
+  {
+    "term": "unit economics",
+    "meaning": "单位经济效益；每单位客户或交易的收入成本关系",
+    "pos": "n.",
+    "patterns": [
+      "unit economics",
+      "positive unit economics"
+    ],
+    "example1": "The product's unit economics improved after the update.",
+    "translation1": "产品更新后单位经济效益改善了。",
+    "example2": "Poor unit economics can undermine rapid growth.",
+    "translation2": "不佳的单位经济效益可能削弱快速增长的价值。",
+    "category": "产业与商业",
+    "priority": 1,
+    "productionPrompt": "用英文表达：单位经济效益",
+    "productionAnswer": "unit economics"
+  },
+  {
+    "term": "moat",
+    "meaning": "护城河；持续、难以复制的竞争优势",
+    "pos": "n.",
+    "patterns": [
+      "competitive moat",
+      "defensible moat"
+    ],
+    "example1": "A large user base is not always a strong moat.",
+    "translation1": "庞大用户群并不总是强大的护城河。",
+    "example2": "The founder believes distribution is the company's moat.",
+    "translation2": "创始人认为分发渠道是公司的护城河。",
+    "category": "产业与商业",
+    "priority": 1,
+    "productionPrompt": "用英文表达：护城河",
+    "productionAnswer": "moat"
+  },
+  {
+    "term": "incumbent",
+    "meaning": "既有市场主导者；已建立优势的大企业",
+    "pos": "n.",
+    "patterns": [
+      "industry incumbent",
+      "established incumbent"
+    ],
+    "example1": "Startups are challenging established incumbents.",
+    "translation1": "初创企业正在挑战既有市场领导者。",
+    "example2": "Incumbents can benefit from existing customer relationships.",
+    "translation2": "现有大企业可以受益于已有客户关系。",
+    "category": "产业与商业",
+    "priority": 1,
+    "productionPrompt": "用英文表达：既有市场主导者",
+    "productionAnswer": "incumbent"
+  },
+  {
+    "term": "disrupt",
+    "meaning": "颠覆；显著改变既有市场或运作方式",
+    "pos": "v.",
+    "patterns": [
+      "disrupt an industry",
+      "market disruption"
+    ],
+    "example1": "AI could disrupt parts of the software industry.",
+    "translation1": "AI 可能颠覆软件行业的某些部分。",
+    "example2": "New entrants hope to disrupt established workflows.",
+    "translation2": "新进入者希望改变既有工作流程。",
+    "category": "产业与商业",
+    "priority": 1,
+    "productionPrompt": "用英文表达：颠覆",
+    "productionAnswer": "disrupt"
+  },
+  {
+    "term": "commoditization",
+    "meaning": "商品化；产品差异缩小、价格竞争加剧",
+    "pos": "n.",
+    "patterns": [
+      "model commoditization",
+      "commoditization risk"
+    ],
+    "example1": "Model commoditization may shift value to applications.",
+    "translation1": "模型商品化可能使价值转向应用层。",
+    "example2": "Commoditization can put pressure on pricing.",
+    "translation2": "商品化可能对定价形成压力。",
+    "category": "产业与商业",
+    "priority": 1,
+    "productionPrompt": "用英文表达：商品化",
+    "productionAnswer": "commoditization"
+  },
+  {
+    "term": "differentiation",
+    "meaning": "差异化；产品区别于竞争者的特征",
+    "pos": "n.",
+    "patterns": [
+      "product differentiation",
+      "differentiation strategy"
+    ],
+    "example1": "Strong differentiation helps a startup stand out.",
+    "translation1": "强有力的差异化帮助初创企业脱颖而出。",
+    "example2": "Customers struggled to see the product's differentiation.",
+    "translation2": "客户很难看出产品的差异化优势。",
+    "category": "产业与商业",
+    "priority": 1,
+    "productionPrompt": "用英文表达：差异化",
+    "productionAnswer": "differentiation"
+  },
+  {
+    "term": "competitive landscape",
+    "meaning": "竞争格局；一个市场内的竞争者及其关系",
+    "pos": "n.",
+    "patterns": [
+      "competitive landscape",
+      "market landscape"
+    ],
+    "example1": "The competitive landscape is changing quickly.",
+    "translation1": "竞争格局正在迅速变化。",
+    "example2": "The report maps the competitive landscape for AI agents.",
+    "translation2": "报告梳理了 AI 智能体市场的竞争格局。",
+    "category": "产业与商业",
+    "priority": 1,
+    "productionPrompt": "用英文表达：竞争格局",
+    "productionAnswer": "competitive landscape"
+  },
+  {
+    "term": "market share",
+    "meaning": "市场份额；企业占据市场销售或使用的比例",
+    "pos": "n.",
+    "patterns": [
+      "gain market share",
+      "market share"
+    ],
+    "example1": "The company gained market share among developers.",
+    "translation1": "该公司在开发者群体中的市场份额上升。",
+    "example2": "Market share depends on how the market is defined.",
+    "translation2": "市场份额取决于如何界定市场。",
+    "category": "产业与商业",
+    "priority": 1,
+    "productionPrompt": "用英文表达：市场份额",
+    "productionAnswer": "market share"
+  },
+  {
+    "term": "market fit",
+    "meaning": "市场匹配；产品满足真实市场需求的程度",
+    "pos": "n.",
+    "patterns": [
+      "product-market fit",
+      "find market fit"
+    ],
+    "example1": "The team has not yet found product-market fit.",
+    "translation1": "团队尚未找到产品与市场的契合点。",
+    "example2": "Strong usage alone does not prove product-market fit.",
+    "translation2": "仅有高使用量并不能证明产品市场匹配。",
+    "category": "产业与商业",
+    "priority": 1,
+    "productionPrompt": "用英文表达：市场匹配",
+    "productionAnswer": "market fit"
+  },
+  {
+    "term": "traction",
+    "meaning": "市场进展；产品获得用户或增长的早期证据",
+    "pos": "n.",
+    "patterns": [
+      "early traction",
+      "customer traction"
+    ],
+    "example1": "The startup gained traction among small businesses.",
+    "translation1": "这家初创企业在小企业客户中取得初步进展。",
+    "example2": "Investors want evidence of real customer traction.",
+    "translation2": "投资者希望看到真实的客户增长证据。",
+    "category": "产业与商业",
+    "priority": 1,
+    "productionPrompt": "用英文表达：市场进展",
+    "productionAnswer": "traction"
+  },
+  {
+    "term": "retention",
+    "meaning": "留存；用户在一段时间后继续使用的情况",
+    "pos": "n.",
+    "patterns": [
+      "user retention",
+      "retention rate"
+    ],
+    "example1": "Strong retention suggests users find ongoing value.",
+    "translation1": "较高的留存说明用户持续获得价值。",
+    "example2": "The team tracks retention after onboarding.",
+    "translation2": "团队追踪新用户引导后的留存情况。",
+    "category": "产业与商业",
+    "priority": 1,
+    "productionPrompt": "用英文表达：留存",
+    "productionAnswer": "retention"
+  },
+  {
+    "term": "churn",
+    "meaning": "流失；客户停止使用或取消订阅",
+    "pos": "n.",
+    "patterns": [
+      "customer churn",
+      "churn rate"
+    ],
+    "example1": "High churn can undermine subscription growth.",
+    "translation1": "高流失率可能削弱订阅业务增长。",
+    "example2": "The company reduced churn by improving support.",
+    "translation2": "公司通过改善支持服务降低了流失。",
+    "category": "产业与商业",
+    "priority": 1,
+    "productionPrompt": "用英文表达：流失",
+    "productionAnswer": "churn"
+  },
+  {
+    "term": "conversion",
+    "meaning": "转化；用户完成某项预期行为",
+    "pos": "n.",
+    "patterns": [
+      "conversion rate",
+      "trial conversion"
+    ],
+    "example1": "The free trial improved conversion to paid plans.",
+    "translation1": "免费试用提高了付费转化率。",
+    "example2": "The company monitors conversion rates closely.",
+    "translation2": "公司密切监测转化率。",
+    "category": "产业与商业",
+    "priority": 1,
+    "productionPrompt": "用英文表达：转化",
+    "productionAnswer": "conversion"
+  },
+  {
+    "term": "pricing",
+    "meaning": "定价；产品和服务的收费方式与水平",
+    "pos": "n.",
+    "patterns": [
+      "usage-based pricing",
+      "pricing strategy"
+    ],
+    "example1": "Usage-based pricing can be hard to predict.",
+    "translation1": "按使用量定价可能难以预测成本。",
+    "example2": "The startup changed its pricing strategy.",
+    "translation2": "初创企业调整了定价策略。",
+    "category": "产业与商业",
+    "priority": 1,
+    "productionPrompt": "用英文表达：定价",
+    "productionAnswer": "pricing"
+  },
+  {
+    "term": "subscription",
+    "meaning": "订阅；按周期付费获得服务的模式",
+    "pos": "n.",
+    "patterns": [
+      "monthly subscription",
+      "subscription revenue"
+    ],
+    "example1": "The product uses a monthly subscription model.",
+    "translation1": "该产品采用月度订阅模式。",
+    "example2": "Some customers prefer subscriptions to usage-based bills.",
+    "translation2": "一些客户更喜欢订阅而非按量计费。",
+    "category": "产业与商业",
+    "priority": 1,
+    "productionPrompt": "用英文表达：订阅",
+    "productionAnswer": "subscription"
+  },
+  {
+    "term": "go-to-market",
+    "meaning": "进入市场策略；获得并服务目标客户的方式",
+    "pos": "adj./n.",
+    "patterns": [
+      "go-to-market strategy",
+      "GTM motion"
+    ],
+    "example1": "The company revised its go-to-market strategy.",
+    "translation1": "公司调整了进入市场策略。",
+    "example2": "A strong GTM plan can accelerate adoption.",
+    "translation2": "强有力的市场进入计划可加速采用。",
+    "category": "产业与商业",
+    "priority": 1,
+    "productionPrompt": "用英文表达：进入市场策略",
+    "productionAnswer": "go-to-market"
+  },
+  {
+    "term": "distribution",
+    "meaning": "分发渠道；产品接触和获得用户的方式",
+    "pos": "n.",
+    "patterns": [
+      "distribution channel",
+      "distribution advantage"
+    ],
+    "example1": "Distribution is a major advantage for large platforms.",
+    "translation1": "分发渠道是大型平台的一项主要优势。",
+    "example2": "The startup is experimenting with new distribution channels.",
+    "translation2": "初创企业正在尝试新的分发渠道。",
+    "category": "产业与商业",
+    "priority": 1,
+    "productionPrompt": "用英文表达：分发渠道",
+    "productionAnswer": "distribution"
+  },
+  {
+    "term": "customer acquisition",
+    "meaning": "获客；吸引并转化新客户的过程",
+    "pos": "n.",
+    "patterns": [
+      "customer acquisition cost",
+      "customer acquisition"
+    ],
+    "example1": "Customer acquisition can be expensive in enterprise software.",
+    "translation1": "企业软件的获客成本可能很高。",
+    "example2": "The team wants to lower customer acquisition costs.",
+    "translation2": "团队希望降低获客成本。",
+    "category": "产业与商业",
+    "priority": 2,
+    "productionPrompt": "用英文表达：获客",
+    "productionAnswer": "customer acquisition"
+  },
+  {
+    "term": "enterprise",
+    "meaning": "企业客户；常指面向组织的大型商业市场",
+    "pos": "n./adj.",
+    "patterns": [
+      "enterprise customer",
+      "enterprise software"
+    ],
+    "example1": "Enterprise customers often require stronger security controls.",
+    "translation1": "企业客户通常要求更强的安全控制。",
+    "example2": "The startup is moving into the enterprise market.",
+    "translation2": "初创企业正在进入企业市场。",
+    "category": "产业与商业",
+    "priority": 2,
+    "productionPrompt": "用英文表达：企业客户",
+    "productionAnswer": "enterprise"
+  },
+  {
+    "term": "SMB",
+    "meaning": "中小企业；small and medium-sized businesses 的缩写",
+    "pos": "n.",
+    "patterns": [
+      "SMB customer",
+      "SMB market"
+    ],
+    "example1": "The company serves both SMB and enterprise customers.",
+    "translation1": "该公司同时服务中小企业和大型企业客户。",
+    "example2": "SMB buyers may prefer simpler pricing.",
+    "translation2": "中小企业买家可能偏好更简单的定价。",
+    "category": "产业与商业",
+    "priority": 2,
+    "productionPrompt": "用英文表达：中小企业",
+    "productionAnswer": "SMB"
+  },
+  {
+    "term": "B2B",
+    "meaning": "企业对企业的商业模式",
+    "pos": "adj.",
+    "patterns": [
+      "B2B software",
+      "B2B sales"
+    ],
+    "example1": "B2B sales cycles can take several months.",
+    "translation1": "企业对企业的销售周期可能持续数月。",
+    "example2": "The startup sells B2B software to hospitals.",
+    "translation2": "这家初创企业向医院销售 B2B 软件。",
+    "category": "产业与商业",
+    "priority": 2,
+    "productionPrompt": "用英文表达：企业对企业的商业模式",
+    "productionAnswer": "B2B"
+  },
+  {
+    "term": "B2C",
+    "meaning": "企业对消费者的商业模式",
+    "pos": "adj.",
+    "patterns": [
+      "B2C product",
+      "B2C market"
+    ],
+    "example1": "The company launched a B2C chatbot product.",
+    "translation1": "公司推出了一款面向消费者的聊天机器人产品。",
+    "example2": "B2C marketing differs from enterprise sales.",
+    "translation2": "消费者营销与企业销售不同。",
+    "category": "产业与商业",
+    "priority": 2,
+    "productionPrompt": "用英文表达：企业对消费者的商业模式",
+    "productionAnswer": "B2C"
+  },
+  {
+    "term": "capital expenditure",
+    "meaning": "资本性支出；购买长期资产的支出",
+    "pos": "n.",
+    "patterns": [
+      "capital expenditure",
+      "CapEx"
+    ],
+    "example1": "Data centers require substantial capital expenditure.",
+    "translation1": "数据中心需要大量资本性支出。",
+    "example2": "Investors are watching AI-related CapEx closely.",
+    "translation2": "投资者正密切关注 AI 相关资本支出。",
+    "category": "产业与商业",
+    "priority": 2,
+    "productionPrompt": "用英文表达：资本性支出",
+    "productionAnswer": "capital expenditure"
+  },
+  {
+    "term": "operating expense",
+    "meaning": "运营费用；日常经营中发生的支出",
+    "pos": "n.",
+    "patterns": [
+      "operating expense",
+      "OpEx"
+    ],
+    "example1": "Cloud services are often treated as operating expenses.",
+    "translation1": "云服务支出通常作为运营费用处理。",
+    "example2": "The firm is trying to reduce its operating expenses.",
+    "translation2": "公司正在设法减少运营费用。",
+    "category": "产业与商业",
+    "priority": 2,
+    "productionPrompt": "用英文表达：运营费用",
+    "productionAnswer": "operating expense"
+  },
+  {
+    "term": "funding",
+    "meaning": "融资；企业获得资金的过程或资金",
+    "pos": "n.",
+    "patterns": [
+      "funding round",
+      "secure funding"
+    ],
+    "example1": "The startup announced a new funding round.",
+    "translation1": "这家初创企业宣布了新一轮融资。",
+    "example2": "Funding alone does not prove product demand.",
+    "translation2": "融资本身并不能证明产品需求。",
+    "category": "产业与商业",
+    "priority": 2,
+    "productionPrompt": "用英文表达：融资",
+    "productionAnswer": "funding"
+  },
+  {
+    "term": "valuation",
+    "meaning": "估值；对企业经济价值的估计",
+    "pos": "n.",
+    "patterns": [
+      "company valuation",
+      "private valuation"
+    ],
+    "example1": "The company's valuation doubled after the round.",
+    "translation1": "该公司的估值在融资后翻倍。",
+    "example2": "Private valuations are not the same as revenue.",
+    "translation2": "私人市场估值不等于营收。",
+    "category": "产业与商业",
+    "priority": 2,
+    "productionPrompt": "用英文表达：估值",
+    "productionAnswer": "valuation"
+  },
+  {
+    "term": "runway",
+    "meaning": "资金续航期；现金在当前支出速度下可支撑的时间",
+    "pos": "n.",
+    "patterns": [
+      "cash runway",
+      "extend runway"
+    ],
+    "example1": "The startup has eighteen months of runway.",
+    "translation1": "这家初创企业的现金可以支撑十八个月。",
+    "example2": "Lower costs can extend a company's runway.",
+    "translation2": "降低成本可以延长公司的现金续航期。",
+    "category": "产业与商业",
+    "priority": 2,
+    "productionPrompt": "用英文表达：资金续航期",
+    "productionAnswer": "runway"
+  },
+  {
+    "term": "partnership",
+    "meaning": "合作伙伴关系；企业之间的业务合作",
+    "pos": "n.",
+    "patterns": [
+      "strategic partnership",
+      "partnership agreement"
+    ],
+    "example1": "The companies announced a strategic partnership.",
+    "translation1": "两家公司宣布建立战略合作关系。",
+    "example2": "Partnerships can help reach new customers.",
+    "translation2": "合作关系可以帮助触达新客户。",
+    "category": "产业与商业",
+    "priority": 2,
+    "productionPrompt": "用英文表达：合作伙伴关系",
+    "productionAnswer": "partnership"
+  },
+  {
+    "term": "ecosystem",
+    "meaning": "生态系统；相互依赖的产品、公司与开发者群体",
+    "pos": "n.",
+    "patterns": [
+      "developer ecosystem",
+      "AI ecosystem"
+    ],
+    "example1": "A strong developer ecosystem attracts more builders.",
+    "translation1": "强大的开发者生态可以吸引更多开发者。",
+    "example2": "The platform supports a growing ecosystem of tools.",
+    "translation2": "平台支持不断壮大的工具生态系统。",
+    "category": "产业与商业",
+    "priority": 2,
+    "productionPrompt": "用英文表达：生态系统",
+    "productionAnswer": "ecosystem"
+  },
+  {
+    "term": "vertical",
+    "meaning": "垂直领域；特定行业或细分市场",
+    "pos": "n./adj.",
+    "patterns": [
+      "industry vertical",
+      "vertical AI"
+    ],
+    "example1": "The startup focuses on a healthcare vertical.",
+    "translation1": "这家初创企业专注医疗健康垂直领域。",
+    "example2": "Vertical AI products target specific industry needs.",
+    "translation2": "垂直 AI 产品针对特定行业需求。",
+    "category": "产业与商业",
+    "priority": 2,
+    "productionPrompt": "用英文表达：垂直领域",
+    "productionAnswer": "vertical"
+  },
+  {
+    "term": "horizontal",
+    "meaning": "横向的；适用于多个行业或场景的",
+    "pos": "adj.",
+    "patterns": [
+      "horizontal platform",
+      "horizontal solution"
+    ],
+    "example1": "A horizontal platform serves many industries.",
+    "translation1": "横向平台服务多个行业。",
+    "example2": "The product is more horizontal than industry-specific.",
+    "translation2": "这款产品比专门面向行业的产品更通用。",
+    "category": "产业与商业",
+    "priority": 2,
+    "productionPrompt": "用英文表达：横向的",
+    "productionAnswer": "horizontal"
+  },
+  {
+    "term": "regulation",
+    "meaning": "监管；政府制定和执行的规则",
+    "pos": "n.",
+    "patterns": [
+      "AI regulation",
+      "regulatory framework"
+    ],
+    "example1": "AI regulation differs across jurisdictions.",
+    "translation1": "不同司法辖区的 AI 监管有所不同。",
+    "example2": "New regulation could affect deployment decisions.",
+    "translation2": "新的监管可能影响部署决策。",
+    "category": "产业与商业",
+    "priority": 2,
+    "productionPrompt": "用英文表达：监管",
+    "productionAnswer": "regulation"
+  },
+  {
+    "term": "governance",
+    "meaning": "治理；对技术、组织和风险进行管理的机制",
+    "pos": "n.",
+    "patterns": [
+      "AI governance",
+      "model governance"
+    ],
+    "example1": "Good governance requires clear responsibilities.",
+    "translation1": "良好的治理需要明确责任。",
+    "example2": "The board discussed AI governance policies.",
+    "translation2": "董事会讨论了 AI 治理政策。",
+    "category": "产业与商业",
+    "priority": 2,
+    "productionPrompt": "用英文表达：治理",
+    "productionAnswer": "governance"
+  },
+  {
+    "term": "emerge",
+    "meaning": "出现；逐渐显现",
+    "pos": "v.",
+    "patterns": [
+      "emerge as",
+      "newly emerging"
+    ],
+    "example1": "A new pattern is beginning to emerge.",
+    "translation1": "一种新模式开始显现。",
+    "example2": "Smaller models have emerged as a practical alternative.",
+    "translation2": "小模型已成为一种实用替代方案。",
+    "category": "科技文章常见词汇",
+    "priority": 1,
+    "productionPrompt": "用英文表达：出现",
+    "productionAnswer": "emerge"
+  },
+  {
+    "term": "leverage",
+    "meaning": "利用；借助现有资源实现目标",
+    "pos": "v.",
+    "patterns": [
+      "leverage data",
+      "leverage existing tools"
+    ],
+    "example1": "Startups leverage open models to build products.",
+    "translation1": "初创企业利用开放模型开发产品。",
+    "example2": "The team leveraged its research expertise.",
+    "translation2": "团队发挥了自身研究专长。",
+    "category": "科技文章常见词汇",
+    "priority": 1,
+    "productionPrompt": "用英文表达：利用",
+    "productionAnswer": "leverage"
+  },
+  {
+    "term": "underlying",
+    "meaning": "底层的；根本的；潜在的",
+    "pos": "adj.",
+    "patterns": [
+      "underlying technology",
+      "underlying assumption"
+    ],
+    "example1": "The underlying technology has improved rapidly.",
+    "translation1": "底层技术已快速进步。",
+    "example2": "We need to examine the underlying assumptions.",
+    "translation2": "我们需要审视背后的基本假设。",
+    "category": "科技文章常见词汇",
+    "priority": 1,
+    "productionPrompt": "用英文表达：底层的",
+    "productionAnswer": "underlying"
+  },
+  {
+    "term": "substantial",
+    "meaning": "大量的；显著的；实质性的",
+    "pos": "adj.",
+    "patterns": [
+      "substantial investment",
+      "substantial improvement"
+    ],
+    "example1": "Training requires substantial resources.",
+    "translation1": "训练需要大量资源。",
+    "example2": "The update brought a substantial improvement in speed.",
+    "translation2": "更新使速度获得了显著提升。",
+    "category": "科技文章常见词汇",
+    "priority": 1,
+    "productionPrompt": "用英文表达：大量的",
+    "productionAnswer": "substantial"
+  },
+  {
+    "term": "implication",
+    "meaning": "影响；可能的后果或含义",
+    "pos": "n.",
+    "patterns": [
+      "broader implications",
+      "implications for"
+    ],
+    "example1": "The findings have implications for AI safety.",
+    "translation1": "这些发现对 AI 安全具有重要影响。",
+    "example2": "What are the broader implications of this shift?",
+    "translation2": "这一转变有哪些更广泛的影响？",
+    "category": "科技文章常见词汇",
+    "priority": 1,
+    "productionPrompt": "用英文表达：影响",
+    "productionAnswer": "implication"
+  },
+  {
+    "term": "significant",
+    "meaning": "重要的；显著的",
+    "pos": "adj.",
+    "patterns": [
+      "significant impact",
+      "statistically significant"
+    ],
+    "example1": "The study reports a significant improvement.",
+    "translation1": "研究报告了显著改善。",
+    "example2": "The change could have significant economic effects.",
+    "translation2": "这一变化可能带来重要经济影响。",
+    "category": "科技文章常见词汇",
+    "priority": 1,
+    "productionPrompt": "用英文表达：重要的",
+    "productionAnswer": "significant"
+  },
+  {
+    "term": "considerable",
+    "meaning": "相当大的；值得注意的",
+    "pos": "adj.",
+    "patterns": [
+      "considerable effort",
+      "considerable cost"
+    ],
+    "example1": "The project requires considerable expertise.",
+    "translation1": "这个项目需要相当高的专业能力。",
+    "example2": "The system still has considerable limitations.",
+    "translation2": "这个系统仍存在相当大的局限。",
+    "category": "科技文章常见词汇",
+    "priority": 1,
+    "productionPrompt": "用英文表达：相当大的",
+    "productionAnswer": "considerable"
+  },
+  {
+    "term": "fundamental",
+    "meaning": "根本的；基础性的",
+    "pos": "adj.",
+    "patterns": [
+      "fundamental shift",
+      "fundamental problem"
+    ],
+    "example1": "This represents a fundamental shift in product design.",
+    "translation1": "这代表产品设计的根本转变。",
+    "example2": "The paper addresses a fundamental research question.",
+    "translation2": "论文探讨了一个基础研究问题。",
+    "category": "科技文章常见词汇",
+    "priority": 1,
+    "productionPrompt": "用英文表达：根本的",
+    "productionAnswer": "fundamental"
+  },
+  {
+    "term": "subsequent",
+    "meaning": "随后的；之后发生的",
+    "pos": "adj.",
+    "patterns": [
+      "subsequent release",
+      "subsequent analysis"
+    ],
+    "example1": "Subsequent tests revealed additional problems.",
+    "translation1": "随后的测试揭示了更多问题。",
+    "example2": "The feature improved in subsequent releases.",
+    "translation2": "该功能在后续版本中得到改进。",
+    "category": "科技文章常见词汇",
+    "priority": 1,
+    "productionPrompt": "用英文表达：随后的",
+    "productionAnswer": "subsequent"
+  },
+  {
+    "term": "prior",
+    "meaning": "先前的；在……之前的",
+    "pos": "adj.",
+    "patterns": [
+      "prior research",
+      "prior to"
+    ],
+    "example1": "Prior research suggests mixed results.",
+    "translation1": "此前的研究显示结果不一。",
+    "example2": "The company conducted tests prior to launch.",
+    "translation2": "公司在发布前进行了测试。",
+    "category": "科技文章常见词汇",
+    "priority": 1,
+    "productionPrompt": "用英文表达：先前的",
+    "productionAnswer": "prior"
+  },
+  {
+    "term": "whereas",
+    "meaning": "然而；而（用于对比）",
+    "pos": "conj.",
+    "patterns": [
+      "whereas",
+      "compared with"
+    ],
+    "example1": "The first model is faster, whereas the second is cheaper.",
+    "translation1": "第一个模型更快，而第二个更便宜。",
+    "example2": "Consumer use grew, whereas enterprise adoption slowed.",
+    "translation2": "消费者使用增长，而企业采用放缓。",
+    "category": "科技文章常见词汇",
+    "priority": 1,
+    "productionPrompt": "用英文表达：然而",
+    "productionAnswer": "whereas"
+  },
+  {
+    "term": "although",
+    "meaning": "尽管；虽然",
+    "pos": "conj.",
+    "patterns": [
+      "although",
+      "even though"
+    ],
+    "example1": "Although the model is smaller, it performs well.",
+    "translation1": "尽管模型较小，其表现依然很好。",
+    "example2": "Although demand is high, costs remain a concern.",
+    "translation2": "尽管需求旺盛，成本仍是一个问题。",
+    "category": "科技文章常见词汇",
+    "priority": 1,
+    "productionPrompt": "用英文表达：尽管",
+    "productionAnswer": "although"
+  },
+  {
+    "term": "nevertheless",
+    "meaning": "尽管如此；然而",
+    "pos": "adv.",
+    "patterns": [
+      "nevertheless",
+      "still"
+    ],
+    "example1": "The results were promising. Nevertheless, more testing is needed.",
+    "translation1": "结果令人期待，尽管如此仍需要更多测试。",
+    "example2": "Costs are falling; nevertheless, deployment remains complex.",
+    "translation2": "成本正在下降，但部署仍然复杂。",
+    "category": "科技文章常见词汇",
+    "priority": 1,
+    "productionPrompt": "用英文表达：尽管如此",
+    "productionAnswer": "nevertheless"
+  },
+  {
+    "term": "therefore",
+    "meaning": "因此；所以",
+    "pos": "adv.",
+    "patterns": [
+      "therefore",
+      "as a result"
+    ],
+    "example1": "The sample was small; therefore, conclusions are limited.",
+    "translation1": "样本较小，因此结论有限。",
+    "example2": "Demand increased, and prices therefore rose.",
+    "translation2": "需求增加，因此价格上涨。",
+    "category": "科技文章常见词汇",
+    "priority": 1,
+    "productionPrompt": "用英文表达：因此",
+    "productionAnswer": "therefore"
+  },
+  {
+    "term": "consequently",
+    "meaning": "因此；结果",
+    "pos": "adv.",
+    "patterns": [
+      "consequently",
+      "as a consequence"
+    ],
+    "example1": "The product was delayed and consequently lost customers.",
+    "translation1": "产品延期，因此失去了一些客户。",
+    "example2": "Compute demand rose; consequently, capacity became scarce.",
+    "translation2": "算力需求上涨，结果产能变得紧张。",
+    "category": "科技文章常见词汇",
+    "priority": 1,
+    "productionPrompt": "用英文表达：因此",
+    "productionAnswer": "consequently"
+  },
+  {
+    "term": "roughly",
+    "meaning": "大约；粗略地",
+    "pos": "adv.",
+    "patterns": [
+      "roughly speaking",
+      "roughly equal"
+    ],
+    "example1": "The model is roughly twice as fast.",
+    "translation1": "这个模型大约快一倍。",
+    "example2": "Roughly speaking, costs scale with usage.",
+    "translation2": "粗略而言，成本随使用量增加。",
+    "category": "科技文章常见词汇",
+    "priority": 1,
+    "productionPrompt": "用英文表达：大约",
+    "productionAnswer": "roughly"
+  },
+  {
+    "term": "approximately",
+    "meaning": "大约；近似地",
+    "pos": "adv.",
+    "patterns": [
+      "approximately equal",
+      "approximately"
+    ],
+    "example1": "The trial included approximately 500 users.",
+    "translation1": "试验包含约 500 名用户。",
+    "example2": "The system responds in approximately one second.",
+    "translation2": "系统大约在一秒内响应。",
+    "category": "科技文章常见词汇",
+    "priority": 1,
+    "productionPrompt": "用英文表达：大约",
+    "productionAnswer": "approximately"
+  },
+  {
+    "term": "primarily",
+    "meaning": "主要地；首先",
+    "pos": "adv.",
+    "patterns": [
+      "primarily driven by",
+      "primarily used for"
+    ],
+    "example1": "Growth was primarily driven by enterprise demand.",
+    "translation1": "增长主要由企业需求推动。",
+    "example2": "The tool is primarily used for coding.",
+    "translation2": "该工具主要用于编程。",
+    "category": "科技文章常见词汇",
+    "priority": 1,
+    "productionPrompt": "用英文表达：主要地",
+    "productionAnswer": "primarily"
+  },
+  {
+    "term": "particularly",
+    "meaning": "尤其；特别",
+    "pos": "adv.",
+    "patterns": [
+      "particularly important",
+      "particularly useful"
+    ],
+    "example1": "This matters particularly for smaller teams.",
+    "translation1": "这对较小的团队尤其重要。",
+    "example2": "The feature is particularly useful for researchers.",
+    "translation2": "这一功能对研究人员特别有用。",
+    "category": "科技文章常见词汇",
+    "priority": 1,
+    "productionPrompt": "用英文表达：尤其",
+    "productionAnswer": "particularly"
+  },
+  {
+    "term": "relatively",
+    "meaning": "相对地；比较而言",
+    "pos": "adv.",
+    "patterns": [
+      "relatively small",
+      "relatively easy"
+    ],
+    "example1": "The model is relatively cheap to run.",
+    "translation1": "这个模型的运行成本相对较低。",
+    "example2": "The problem is relatively easy to diagnose.",
+    "translation2": "这个问题相对容易诊断。",
+    "category": "科技文章常见词汇",
+    "priority": 1,
+    "productionPrompt": "用英文表达：相对地",
+    "productionAnswer": "relatively"
+  },
+  {
+    "term": "potentially",
+    "meaning": "潜在地；可能地",
+    "pos": "adv.",
+    "patterns": [
+      "potentially valuable",
+      "potentially risky"
+    ],
+    "example1": "The change could potentially reduce costs.",
+    "translation1": "这一变化可能降低成本。",
+    "example2": "The feature is potentially useful but not yet reliable.",
+    "translation2": "这一功能可能有用，但还不够可靠。",
+    "category": "科技文章常见词汇",
+    "priority": 1,
+    "productionPrompt": "用英文表达：潜在地",
+    "productionAnswer": "potentially"
+  },
+  {
+    "term": "arguably",
+    "meaning": "可以说；有理由认为",
+    "pos": "adv.",
+    "patterns": [
+      "arguably the most",
+      "arguably"
+    ],
+    "example1": "This is arguably the biggest challenge.",
+    "translation1": "这可以说是最大的挑战。",
+    "example2": "The new product is arguably easier to use.",
+    "translation2": "新产品可以说更容易使用。",
+    "category": "科技文章常见词汇",
+    "priority": 1,
+    "productionPrompt": "用英文表达：可以说",
+    "productionAnswer": "arguably"
+  },
+  {
+    "term": "ultimately",
+    "meaning": "最终；归根结底",
+    "pos": "adv.",
+    "patterns": [
+      "ultimately depend on",
+      "ultimately"
+    ],
+    "example1": "Success ultimately depends on real customer value.",
+    "translation1": "成功最终取决于真实的客户价值。",
+    "example2": "The company ultimately decided not to release the model.",
+    "translation2": "公司最终决定不发布该模型。",
+    "category": "科技文章常见词汇",
+    "priority": 2,
+    "productionPrompt": "用英文表达：最终",
+    "productionAnswer": "ultimately"
+  },
+  {
+    "term": "increasingly",
+    "meaning": "越来越；日益",
+    "pos": "adv.",
+    "patterns": [
+      "increasingly important",
+      "increasingly common"
+    ],
+    "example1": "Smaller models are becoming increasingly capable.",
+    "translation1": "小模型的能力正不断提升。",
+    "example2": "AI is increasingly common in office software.",
+    "translation2": "AI 在办公软件中越来越常见。",
+    "category": "科技文章常见词汇",
+    "priority": 2,
+    "productionPrompt": "用英文表达：越来越",
+    "productionAnswer": "increasingly"
+  },
+  {
+    "term": "notably",
+    "meaning": "尤其值得注意的是",
+    "pos": "adv.",
+    "patterns": [
+      "notably",
+      "notably absent"
+    ],
+    "example1": "Notably, the report did not include cost data.",
+    "translation1": "值得注意的是，报告未包含成本数据。",
+    "example2": "Several firms, notably smaller startups, joined the project.",
+    "translation2": "多家公司参与项目，其中尤其包括一些较小的初创企业。",
+    "category": "科技文章常见词汇",
+    "priority": 2,
+    "productionPrompt": "用英文表达：尤其值得注意的是",
+    "productionAnswer": "notably"
+  },
+  {
+    "term": "indicate",
+    "meaning": "表明；显示",
+    "pos": "v.",
+    "patterns": [
+      "indicate that",
+      "indicate a trend"
+    ],
+    "example1": "The results indicate improved accuracy.",
+    "translation1": "结果表明准确率有所提升。",
+    "example2": "Survey data indicates growing interest.",
+    "translation2": "调查数据显示兴趣正在增长。",
+    "category": "科技文章常见词汇",
+    "priority": 2,
+    "productionPrompt": "用英文表达：表明",
+    "productionAnswer": "indicate"
+  },
+  {
+    "term": "suggest",
+    "meaning": "暗示；提示；表明某种可能",
+    "pos": "v.",
+    "patterns": [
+      "suggest that",
+      "strongly suggest"
+    ],
+    "example1": "Early results suggest the method could work.",
+    "translation1": "初步结果表明这种方法可能可行。",
+    "example2": "The survey suggests demand is rising.",
+    "translation2": "调查显示需求可能正在增长。",
+    "category": "科技文章常见词汇",
+    "priority": 2,
+    "productionPrompt": "用英文表达：暗示",
+    "productionAnswer": "suggest"
+  },
+  {
+    "term": "demonstrate",
+    "meaning": "展示；证明某种能力或现象",
+    "pos": "v.",
+    "patterns": [
+      "demonstrate capability",
+      "demonstrate that"
+    ],
+    "example1": "The demo demonstrates a useful capability.",
+    "translation1": "演示展示了一项有用的能力。",
+    "example2": "The team has not demonstrated performance at scale.",
+    "translation2": "团队尚未证明其大规模运行表现。",
+    "category": "科技文章常见词汇",
+    "priority": 2,
+    "productionPrompt": "用英文表达：展示",
+    "productionAnswer": "demonstrate"
+  },
+  {
+    "term": "highlight",
+    "meaning": "突出；强调",
+    "pos": "v.",
+    "patterns": [
+      "highlight a problem",
+      "highlight the need"
+    ],
+    "example1": "The incident highlights a security risk.",
+    "translation1": "这一事件凸显了安全风险。",
+    "example2": "The article highlights several unanswered questions.",
+    "translation2": "文章强调了几个尚无答案的问题。",
+    "category": "科技文章常见词汇",
+    "priority": 2,
+    "productionPrompt": "用英文表达：突出",
+    "productionAnswer": "highlight"
+  },
+  {
+    "term": "address",
+    "meaning": "处理；着手解决某问题",
+    "pos": "v.",
+    "patterns": [
+      "address a challenge",
+      "address concerns"
+    ],
+    "example1": "The update addresses several reliability issues.",
+    "translation1": "更新解决了几个可靠性问题。",
+    "example2": "The CEO addressed concerns about costs.",
+    "translation2": "首席执行官回应了成本方面的担忧。",
+    "category": "科技文章常见词汇",
+    "priority": 2,
+    "productionPrompt": "用英文表达：处理",
+    "productionAnswer": "address"
+  },
+  {
+    "term": "assess",
+    "meaning": "评估；判断",
+    "pos": "v.",
+    "patterns": [
+      "assess risk",
+      "assess performance"
+    ],
+    "example1": "Researchers assessed performance on new tasks.",
+    "translation1": "研究人员评估了模型在新任务上的表现。",
+    "example2": "Investors are assessing the company's strategy.",
+    "translation2": "投资者正在评估公司的战略。",
+    "category": "科技文章常见词汇",
+    "priority": 2,
+    "productionPrompt": "用英文表达：评估",
+    "productionAnswer": "assess"
+  },
+  {
+    "term": "evaluate",
+    "meaning": "评价；系统性地检验",
+    "pos": "v.",
+    "patterns": [
+      "evaluate a model",
+      "evaluate outcomes"
+    ],
+    "example1": "The team evaluated five open-weight models.",
+    "translation1": "团队评估了五个开放权重模型。",
+    "example2": "Customers evaluate both quality and price.",
+    "translation2": "客户同时评估质量和价格。",
+    "category": "科技文章常见词汇",
+    "priority": 2,
+    "productionPrompt": "用英文表达：评价",
+    "productionAnswer": "evaluate"
+  },
+  {
+    "term": "validate",
+    "meaning": "验证；确认符合要求或实际有效",
+    "pos": "v.",
+    "patterns": [
+      "validate a hypothesis",
+      "validate findings"
+    ],
+    "example1": "The pilot helps validate the business case.",
+    "translation1": "试点有助于验证商业可行性。",
+    "example2": "Independent tests are needed to validate the claim.",
+    "translation2": "需要独立测试来验证这一说法。",
+    "category": "科技文章常见词汇",
+    "priority": 2,
+    "productionPrompt": "用英文表达：验证",
+    "productionAnswer": "validate"
+  },
+  {
+    "term": "substantiate",
+    "meaning": "证实；用证据支持某一说法",
+    "pos": "v.",
+    "patterns": [
+      "substantiate a claim",
+      "substantiate findings"
+    ],
+    "example1": "The company has not substantiated its performance claim.",
+    "translation1": "公司尚未为性能主张提供充分证据。",
+    "example2": "More data would help substantiate the conclusion.",
+    "translation2": "更多数据有助于证实结论。",
+    "category": "科技文章常见词汇",
+    "priority": 2,
+    "productionPrompt": "用英文表达：证实",
+    "productionAnswer": "substantiate"
+  },
+  {
+    "term": "attribute",
+    "meaning": "将……归因于",
+    "pos": "v.",
+    "patterns": [
+      "attribute to",
+      "attributable to"
+    ],
+    "example1": "Analysts attribute growth to stronger demand.",
+    "translation1": "分析师将增长归因于需求增强。",
+    "example2": "The team attributed the error to a data issue.",
+    "translation2": "团队将错误归因于数据问题。",
+    "category": "科技文章常见词汇",
+    "priority": 2,
+    "productionPrompt": "用英文表达：将……归因于",
+    "productionAnswer": "attribute"
+  },
+  {
+    "term": "account for",
+    "meaning": "占据（比例）；解释（原因）",
+    "pos": "phr.v.",
+    "patterns": [
+      "account for growth",
+      "account for costs"
+    ],
+    "example1": "Inference accounts for much of the operating cost.",
+    "translation1": "推理占据运营成本的很大一部分。",
+    "example2": "The report does not account for infrastructure expenses.",
+    "translation2": "报告没有将基础设施支出计入考虑。",
+    "category": "科技文章常见词汇",
+    "priority": 2,
+    "productionPrompt": "用英文表达：占据（比例）",
+    "productionAnswer": "account for"
+  },
+  {
+    "term": "contribute to",
+    "meaning": "促成；对……产生影响",
+    "pos": "phr.v.",
+    "patterns": [
+      "contribute to growth",
+      "contribute to a problem"
+    ],
+    "example1": "Better tools contributed to faster development.",
+    "translation1": "更好的工具促成了更快的开发。",
+    "example2": "High costs can contribute to slow adoption.",
+    "translation2": "高成本可能导致采用速度缓慢。",
+    "category": "科技文章常见词汇",
+    "priority": 2,
+    "productionPrompt": "用英文表达：促成",
+    "productionAnswer": "contribute to"
+  },
+  {
+    "term": "facilitate",
+    "meaning": "促进；使某件事更容易进行",
+    "pos": "v.",
+    "patterns": [
+      "facilitate adoption",
+      "facilitate collaboration"
+    ],
+    "example1": "Open standards facilitate collaboration.",
+    "translation1": "开放标准促进协作。",
+    "example2": "The platform facilitates model deployment.",
+    "translation2": "平台使模型部署更加便捷。",
+    "category": "科技文章常见词汇",
+    "priority": 2,
+    "productionPrompt": "用英文表达：促进",
+    "productionAnswer": "facilitate"
+  },
+  {
+    "term": "enable",
+    "meaning": "使……成为可能；赋予能力",
+    "pos": "v.",
+    "patterns": [
+      "enable users to",
+      "enable new applications"
+    ],
+    "example1": "The API enables developers to build agents.",
+    "translation1": "API 让开发者能够构建智能体。",
+    "example2": "Lower costs enable new business models.",
+    "translation2": "更低的成本使新商业模式成为可能。",
+    "category": "科技文章常见词汇",
+    "priority": 2,
+    "productionPrompt": "用英文表达：使……成为可能",
+    "productionAnswer": "enable"
+  },
+  {
+    "term": "accelerate",
+    "meaning": "加速；加快",
+    "pos": "v.",
+    "patterns": [
+      "accelerate adoption",
+      "accelerate development"
+    ],
+    "example1": "Improved tools could accelerate adoption.",
+    "translation1": "工具改进可能加快采用速度。",
+    "example2": "The partnership aims to accelerate research.",
+    "translation2": "合作旨在加速研究。",
+    "category": "科技文章常见词汇",
+    "priority": 2,
+    "productionPrompt": "用英文表达：加速",
+    "productionAnswer": "accelerate"
+  },
+  {
+    "term": "mitigate",
+    "meaning": "缓解；降低风险或负面影响",
+    "pos": "v.",
+    "patterns": [
+      "mitigate risk",
+      "mitigate impact"
+    ],
+    "example1": "The team introduced controls to mitigate risk.",
+    "translation1": "团队引入控制措施来降低风险。",
+    "example2": "Caching may help mitigate latency problems.",
+    "translation2": "缓存可能有助于缓解延迟问题。",
+    "category": "科技文章常见词汇",
+    "priority": 2,
+    "productionPrompt": "用英文表达：缓解",
+    "productionAnswer": "mitigate"
+  },
+  {
+    "term": "undermine",
+    "meaning": "削弱；损害",
+    "pos": "v.",
+    "patterns": [
+      "undermine trust",
+      "undermine confidence"
+    ],
+    "example1": "Repeated errors can undermine user trust.",
+    "translation1": "反复错误会削弱用户信任。",
+    "example2": "Rising costs may undermine profitability.",
+    "translation2": "成本上升可能损害盈利能力。",
+    "category": "科技文章常见词汇",
+    "priority": 2,
+    "productionPrompt": "用英文表达：削弱",
+    "productionAnswer": "undermine"
+  },
+  {
+    "term": "outweigh",
+    "meaning": "超过；比……更重要",
+    "pos": "v.",
+    "patterns": [
+      "benefits outweigh costs",
+      "outweigh risks"
+    ],
+    "example1": "For some users, benefits outweigh the risks.",
+    "translation1": "对一些用户而言，收益超过风险。",
+    "example2": "The costs may outweigh the expected gains.",
+    "translation2": "成本可能超过预期收益。",
+    "category": "科技文章常见词汇",
+    "priority": 2,
+    "productionPrompt": "用英文表达：超过",
+    "productionAnswer": "outweigh"
+  },
+  {
+    "term": "at scale",
+    "meaning": "大规模运行或应用时",
+    "pos": "phrase",
+    "patterns": [
+      "operate at scale",
+      "work at scale"
+    ],
+    "example1": "A demo is one thing; operating at scale is another.",
+    "translation1": "演示是一回事，大规模运行是另一回事。",
+    "example2": "Can this approach work at scale?",
+    "translation2": "这种方法能在大规模应用中奏效吗？",
+    "category": "从业者常用表达",
+    "priority": 1,
+    "productionPrompt": "用英文表达：大规模运行或应用时",
+    "productionAnswer": "at scale"
+  },
+  {
+    "term": "scale up",
+    "meaning": "扩大规模；增加产能或覆盖范围",
+    "pos": "phr.v.",
+    "patterns": [
+      "scale up operations",
+      "scale up compute"
+    ],
+    "example1": "The company plans to scale up its data centers.",
+    "translation1": "公司计划扩大数据中心规模。",
+    "example2": "Scaling up too quickly can create problems.",
+    "translation2": "扩张过快可能带来问题。",
+    "category": "从业者常用表达",
+    "priority": 1,
+    "productionPrompt": "用英文表达：扩大规模",
+    "productionAnswer": "scale up"
+  },
+  {
+    "term": "double down on",
+    "meaning": "进一步加大对……的投入或坚持",
+    "pos": "phrase",
+    "patterns": [
+      "double down on research",
+      "double down on"
+    ],
+    "example1": "The lab is doubling down on reasoning research.",
+    "translation1": "实验室正进一步加大对推理研究的投入。",
+    "example2": "The company doubled down on enterprise customers.",
+    "translation2": "公司进一步专注于企业客户。",
+    "category": "从业者常用表达",
+    "priority": 1,
+    "productionPrompt": "用英文表达：进一步加大对……的投入或坚持",
+    "productionAnswer": "double down on"
+  },
+  {
+    "term": "move the needle",
+    "meaning": "产生实质影响；带来明显改变",
+    "pos": "idiom",
+    "patterns": [
+      "really move the needle",
+      "move the needle on"
+    ],
+    "example1": "The update may not move the needle on adoption.",
+    "translation1": "这次更新可能不足以明显推动采用率。",
+    "example2": "Which feature would really move the needle?",
+    "translation2": "哪项功能能够真正带来显著变化？",
+    "category": "从业者常用表达",
+    "priority": 1,
+    "productionPrompt": "用英文表达：产生实质影响",
+    "productionAnswer": "move the needle"
+  },
+  {
+    "term": "trade-off",
+    "meaning": "权衡；不同利益或性能之间的取舍",
+    "pos": "n.",
+    "patterns": [
+      "trade-off between",
+      "make a trade-off"
+    ],
+    "example1": "There is a trade-off between speed and accuracy.",
+    "translation1": "速度与准确率之间存在权衡。",
+    "example2": "Every design involves trade-offs.",
+    "translation2": "每种设计都涉及取舍。",
+    "category": "从业者常用表达",
+    "priority": 1,
+    "productionPrompt": "用英文表达：权衡",
+    "productionAnswer": "trade-off"
+  },
+  {
+    "term": "bottleneck",
+    "meaning": "瓶颈；限制整体表现的关键因素",
+    "pos": "n.",
+    "patterns": [
+      "major bottleneck",
+      "remove a bottleneck"
+    ],
+    "example1": "Memory bandwidth can be a bottleneck.",
+    "translation1": "内存带宽可能成为瓶颈。",
+    "example2": "What is the biggest bottleneck to adoption?",
+    "translation2": "阻碍采用的最大瓶颈是什么？",
+    "category": "从业者常用表达",
+    "priority": 1,
+    "productionPrompt": "用英文表达：瓶颈",
+    "productionAnswer": "bottleneck"
+  },
+  {
+    "term": "figure out",
+    "meaning": "弄清楚；找到解决办法",
+    "pos": "phr.v.",
+    "patterns": [
+      "figure out how",
+      "figure out why"
+    ],
+    "example1": "We have not figured out how to make agents reliable.",
+    "translation1": "我们尚未找到让智能体可靠运行的方法。",
+    "example2": "The team is trying to figure out the cause.",
+    "translation2": "团队正在努力找出原因。",
+    "category": "从业者常用表达",
+    "priority": 1,
+    "productionPrompt": "用英文表达：弄清楚",
+    "productionAnswer": "figure out"
+  },
+  {
+    "term": "roll out",
+    "meaning": "逐步推出；分阶段上线",
+    "pos": "phr.v.",
+    "patterns": [
+      "roll out a feature",
+      "roll out globally"
+    ],
+    "example1": "The company will roll out the feature next week.",
+    "translation1": "公司下周将逐步推出这项功能。",
+    "example2": "The update is rolling out to paid users first.",
+    "translation2": "更新将先面向付费用户推出。",
+    "category": "从业者常用表达",
+    "priority": 1,
+    "productionPrompt": "用英文表达：逐步推出",
+    "productionAnswer": "roll out"
+  },
+  {
+    "term": "ship",
+    "meaning": "推出；交付可用产品或功能",
+    "pos": "v.",
+    "patterns": [
+      "ship a feature",
+      "ship a product"
+    ],
+    "example1": "The startup ships updates every week.",
+    "translation1": "这家初创企业每周发布更新。",
+    "example2": "It's easy to demo; it's harder to ship.",
+    "translation2": "做演示容易，交付真正可用的产品更难。",
+    "category": "从业者常用表达",
+    "priority": 1,
+    "productionPrompt": "用英文表达：推出",
+    "productionAnswer": "ship"
+  },
+  {
+    "term": "build on top of",
+    "meaning": "基于……构建（更上层的产品）",
+    "pos": "phrase",
+    "patterns": [
+      "build on top of models",
+      "build on top of"
+    ],
+    "example1": "Many apps are built on top of foundation models.",
+    "translation1": "许多应用基于基础模型构建。",
+    "example2": "The company builds on top of existing APIs.",
+    "translation2": "公司基于现有 API 开发产品。",
+    "category": "从业者常用表达",
+    "priority": 1,
+    "productionPrompt": "用英文表达：基于……构建（更上层的产品）",
+    "productionAnswer": "build on top of"
+  },
+  {
+    "term": "hold up",
+    "meaning": "经受住检验；继续有效",
+    "pos": "phr.v.",
+    "patterns": [
+      "hold up under pressure",
+      "hold up at scale"
+    ],
+    "example1": "Will the results hold up in real-world settings?",
+    "translation1": "这些结果在真实环境中还能成立吗？",
+    "example2": "The approach did not hold up under heavy load.",
+    "translation2": "这一方法在高负载下未能保持有效。",
+    "category": "从业者常用表达",
+    "priority": 1,
+    "productionPrompt": "用英文表达：经受住检验",
+    "productionAnswer": "hold up"
+  },
+  {
+    "term": "come down to",
+    "meaning": "归结为；最终取决于",
+    "pos": "phrase",
+    "patterns": [
+      "come down to cost",
+      "come down to execution"
+    ],
+    "example1": "The decision may come down to reliability.",
+    "translation1": "决定可能最终取决于可靠性。",
+    "example2": "For customers, it often comes down to price.",
+    "translation2": "对客户而言，问题往往归结为价格。",
+    "category": "从业者常用表达",
+    "priority": 1,
+    "productionPrompt": "用英文表达：归结为",
+    "productionAnswer": "come down to"
+  },
+  {
+    "term": "stand out",
+    "meaning": "脱颖而出；显得突出",
+    "pos": "phr.v.",
+    "patterns": [
+      "stand out from",
+      "stand out in"
+    ],
+    "example1": "The product stands out for its simple design.",
+    "translation1": "产品因简洁设计而脱颖而出。",
+    "example2": "It's difficult to stand out in a crowded market.",
+    "translation2": "在拥挤的市场中很难脱颖而出。",
+    "category": "从业者常用表达",
+    "priority": 1,
+    "productionPrompt": "用英文表达：脱颖而出",
+    "productionAnswer": "stand out"
+  },
+  {
+    "term": "catch up",
+    "meaning": "追赶；赶上",
+    "pos": "phr.v.",
+    "patterns": [
+      "catch up with",
+      "play catch-up"
+    ],
+    "example1": "Smaller labs are trying to catch up.",
+    "translation1": "较小的实验室正在努力追赶。",
+    "example2": "Competitors may catch up on benchmark scores.",
+    "translation2": "竞争对手可能在基准测试得分上追上来。",
+    "category": "从业者常用表达",
+    "priority": 1,
+    "productionPrompt": "用英文表达：追赶",
+    "productionAnswer": "catch up"
+  },
+  {
+    "term": "fall behind",
+    "meaning": "落后；跟不上进展",
+    "pos": "phr.v.",
+    "patterns": [
+      "fall behind competitors",
+      "fall behind on"
+    ],
+    "example1": "Companies that move too slowly may fall behind.",
+    "translation1": "行动太慢的公司可能落后。",
+    "example2": "The project fell behind schedule.",
+    "translation2": "项目进度落后于计划。",
+    "category": "从业者常用表达",
+    "priority": 1,
+    "productionPrompt": "用英文表达：落后",
+    "productionAnswer": "fall behind"
+  },
+  {
+    "term": "keep up with",
+    "meaning": "跟上；持续掌握……的发展",
+    "pos": "phrase",
+    "patterns": [
+      "keep up with research",
+      "keep up with demand"
+    ],
+    "example1": "It is hard to keep up with AI research.",
+    "translation1": "很难跟上 AI 研究进展。",
+    "example2": "Infrastructure must keep up with demand.",
+    "translation2": "基础设施必须跟上需求。",
+    "category": "从业者常用表达",
+    "priority": 1,
+    "productionPrompt": "用英文表达：跟上",
+    "productionAnswer": "keep up with"
+  },
+  {
+    "term": "turn out",
+    "meaning": "结果是；后来发现",
+    "pos": "phr.v.",
+    "patterns": [
+      "turn out to be",
+      "turn out that"
+    ],
+    "example1": "The problem turned out to be more complex.",
+    "translation1": "问题后来被发现比预想更复杂。",
+    "example2": "The model turned out to be cheaper to run.",
+    "translation2": "结果发现这个模型的运行成本更低。",
+    "category": "从业者常用表达",
+    "priority": 1,
+    "productionPrompt": "用英文表达：结果是",
+    "productionAnswer": "turn out"
+  },
+  {
+    "term": "play out",
+    "meaning": "逐渐发展；（局势）最终如何演变",
+    "pos": "phr.v.",
+    "patterns": [
+      "see how it plays out",
+      "play out over time"
+    ],
+    "example1": "We will see how this competition plays out.",
+    "translation1": "我们将看到这场竞争如何演变。",
+    "example2": "The effects may play out over several years.",
+    "translation2": "影响可能在几年间逐渐显现。",
+    "category": "从业者常用表达",
+    "priority": 1,
+    "productionPrompt": "用英文表达：逐渐发展",
+    "productionAnswer": "play out"
+  },
+  {
+    "term": "take off",
+    "meaning": "迅速流行；开始高速增长",
+    "pos": "phr.v.",
+    "patterns": [
+      "adoption takes off",
+      "product takes off"
+    ],
+    "example1": "Consumer adoption took off after the launch.",
+    "translation1": "发布后消费者采用率迅速增长。",
+    "example2": "The technology may take off when costs fall.",
+    "translation2": "当成本下降时，这项技术可能迅速普及。",
+    "category": "从业者常用表达",
+    "priority": 1,
+    "productionPrompt": "用英文表达：迅速流行",
+    "productionAnswer": "take off"
+  },
+  {
+    "term": "gain traction",
+    "meaning": "获得市场认可或发展势头",
+    "pos": "phrase",
+    "patterns": [
+      "gain traction with users",
+      "gain traction in"
+    ],
+    "example1": "The agent product is gaining traction with developers.",
+    "translation1": "这款智能体产品正在开发者中获得认可。",
+    "example2": "The idea has yet to gain real traction.",
+    "translation2": "这个想法尚未获得真正的发展势头。",
+    "category": "从业者常用表达",
+    "priority": 1,
+    "productionPrompt": "用英文表达：获得市场认可或发展势头",
+    "productionAnswer": "gain traction"
+  },
+  {
+    "term": "push back",
+    "meaning": "提出异议；反对某种说法或决定",
+    "pos": "phr.v.",
+    "patterns": [
+      "push back on",
+      "push back against"
+    ],
+    "example1": "Researchers pushed back on the company's claims.",
+    "translation1": "研究人员对公司的主张提出质疑。",
+    "example2": "Customers pushed back on the new pricing.",
+    "translation2": "客户反对新的定价。",
+    "category": "从业者常用表达",
+    "priority": 1,
+    "productionPrompt": "用英文表达：提出异议",
+    "productionAnswer": "push back"
+  },
+  {
+    "term": "point out",
+    "meaning": "指出；提醒别人注意",
+    "pos": "phr.v.",
+    "patterns": [
+      "point out that",
+      "point out a flaw"
+    ],
+    "example1": "The analyst pointed out a flaw in the comparison.",
+    "translation1": "分析师指出比较中的一个缺陷。",
+    "example2": "She pointed out that the test was limited.",
+    "translation2": "她指出该测试具有局限性。",
+    "category": "从业者常用表达",
+    "priority": 1,
+    "productionPrompt": "用英文表达：指出",
+    "productionAnswer": "point out"
+  },
+  {
+    "term": "bring up",
+    "meaning": "提出话题；提及问题",
+    "pos": "phr.v.",
+    "patterns": [
+      "bring up a concern",
+      "bring up a topic"
+    ],
+    "example1": "The interviewer brought up safety concerns.",
+    "translation1": "采访者提出了安全方面的担忧。",
+    "example2": "I want to bring up one more question.",
+    "translation2": "我还想提出一个问题。",
+    "category": "从业者常用表达",
+    "priority": 2,
+    "productionPrompt": "用英文表达：提出话题",
+    "productionAnswer": "bring up"
+  },
+  {
+    "term": "follow up on",
+    "meaning": "跟进；就……继续提问或行动",
+    "pos": "phrase",
+    "patterns": [
+      "follow up on a question",
+      "follow up on"
+    ],
+    "example1": "Can I follow up on your point about cost?",
+    "translation1": "我能就你刚才关于成本的观点追问一下吗？",
+    "example2": "The team will follow up on the customer feedback.",
+    "translation2": "团队会跟进客户反馈。",
+    "category": "从业者常用表达",
+    "priority": 2,
+    "productionPrompt": "用英文表达：跟进",
+    "productionAnswer": "follow up on"
+  },
+  {
+    "term": "dig into",
+    "meaning": "深入研究；细究",
+    "pos": "phr.v.",
+    "patterns": [
+      "dig into the data",
+      "dig into details"
+    ],
+    "example1": "Let's dig into the benchmark results.",
+    "translation1": "我们深入看看基准测试结果。",
+    "example2": "The report digs into the company's spending.",
+    "translation2": "报告深入分析了公司的支出。",
+    "category": "从业者常用表达",
+    "priority": 2,
+    "productionPrompt": "用英文表达：深入研究",
+    "productionAnswer": "dig into"
+  },
+  {
+    "term": "break down",
+    "meaning": "拆解；分项分析或解释",
+    "pos": "phr.v.",
+    "patterns": [
+      "break down costs",
+      "break down a concept"
+    ],
+    "example1": "Can you break down the cost structure?",
+    "translation1": "你能拆解一下成本结构吗？",
+    "example2": "The article breaks down how the model works.",
+    "translation2": "文章拆解了模型的工作原理。",
+    "category": "从业者常用表达",
+    "priority": 2,
+    "productionPrompt": "用英文表达：拆解",
+    "productionAnswer": "break down"
+  },
+  {
+    "term": "walk through",
+    "meaning": "逐步讲解；带着别人过一遍",
+    "pos": "phr.v.",
+    "patterns": [
+      "walk through an example",
+      "walk me through"
+    ],
+    "example1": "Could you walk me through your evaluation process?",
+    "translation1": "你能逐步介绍评估流程吗？",
+    "example2": "The engineer walked us through the demo.",
+    "translation2": "工程师带我们一步步了解演示。",
+    "category": "从业者常用表达",
+    "priority": 2,
+    "productionPrompt": "用英文表达：逐步讲解",
+    "productionAnswer": "walk through"
+  },
+  {
+    "term": "zoom in on",
+    "meaning": "聚焦；仔细看某一部分",
+    "pos": "phrase",
+    "patterns": [
+      "zoom in on a detail",
+      "zoom in on"
+    ],
+    "example1": "Let's zoom in on the enterprise market.",
+    "translation1": "我们聚焦看一下企业市场。",
+    "example2": "The interview zoomed in on inference costs.",
+    "translation2": "访谈重点讨论了推理成本。",
+    "category": "从业者常用表达",
+    "priority": 2,
+    "productionPrompt": "用英文表达：聚焦",
+    "productionAnswer": "zoom in on"
+  },
+  {
+    "term": "step back",
+    "meaning": "退一步看；从更宏观角度审视",
+    "pos": "phrase",
+    "patterns": [
+      "step back and look",
+      "take a step back"
+    ],
+    "example1": "If we step back, the bigger trend becomes clear.",
+    "translation1": "从更宏观的角度看，主要趋势就清楚了。",
+    "example2": "Let's step back and examine the assumptions.",
+    "translation2": "我们退一步审视这些假设。",
+    "category": "从业者常用表达",
+    "priority": 2,
+    "productionPrompt": "用英文表达：退一步看",
+    "productionAnswer": "step back"
+  },
+  {
+    "term": "open up",
+    "meaning": "创造；带来新的机会或可能性",
+    "pos": "phr.v.",
+    "patterns": [
+      "open up opportunities",
+      "open up access"
+    ],
+    "example1": "Lower costs could open up new markets.",
+    "translation1": "更低的成本可能开辟新市场。",
+    "example2": "The API opens up access to smaller teams.",
+    "translation2": "该 API 让小团队也能够获得使用机会。",
+    "category": "从业者常用表达",
+    "priority": 2,
+    "productionPrompt": "用英文表达：创造",
+    "productionAnswer": "open up"
+  },
+  {
+    "term": "rule out",
+    "meaning": "排除；认定某种可能性不成立",
+    "pos": "phr.v.",
+    "patterns": [
+      "rule out a possibility",
+      "rule out"
+    ],
+    "example1": "We cannot rule out other explanations.",
+    "translation1": "我们不能排除其他解释。",
+    "example2": "The team ruled out a hardware problem.",
+    "translation2": "团队排除了硬件故障。",
+    "category": "从业者常用表达",
+    "priority": 2,
+    "productionPrompt": "用英文表达：排除",
+    "productionAnswer": "rule out"
+  },
+  {
+    "term": "back up",
+    "meaning": "用证据支持；备份（依语境）",
+    "pos": "phr.v.",
+    "patterns": [
+      "back up a claim",
+      "back up data"
+    ],
+    "example1": "Can the company back up its claims with data?",
+    "translation1": "公司能用数据支持自己的主张吗？",
+    "example2": "The team backs up its training data regularly.",
+    "translation2": "团队定期备份训练数据。",
+    "category": "从业者常用表达",
+    "priority": 2,
+    "productionPrompt": "用英文表达：用证据支持",
+    "productionAnswer": "back up"
+  },
+  {
+    "term": "make sense",
+    "meaning": "说得通；合理；容易理解",
+    "pos": "phrase",
+    "patterns": [
+      "make sense for",
+      "make sense to"
+    ],
+    "example1": "A smaller model may make sense for this task.",
+    "translation1": "对这个任务而言，较小的模型可能更合理。",
+    "example2": "Does that explanation make sense to you?",
+    "translation2": "这个解释你听起来合理吗？",
+    "category": "从业者常用表达",
+    "priority": 2,
+    "productionPrompt": "用英文表达：说得通",
+    "productionAnswer": "make sense"
+  },
+  {
+    "term": "get wrong",
+    "meaning": "理解错误；判断失误",
+    "pos": "phrase",
+    "patterns": [
+      "get something wrong",
+      "what people get wrong"
+    ],
+    "example1": "What do people get wrong about AI agents?",
+    "translation1": "人们对 AI 智能体有哪些误解？",
+    "example2": "The forecast got the timing wrong.",
+    "translation2": "预测对时间节点判断错误。",
+    "category": "从业者常用表达",
+    "priority": 2,
+    "productionPrompt": "用英文表达：理解错误",
+    "productionAnswer": "get wrong"
+  },
+  {
+    "term": "look ahead",
+    "meaning": "展望未来；向前看",
+    "pos": "phrase",
+    "patterns": [
+      "look ahead to",
+      "looking ahead"
+    ],
+    "example1": "Looking ahead, costs may continue to fall.",
+    "translation1": "展望未来，成本可能继续下降。",
+    "example2": "The CEO looked ahead to the next product cycle.",
+    "translation2": "首席执行官展望了下一轮产品周期。",
+    "category": "从业者常用表达",
+    "priority": 2,
+    "productionPrompt": "用英文表达：展望未来",
+    "productionAnswer": "look ahead"
+  },
+  {
+    "term": "infrastructure",
+    "meaning": "基础设施；支撑服务运行的硬件和系统",
+    "pos": "n.",
+    "patterns": [
+      "AI infrastructure",
+      "compute infrastructure"
+    ],
+    "example1": "AI infrastructure requires power and cooling.",
+    "translation1": "AI 基础设施需要电力和冷却系统。",
+    "example2": "The firm invested in cloud infrastructure.",
+    "translation2": "公司投资了云基础设施。",
+    "category": "AI 延伸概念",
+    "priority": 1,
+    "productionPrompt": "用英文表达：基础设施",
+    "productionAnswer": "infrastructure"
+  },
+  {
+    "term": "data center",
+    "meaning": "数据中心；集中存放计算与存储设备的设施",
+    "pos": "n.",
+    "patterns": [
+      "data center capacity",
+      "data center operator"
+    ],
+    "example1": "A new data center will support model training.",
+    "translation1": "一座新数据中心将支持模型训练。",
+    "example2": "Power supply is a major issue for data centers.",
+    "translation2": "电力供应是数据中心的一大问题。",
+    "category": "AI 延伸概念",
+    "priority": 1,
+    "productionPrompt": "用英文表达：数据中心",
+    "productionAnswer": "data center"
+  },
+  {
+    "term": "GPU",
+    "meaning": "图形处理器；广泛用于 AI 计算的芯片",
+    "pos": "n.",
+    "patterns": [
+      "GPU cluster",
+      "GPU demand"
+    ],
+    "example1": "Training large models often requires many GPUs.",
+    "translation1": "训练大模型通常需要大量 GPU。",
+    "example2": "GPU availability can affect research timelines.",
+    "translation2": "GPU 供应情况可能影响研究进度。",
+    "category": "AI 延伸概念",
+    "priority": 1,
+    "productionPrompt": "用英文表达：图形处理器",
+    "productionAnswer": "GPU"
+  },
+  {
+    "term": "accelerator",
+    "meaning": "加速器；专门加速特定计算任务的硬件",
+    "pos": "n.",
+    "patterns": [
+      "AI accelerator",
+      "hardware accelerator"
+    ],
+    "example1": "The chip is designed as an AI accelerator.",
+    "translation1": "这款芯片被设计为 AI 加速器。",
+    "example2": "Different accelerators have different cost profiles.",
+    "translation2": "不同加速器具有不同的成本特征。",
+    "category": "AI 延伸概念",
+    "priority": 1,
+    "productionPrompt": "用英文表达：加速器",
+    "productionAnswer": "accelerator"
+  },
+  {
+    "term": "memory bandwidth",
+    "meaning": "内存带宽；单位时间可传输的数据量",
+    "pos": "n.",
+    "patterns": [
+      "memory bandwidth",
+      "bottleneck"
+    ],
+    "example1": "Limited memory bandwidth can slow inference.",
+    "translation1": "有限的内存带宽可能降低推理速度。",
+    "example2": "The design improves memory bandwidth utilization.",
+    "translation2": "该设计提高了内存带宽利用率。",
+    "category": "AI 延伸概念",
+    "priority": 1,
+    "productionPrompt": "用英文表达：内存带宽",
+    "productionAnswer": "memory bandwidth"
+  },
+  {
+    "term": "energy efficiency",
+    "meaning": "能效；每单位能源实现的工作量",
+    "pos": "n.",
+    "patterns": [
+      "energy efficiency",
+      "improve efficiency"
+    ],
+    "example1": "Energy efficiency matters for large AI deployments.",
+    "translation1": "能效对大型 AI 部署至关重要。",
+    "example2": "The new chip offers better energy efficiency.",
+    "translation2": "新芯片提供了更好的能效。",
+    "category": "AI 延伸概念",
+    "priority": 1,
+    "productionPrompt": "用英文表达：能效",
+    "productionAnswer": "energy efficiency"
+  },
+  {
+    "term": "test-time compute",
+    "meaning": "测试时计算量；模型在回答时使用的额外计算",
+    "pos": "n.",
+    "patterns": [
+      "test-time compute",
+      "inference-time scaling"
+    ],
+    "example1": "More test-time compute can improve some reasoning results.",
+    "translation1": "更多测试时计算量可以改善某些推理结果。",
+    "example2": "The paper examines the cost of test-time compute.",
+    "translation2": "论文研究了测试时计算量的成本。",
+    "category": "AI 延伸概念",
+    "priority": 1,
+    "productionPrompt": "用英文表达：测试时计算量",
+    "productionAnswer": "test-time compute"
+  },
+  {
+    "term": "post-training",
+    "meaning": "后训练；预训练之后的模型优化阶段",
+    "pos": "n.",
+    "patterns": [
+      "post-training methods",
+      "post-training data"
+    ],
+    "example1": "Post-training can shape how a model responds.",
+    "translation1": "后训练可以影响模型的回答方式。",
+    "example2": "The company invested in post-training research.",
+    "translation2": "公司投入了后训练研究。",
+    "category": "AI 延伸概念",
+    "priority": 1,
+    "productionPrompt": "用英文表达：后训练",
+    "productionAnswer": "post-training"
+  },
+  {
+    "term": "synthetic data",
+    "meaning": "合成数据；人工或程序生成的数据",
+    "pos": "n.",
+    "patterns": [
+      "synthetic data generation",
+      "synthetic training data"
+    ],
+    "example1": "Synthetic data can supplement real training examples.",
+    "translation1": "合成数据可以补充真实训练样本。",
+    "example2": "Poor synthetic data may introduce new errors.",
+    "translation2": "质量较差的合成数据可能引入新的错误。",
+    "category": "AI 延伸概念",
+    "priority": 1,
+    "productionPrompt": "用英文表达：合成数据",
+    "productionAnswer": "synthetic data"
+  },
+  {
+    "term": "dataset",
+    "meaning": "数据集；用于训练或评估的数据集合",
+    "pos": "n.",
+    "patterns": [
+      "training dataset",
+      "benchmark dataset"
+    ],
+    "example1": "The dataset contains examples in many languages.",
+    "translation1": "数据集包含多种语言的样本。",
+    "example2": "The team published a new evaluation dataset.",
+    "translation2": "团队发布了新的评估数据集。",
+    "category": "AI 延伸概念",
+    "priority": 1,
+    "productionPrompt": "用英文表达：数据集",
+    "productionAnswer": "dataset"
+  },
+  {
+    "term": "annotation",
+    "meaning": "标注；为数据添加标签或说明",
+    "pos": "n.",
+    "patterns": [
+      "data annotation",
+      "human annotation"
+    ],
+    "example1": "High-quality annotation can be expensive.",
+    "translation1": "高质量数据标注可能成本很高。",
+    "example2": "Human annotation helped improve the dataset.",
+    "translation2": "人工标注帮助改善了数据集。",
+    "category": "AI 延伸概念",
+    "priority": 1,
+    "productionPrompt": "用英文表达：标注",
+    "productionAnswer": "annotation"
+  },
+  {
+    "term": "bias",
+    "meaning": "偏差；模型或数据中存在的系统性倾向",
+    "pos": "n.",
+    "patterns": [
+      "data bias",
+      "model bias"
+    ],
+    "example1": "Bias in training data can affect model outputs.",
+    "translation1": "训练数据中的偏差可能影响模型输出。",
+    "example2": "The team tested for demographic bias.",
+    "translation2": "团队测试了与人口群体相关的偏差。",
+    "category": "AI 延伸概念",
+    "priority": 1,
+    "productionPrompt": "用英文表达：偏差",
+    "productionAnswer": "bias"
+  },
+  {
+    "term": "safety",
+    "meaning": "安全性；防止系统造成伤害或被滥用的能力",
+    "pos": "n.",
+    "patterns": [
+      "AI safety",
+      "safety testing"
+    ],
+    "example1": "AI safety research studies potential risks.",
+    "translation1": "AI 安全研究探讨潜在风险。",
+    "example2": "The company published a safety report.",
+    "translation2": "公司发布了安全报告。",
+    "category": "AI 延伸概念",
+    "priority": 1,
+    "productionPrompt": "用英文表达：安全性",
+    "productionAnswer": "safety"
+  },
+  {
+    "term": "misuse",
+    "meaning": "滥用；以有害或未经授权方式使用系统",
+    "pos": "n.",
+    "patterns": [
+      "model misuse",
+      "misuse risk"
+    ],
+    "example1": "The policy aims to reduce the risk of misuse.",
+    "translation1": "该政策旨在降低滥用风险。",
+    "example2": "Researchers considered possible misuse scenarios.",
+    "translation2": "研究人员考虑了可能的滥用场景。",
+    "category": "AI 延伸概念",
+    "priority": 1,
+    "productionPrompt": "用英文表达：滥用",
+    "productionAnswer": "misuse"
+  },
+  {
+    "term": "interpretability",
+    "meaning": "可解释性；理解模型内部机制或决策的程度",
+    "pos": "n.",
+    "patterns": [
+      "mechanistic interpretability",
+      "model interpretability"
+    ],
+    "example1": "Interpretability research aims to understand model behavior.",
+    "translation1": "可解释性研究旨在理解模型行为。",
+    "example2": "The team built tools for model interpretability.",
+    "translation2": "团队开发了模型可解释性工具。",
+    "category": "AI 延伸概念",
+    "priority": 1,
+    "productionPrompt": "用英文表达：可解释性",
+    "productionAnswer": "interpretability"
+  },
+  {
+    "term": "transparency",
+    "meaning": "透明度；信息和决策过程公开清晰的程度",
+    "pos": "n.",
+    "patterns": [
+      "model transparency",
+      "transparency report"
+    ],
+    "example1": "Transparency can help users assess risks.",
+    "translation1": "透明度可以帮助用户评估风险。",
+    "example2": "The company published a transparency report.",
+    "translation2": "公司发布了透明度报告。",
+    "category": "AI 延伸概念",
+    "priority": 1,
+    "productionPrompt": "用英文表达：透明度",
+    "productionAnswer": "transparency"
+  },
+  {
+    "term": "autonomy",
+    "meaning": "自主性；系统在少量人工干预下行动的能力",
+    "pos": "n.",
+    "patterns": [
+      "agent autonomy",
+      "degree of autonomy"
+    ],
+    "example1": "Greater autonomy can increase the need for oversight.",
+    "translation1": "更高的自主性可能提高监督需求。",
+    "example2": "The product limits agent autonomy for risky tasks.",
+    "translation2": "产品限制了智能体在高风险任务中的自主性。",
+    "category": "AI 延伸概念",
+    "priority": 1,
+    "productionPrompt": "用英文表达：自主性",
+    "productionAnswer": "autonomy"
+  },
+  {
+    "term": "robotics",
+    "meaning": "机器人学；研究机器人的设计与控制",
+    "pos": "n.",
+    "patterns": [
+      "robotics research",
+      "robotics startup"
+    ],
+    "example1": "Robotics research combines software and hardware.",
+    "translation1": "机器人研究结合了软硬件。",
+    "example2": "The startup works on robotics for warehouses.",
+    "translation2": "这家初创企业开发用于仓库的机器人技术。",
+    "category": "AI 延伸概念",
+    "priority": 1,
+    "productionPrompt": "用英文表达：机器人学",
+    "productionAnswer": "robotics"
+  },
+  {
+    "term": "embodied AI",
+    "meaning": "具身智能；在物理环境中感知并行动的 AI",
+    "pos": "n.",
+    "patterns": [
+      "embodied AI",
+      "embodied agent"
+    ],
+    "example1": "Embodied AI connects perception with physical action.",
+    "translation1": "具身智能将感知与物理行动联系起来。",
+    "example2": "Researchers tested embodied AI in simulated environments.",
+    "translation2": "研究人员在仿真环境中测试具身智能。",
+    "category": "AI 延伸概念",
+    "priority": 1,
+    "productionPrompt": "用英文表达：具身智能",
+    "productionAnswer": "embodied AI"
+  },
+  {
+    "term": "world model",
+    "meaning": "世界模型；表征环境动态及可能结果的模型",
+    "pos": "n.",
+    "patterns": [
+      "world model",
+      "learn a world model"
+    ],
+    "example1": "A world model may help an agent plan actions.",
+    "translation1": "世界模型可能帮助智能体规划行动。",
+    "example2": "The lab is researching world models for robotics.",
+    "translation2": "实验室正在研究用于机器人学的世界模型。",
+    "category": "AI 延伸概念",
+    "priority": 1,
+    "productionPrompt": "用英文表达：世界模型",
+    "productionAnswer": "world model"
+  },
+  {
+    "term": "diffusion model",
+    "meaning": "扩散模型；常用于图像等内容生成的模型",
+    "pos": "n.",
+    "patterns": [
+      "diffusion model",
+      "image generation"
+    ],
+    "example1": "Diffusion models are widely used for image generation.",
+    "translation1": "扩散模型被广泛用于图像生成。",
+    "example2": "The researchers developed a faster diffusion model.",
+    "translation2": "研究人员开发了一种更快的扩散模型。",
+    "category": "AI 延伸概念",
+    "priority": 1,
+    "productionPrompt": "用英文表达：扩散模型",
+    "productionAnswer": "diffusion model"
+  },
+  {
+    "term": "speech-to-text",
+    "meaning": "语音转文本；将语音转写为文字的技术",
+    "pos": "n.",
+    "patterns": [
+      "speech-to-text model",
+      "speech recognition"
+    ],
+    "example1": "Speech-to-text converts recorded audio into text.",
+    "translation1": "语音转文本将录制的音频转换为文字。",
+    "example2": "The app uses speech-to-text for meeting notes.",
+    "translation2": "该应用利用语音转文本整理会议记录。",
+    "category": "AI 延伸概念",
+    "priority": 1,
+    "productionPrompt": "用英文表达：语音转文本",
+    "productionAnswer": "speech-to-text"
+  }
+]
