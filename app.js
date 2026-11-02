@@ -1,4 +1,4 @@
-/* Wordfield v1.2 — contextual production practice + continuous learning. */
+/* Wordfield v1.3 — Bahasa V3.7-aligned repetition and next-day review. */
 (() => {
 'use strict';
 const KEY='wordfield-v1-snapshot';
@@ -16,7 +16,7 @@ function openDb(){return new Promise((resolve,reject)=>{if(!('indexedDB' in wind
 function dbGet(){return new Promise((resolve,reject)=>{const tx=db.transaction('kv','readonly');const rq=tx.objectStore('kv').get('snapshot');rq.onsuccess=()=>resolve(rq.result);rq.onerror=()=>reject(rq.error);});}
 function dbPut(snapshot){return new Promise((resolve,reject)=>{const tx=db.transaction('kv','readwrite');tx.objectStore('kv').put(snapshot,'snapshot');tx.oncomplete=()=>resolve();tx.onerror=()=>reject(tx.error);});}
 function save(){const snapshot=JSON.stringify(data);writeQueue=writeQueue.then(async()=>{if(db){await dbPut(snapshot);}else if(storageKind!=='临时会话（请导出备份）'){localStorage.setItem(KEY,snapshot);}}).catch(err=>{console.error('Save error:',err);toast('保存失败：请立刻导出备份，并检查浏览器空间。');});return writeQueue;}
-async function init(){let raw=null;try{db=await openDb();raw=await dbGet();storageKind='IndexedDB 本地存储';}catch(err){console.warn('IndexedDB unavailable; fallback to localStorage',err);db=null;storageKind='LocalStorage 本地存储';try{raw=localStorage.getItem(KEY);}catch(_){storageKind='临时会话（请导出备份）';}}try{data=raw?(typeof raw==='string'?JSON.parse(raw):raw):stateFactory();if(!isValidData(data))throw Error('Malformed data');}catch(err){console.warn('Invalid saved data:',err);data=stateFactory();toast('检测到无法读取的存档。已加载初始词书，请检查历史备份。');}data.studySessions=data.studySessions||{};data.settings={activeBook:data.books[0]?.id||null,dailyNew:10,reviewAll:true,...data.settings};if(!data.books.some(b=>b.id===data.settings.activeBook))data.settings.activeBook=data.books[0]?.id||null;libraryBookId=data.settings.activeBook;if(!raw)save();else if(data.version<2){data.version=2;save();}$('#top-date').textContent=new Intl.DateTimeFormat('zh-CN',{year:'numeric',month:'long',day:'numeric',weekday:'long'}).format(new Date());render();}
+async function init(){let raw=null;try{db=await openDb();raw=await dbGet();storageKind='IndexedDB 本地存储';}catch(err){console.warn('IndexedDB unavailable; fallback to localStorage',err);db=null;storageKind='LocalStorage 本地存储';try{raw=localStorage.getItem(KEY);}catch(_){storageKind='临时会话（请导出备份）';}}try{data=raw?(typeof raw==='string'?JSON.parse(raw):raw):stateFactory();if(!isValidData(data))throw Error('Malformed data');}catch(err){console.warn('Invalid saved data:',err);data=stateFactory();toast('检测到无法读取的存档。已加载初始词书，请检查历史备份。');}data.studySessions=data.studySessions||{};const scheduleWasMigrated=migrateFirstDaySchedules();data.settings={activeBook:data.books[0]?.id||null,dailyNew:10,reviewAll:true,...data.settings};if(!data.books.some(b=>b.id===data.settings.activeBook))data.settings.activeBook=data.books[0]?.id||null;libraryBookId=data.settings.activeBook;if(!raw)save();else if(data.version<2||scheduleWasMigrated){data.version=2;save();}$('#top-date').textContent=new Intl.DateTimeFormat('zh-CN',{year:'numeric',month:'long',day:'numeric',weekday:'long'}).format(new Date());render();}
 function isValidData(d){return d&&Array.isArray(d.books)&&Array.isArray(d.entries)&&d.settings&&Array.isArray(d.activity)&&d.books.every(b=>typeof b.id==='string'&&typeof b.title==='string')&&d.entries.every(e=>typeof e.id==='string'&&typeof e.term==='string'&&typeof e.bookId==='string');}
 function toast(message){const el=$('#toast');if(!el)return;el.textContent=message;el.classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('visible'),3600);}
 const bookById=bid=>data.books.find(b=>b.id===bid);
@@ -24,7 +24,7 @@ const wordsOf=bid=>data.entries.filter(e=>e.bookId===bid);
 const norm=x=>String(x??'').trim().toLocaleLowerCase().replace(/\s+/g,' ');
 function learned(e){return Boolean(e.introducedAt||e.recognition?.reviews>0);}
 function mastered(e,mode='recognition'){const s=e[mode];return !!(s&&s.reviews>=3&&s.interval>=21&&s.lastRating>=2);}
-function due(e,mode){const s=e[mode];if(mode==='production'&&!canPracticeProduction(e))return false;if(s?.learningPending)return true;if(!s||!s.reviews)return mode==='production'?!!e.recognition?.reviews:!!e.introducedAt;return !s.due||new Date(s.due).getTime()<=now();}
+function due(e,mode){const s=e[mode];if(mode==='production'&&!canPracticeProduction(e))return false;if(s?.learningPending)return true;if(!s||!s.reviews)return mode==='production'?!!e.recognition?.reviews:!!e.introducedAt;return !s.due||localDay(s.due)<=nDate();}
 const bookStats=bid=>{const a=wordsOf(bid);return{total:a.length,learned:a.filter(learned).length,mastered:a.filter(e=>mastered(e)).length,produced:a.filter(e=>e.production?.reviews>0).length};};
 const pct=(a,b)=>b?Math.round(100*a/b):0;
 function countNewToday(){return data.entries.filter(e=>e.bookId===data.settings.activeBook&&e.introducedAt===nDate()).length;}
@@ -35,36 +35,62 @@ function nav(){document.querySelectorAll('[data-nav]').forEach(e=>e.classList.to
 function render(){nav();$('#storage-note').textContent=noteHtml();if(page==='learn')renderLearn();else if(page==='books')renderBooks();else renderProgress();if(modal)renderModal();}
 function bookSelectHtml(vid){return `<select class="select selector" id="${esc(vid)}" aria-label="当前学习的单词书">${data.books.map(b=>`<option value="${attrs(b.id)}" ${b.id===data.settings.activeBook?'selected':''}>${esc(b.title)}</option>`).join('')}</select>`;}
 function progressHtml(v){return `<div class="progress-bar"><div class="progress-inner" style="width:${Math.max(0,Math.min(100,v))}%"></div></div>`;}
-/* Intraday learning state is persisted inside the same v1 snapshot for seamless upgrades. */
+/* Mirror Bahasa V3.7 scheduling: FSRS-5/90%, new cards return the next day,
+   old cards update their long-term state only on the first recall of the day. */
 const DAY_MS=86400000;
 const FSRS_W=[0.40255,1.18385,3.173,15.69105,7.1949,0.5345,1.4604,0.0046,1.54575,0.1192,1.01925,1.9395,0.11,0.29605,2.2698,0.2315,2.9898,0.51655,0.6621];
+const MAX_ATTEMPTS=12,MAX_MISSES=7,DESIRED_RETENTION=.90;
 const clamp=(n,min,max)=>Math.max(min,Math.min(max,n));
-/* FSRS-5 default parameter equations, 90% desired retention; no per-user weight optimization. */
+function addDays(day,increment){const [y,m,d]=day.split('-').map(Number),x=new Date(y,m-1,d,12);x.setDate(x.getDate()+increment);return nDate(x);}
+function localDay(value){if(!value)return '';if(/^\d{4}-\d{2}-\d{2}$/.test(value))return value;const d=new Date(value);return Number.isNaN(d.getTime())?'':nDate(d);}
+function dayDue(day){return new Date(day+'T12:00:00').toISOString();}
+function elapsedDays(a,b){const first=new Date(a+'T12:00:00'),last=new Date(b+'T12:00:00');return Math.max(0,Math.round((last-first)/DAY_MS));}
+/* Preserve the old review log and books. Migrate only first-time cards that V1.2
+   mistakenly scheduled several days past their mandatory next-day review. */
+function migrateFirstDaySchedules(){
+ let changed=false;
+ for(const e of (data?.entries||[]))for(const mode of ['recognition','production']){
+  const s=e[mode];if(!s||s.reviews!==1||!s.due||!s.lastReviewed||s.learningPending)continue;
+  const start=localDay(s.lastReviewed),next=addDays(start,1);
+  const initiallyLearned=mode==='recognition'?e.introducedAt===start:!!s.history?.[0]&&localDay(s.history[0].at)===start;
+  if(!initiallyLearned||localDay(s.due)<=next)continue;
+  s.originalFirstDue=s.originalFirstDue||s.due;
+  s.originalFirstInterval=s.originalFirstInterval||s.interval;
+  s.interval=1;s.due=dayDue(next);
+  if(Array.isArray(s.history)&&s.history.length===1){s.history[0].originalDue=s.history[0].originalDue||s.history[0].due;s.history[0].due=s.due;}
+  changed=true;
+ }
+ return changed;
+}
 function fsrsUpdate(prev,remembered){
  const w=FSRS_W,g=remembered?3:1,rating=remembered?2:0;
+ const reps=Number(prev?.reviews)||0;
  let d,stability;
- if(!prev?.reviews){d=clamp(w[4]-Math.exp(w[5]*(g-1))+1,1,10);stability=w[g-1];}
+ if(!reps){d=clamp(w[4]-Math.exp(w[5]*(g-1))+1,1,10);stability=w[g-1];}
  else{
   const old=prev.fsrs||{difficulty:5,stability:Math.max(.25,Number(prev.interval)||1)};
-  const elapsed=prev.lastReviewed?Math.max(0,(now()-new Date(prev.lastReviewed).getTime())/DAY_MS):Math.max(0,Number(prev.interval)||1);
-  const s=clamp(old.stability,.01,36500);const r=Math.pow(1+(Math.pow(.9,-2)-1)*elapsed/s,-.5);
-  const dd=old.difficulty-w[6]*(g-3)*(10-old.difficulty)/9;
-  const target=w[4]-Math.exp(w[5]*3)+1; // FSRS-5 mean reversion targets initial Easy difficulty.
-  d=clamp(w[7]*target+(1-w[7])*dd,1,10);
-  if(remembered){stability=s*(1+Math.exp(w[8])*(11-d)*Math.pow(s,-w[9])*(Math.exp((1-r)*w[10])-1));}
-  else{stability=Math.min(s,w[11]*Math.pow(d,-w[12])*(Math.pow(s+1,w[13])-1)*Math.exp((1-r)*w[14]));}
+  const S=clamp(Number(old.stability)||1,.01,36500),D=clamp(Number(old.difficulty)||5,1,10);
+  const elapsed=elapsedDays(localDay(prev.lastReviewed)||nDate(),nDate());
+  const R=Math.pow(1+19*elapsed/(81*S),-.5);
+  const newD=clamp(w[7]*(w[4]-Math.exp(w[5]*3)+1)+(1-w[7])*(D-w[6]*(g-3)*(10-D)/9),1,10);
+  if(elapsed===0)stability=S*Math.exp(w[17]*(g-3+w[18]));
+  else if(g===1)stability=Math.min(w[11]*Math.pow(D,-w[12])*(Math.pow(S+1,w[13])-1)*Math.exp(w[14]*(1-R)),S);
+  else stability=S*(1+Math.exp(w[8])*(11-D)*Math.pow(S,-w[9])*(Math.exp(w[10]*(1-R))-1));
+  d=newD;
  }
- stability=clamp(stability,.01,36500);
- const interval=Math.max(1,Math.round(stability)); // At target 90% retention, elapsed days ≈ stability
- return {difficulty:d,stability,interval:Math.min(36500,interval),rating};
+ stability=clamp(Number.isFinite(stability)?stability:1,.01,36500);
+ const interval=g===1?1:clamp(Math.round((81/19)*stability*(Math.pow(DESIRED_RETENTION,-2)-1)),1,36500);
+ return {difficulty:d,stability,interval,rating};
 }
-function longTermReview(e,mode,remembered){
+function longTermReview(e,mode,remembered,newGraduation=false){
  const previous=e[mode]||{interval:0,ease:2.5,reviews:0,history:[]};
  const next=fsrsUpdate(previous,remembered),stamp=new Date().toISOString();
- const s={...previous,fsrs:{difficulty:next.difficulty,stability:next.stability},interval:next.interval,
-  reviews:(previous.reviews||0)+1,due:new Date(now()+next.interval*DAY_MS).toISOString(),lastReviewed:stamp,lastRating:next.rating,
-  learningPending:false,history:[...(previous.history||[]),{at:stamp,rating:next.rating,due:new Date(now()+next.interval*DAY_MS).toISOString(),algorithm:'FSRS-5'}]};
- e[mode]=s;
+ // Bahasa V3.7 guarantees the FIRST review after a newly learned word is tomorrow.
+ const interval=newGraduation?1:next.interval;
+ const nextDue=dayDue(addDays(nDate(),interval));
+ e[mode]={...previous,fsrs:{difficulty:next.difficulty,stability:next.stability},interval,
+  reviews:(previous.reviews||0)+1,due:nextDue,lastReviewed:stamp,lastRating:next.rating,
+  learningPending:false,history:[...(previous.history||[]),{at:stamp,rating:next.rating,due:nextDue,algorithm:'FSRS-5 · Bahasa V3.7'}]};
 }
 function activeSession(mode=studyMode){const ss=data.studySessions?.[mode];if(!ss)return null;if(ss.day!==nDate()){delete data.studySessions[mode];save();return null;}return ss.bookId===data.settings.activeBook?ss:null;}
 function buildQueue(mode){
@@ -72,9 +98,9 @@ function buildQueue(mode){
  if(mode==='recognition'){
   const old=pool.filter(e=>learned(e)&&due(e,'recognition')).sort((a,b)=>new Date(a.recognition?.due||0)-new Date(b.recognition?.due||0));
   const newWords=wordsOf(active).filter(e=>!learned(e)).sort((a,b)=>(a.priority||2)-(b.priority||2)).slice(0,Math.max(0,data.settings.dailyNew-countNewToday()));
-  return [...old,...newWords].map((e,i)=>({id:e.id,mode,isNew:!learned(e),needed:(!learned(e)||!!e.recognition?.learningPending)?2:1,streak:0,attempts:0,firstResult:null,hadFailure:false,scored:false,completed:false,nextAt:0,afterTurn:0,seq:i}));
+  return [...old,...newWords].map((e,i)=>({id:e.id,mode,isNew:!learned(e),needed:(!e.recognition?.reviews)?2:1,streak:0,attempts:0,firstResult:null,hadFailure:false,scored:false,completed:false,nextAt:0,afterTurn:0,seq:i}));
  }
- return pool.filter(e=>due(e,'production')&&canPracticeProduction(e)).sort((a,b)=>(a.production?.reviews||0)-(b.production?.reviews||0)||new Date(a.production?.due||0)-new Date(b.production?.due||0)).map((e,i)=>({id:e.id,mode,isNew:!e.production?.reviews,needed:(!e.production?.reviews||!!e.production?.learningPending)?2:1,streak:0,attempts:0,firstResult:null,hadFailure:false,scored:false,completed:false,nextAt:0,afterTurn:0,seq:i}));
+ return pool.filter(e=>due(e,'production')&&canPracticeProduction(e)).sort((a,b)=>(a.production?.reviews||0)-(b.production?.reviews||0)||new Date(a.production?.due||0)-new Date(b.production?.due||0)).map((e,i)=>({id:e.id,mode,isNew:!e.production?.reviews,needed:(!e.production?.reviews)?2:1,streak:0,attempts:0,firstResult:null,hadFailure:false,scored:false,completed:false,nextAt:0,afterTurn:0,seq:i}));
 }
 function startStudy(){
  const existing=activeSession();if(existing){studySession=existing;answerVisible=false;typedDraft='';renderLearn();autoSpeakCurrent();return;}
@@ -85,15 +111,14 @@ function startStudy(){
 function pickCurrent(ss){
  if(ss.currentId){const current=ss.items.find(t=>t.id===ss.currentId&&!t.completed);if(current)return current;ss.currentId=null;}
  const pending=ss.items.filter(t=>!t.completed);if(!pending.length)return null;
- // Prefer a repeat after several other cards, but NEVER block the learner with a timer.
- const available=pending.filter(t=>t.attempts>0&&ss.turn>=(t.afterTurn||0));
- let chosen=available.sort((a,b)=>(a.afterTurn||0)-(b.afterTurn||0)||a.seq-b.seq)[0];
- if(!chosen)chosen=pending.find(t=>t.attempts===0);
- // If every remaining card is waiting for its position gap, select the earliest one now.
- // This also handles older sessions saved with a future `nextAt` from v1.1.
- if(!chosen)chosen=pending.sort((a,b)=>(a.afterTurn||0)-(b.afterTurn||0)||a.seq-b.seq)[0];
- if(chosen)ss.currentId=chosen.id;
- return chosen||null;
+ // Bahasa V3.7: an unseen card has readyAt=0, so it is shown before queued retries.
+ // This prevents an answer from being repeated immediately while other new cards remain.
+ const eligible=pending.filter(t=>(t.afterTurn||0)<=ss.turn);
+ const pool=eligible.length?eligible:pending;
+ pool.sort((a,b)=>(a.afterTurn||0)-(b.afterTurn||0)||a.attempts-b.attempts||a.seq-b.seq);
+ const picked=pool.find(t=>t.id!==ss.lastId)||pool[0];
+ if(picked)ss.currentId=picked.id;
+ return picked||null;
 }
 /* Contextual output cards: two authentic bilingual uses per AI term.
    Keep prompts tied to actual examples instead of auto-inventing translations.
@@ -153,7 +178,7 @@ function reviewAnswerHtml(e,output,task){
 }
 function studyHtml(ss){
  const task=pickCurrent(ss),total=ss.items.length,progress=pct(ss.done,total);
- if(!task){if(ss.done>=total){return `<div class="panel empty complete-card"><div class="empty-icon">✓</div><h3>今日巩固完成</h3><p>已完成 ${ss.done} 个词条的练习，后续复习已安排。</p><button class="btn primary large" data-action="finish-study">完成学习</button></div>`;}
+ if(!task){if(ss.done>=total){const deferred=ss.items.filter(t=>t.deferred).length;return `<div class="panel empty complete-card"><div class="empty-icon">✓</div><h3>今日巩固完成</h3><p>已完成 ${ss.done} 个词条的练习，后续复习已安排。${deferred?`其中 ${deferred} 个难词尚未达到巩固标准，明天会继续复习。`:``}</p><button class="btn primary large" data-action="finish-study">完成学习</button></div>`;}
  // Defensive recovery: an unfinished session must never display a timed waiting screen.
  return `<div class="panel empty pause-card"><h3>本轮词卡已完成</h3><button class="btn primary" data-action="finish-study">返回学习</button></div>`;}
  const e=data.entries.find(w=>w.id===task.id);if(!e){task.completed=true;ss.done++;ss.currentId=null;return studyHtml(ss);}
@@ -175,37 +200,49 @@ function studyHtml(ss){
 }
 function grade(rating){
  if(!studySession||!answerVisible)return;
- const ss=studySession,task=pickCurrent(ss);if(!task)return;
+ const ss=studySession;if(ss.day!==nDate()){studySession=null;answerVisible=false;renderLearn();toast('已进入新的一天，请开始今日复习。');return;}const task=pickCurrent(ss);if(!task)return;
  const e=data.entries.find(w=>w.id===task.id);if(!e)return;
  const remembered=rating===2,first=task.attempts===0;
  if(!e.introducedAt&&task.mode==='recognition')e.introducedAt=nDate();
- if(first){task.firstResult=remembered;}
- if(!remembered){task.hadFailure=true;task.needed=2;task.streak=0;}
- else{task.streak++;}
- task.attempts++;ss.turn++;
+ if(first)task.firstResult=remembered;
+ if(!remembered){task.hadFailure=true;task.needed=2;task.streak=0;task.misses=(task.misses||0)+1;}
+ else task.streak++;
+ task.attempts++;ss.turn++;ss.lastId=task.id;
  if(!e[task.mode])e[task.mode]={interval:0,ease:2.5,reviews:0,history:[],learningPending:true};
- if(!task.isNew&&first){longTermReview(e,task.mode,remembered);task.scored=true;}
- if(task.streak>=task.needed){
+ // The first attempt of a previously graduated due card determines its FSRS result.
+ // Any same-day relearning steps cannot erase that forgotten result.
+ const wasGraduated=(e[task.mode].reviews||0)>0;
+ if(wasGraduated&&first&&!task.scored){longTermReview(e,task.mode,remembered);task.scored=true;}
+ if(remembered&&task.streak>=task.needed){
   task.completed=true;ss.done++;
-  if(!task.scored){longTermReview(e,task.mode,!task.hadFailure);task.scored=true;}
+  if(!task.scored){longTermReview(e,task.mode,true,true);task.scored=true;}
   e[task.mode].learningPending=false;
+ }else if(task.attempts>=MAX_ATTEMPTS||(task.misses||0)>=MAX_MISSES){
+  // As in Bahasa, difficult cards return tomorrow if not yet consolidated today.
+  task.completed=true;task.deferred=true;ss.done++;
+  if(!task.scored){longTermReview(e,task.mode,false,true);task.scored=true;}
+  e[task.mode].learningPending=false;
+  e[task.mode].due=dayDue(addDays(nDate(),1));
+  e[task.mode].interval=1;
+  if(e[task.mode].history?.length)e[task.mode].history.at(-1).due=e[task.mode].due;
  }else{
   e[task.mode].learningPending=true;
-  // Interleave cards by turn count only; do not make the learner wait in real time.
-  task.afterTurn=ss.turn+(remembered?3:2);
+  // Same turn-based placement as Bahasa V3.7, without any timed waiting.
+  task.afterTurn=ss.turn+Math.min(4,2+Math.floor(task.attempts/3));
   task.nextAt=0;
  }
- const stamp=new Date().toISOString();data.activity.push({entryId:e.id,bookId:e.bookId,mode:task.mode,rating,date:nDate(),at:stamp,kind:'intraday',completed:task.completed});
+ const stamp=new Date().toISOString();data.activity.push({entryId:e.id,bookId:e.bookId,mode:task.mode,rating,date:nDate(),at:stamp,kind:'intraday',completed:task.completed,deferred:!!task.deferred});
  ss.currentId=null;answerVisible=false;typedDraft='';save();renderLearn();autoSpeakCurrent();
 }
 function renderLearn(){
+ if(studySession&&studySession.day!==nDate())studySession=null;
  const bid=data.settings.activeBook,book=bookById(bid),stats=book?bookStats(bid):{total:0,learned:0,mastered:0};
  const left=Math.max(0,data.settings.dailyNew-countNewToday()),newDone=data.settings.dailyNew-left,dueR=dueRecCount(),dueP=dueProdCount();
  if(studySession&&studySession.mode!==studyMode)studySession=null;
  const session=studySession&&studySession.mode===studyMode?studySession:null;
  const pending=session?session.items.filter(t=>t.attempts>0&&!t.completed).length:0;
  const pendingSession=activeSession(studyMode);
- let body=`<div class="learn-head"><div><div class="eyebrow">YOUR DAILY WORDS</div><h1>Wordfield <span class="v-tag">V1.2</span></h1></div><button class="btn settings-btn" data-action="settings" aria-label="学习设置">⚙ 设置</button></div>
+ let body=`<div class="learn-head"><div><div class="eyebrow">YOUR DAILY WORDS</div><h1>Wordfield <span class="v-tag">V1.3</span></h1></div><button class="btn settings-btn" data-action="settings" aria-label="学习设置">⚙ 设置</button></div>
  <div class="study-head"><div class="seg" role="tablist" aria-label="练习模式"><button data-action="study-mode" data-mode="recognition" class="${studyMode==='recognition'?'active':''}">识别 <span>Recognition</span></button><button data-action="study-mode" data-mode="production" class="${studyMode==='production'?'active':''}">运用 <span>Production</span></button></div></div>
  <div class="today-stats"><div class="today-chip"><span class="chip-icon lavender">▤</span><div><strong>今日新词</strong><span>${newDone} / ${data.settings.dailyNew}</span></div></div><div class="today-chip"><span class="chip-icon blush">◷</span><div><strong>待巩固</strong><span>${pending||dueR}</span></div></div></div>
  <div class="learn-book-row"><div><div class="small muted">当前单词书</div>${bookSelectHtml('active-book')}</div><button class="btn small" data-nav="books">全部词书 →</button></div>`;
@@ -237,7 +274,7 @@ async function loadImportFile(file){if(!file)return;if(file.size>12*1024*1024){t
 function confirmImport(){if(!pendingImport?.entries.length)return;const mode=$('#import-mode')?.value;let b;if(mode==='existing'){b=bookById($('#import-existing-book').value);if(!b){toast('请选择单词书');return;}}else{const title=$('#import-book-title')?.value.trim();if(!title){toast('请输入新单词书名称');return;}b=createBook(title,'手动导入的词汇');}const existing=new Set(wordsOf(b.id).map(e=>norm(e.term)));let added=0,skipped=0;for(const raw of pendingImport.entries){if(existing.has(norm(raw.term))){skipped++;continue;}existing.add(norm(raw.term));data.entries.push(createWord(raw,b.id));added++;}libraryBookId=b.id;data.settings.activeBook=b.id;studySession=null;filterText='';filterCategory='';save();closeModal();page='books';render();toast(`已添加 ${added} 词${skipped?`，跳过 ${skipped} 个同名词条`:''}。旧词和学习记录未受影响。`);}
 function downloadJSON(obj,filename){const blob=new Blob([JSON.stringify(obj,null,2)],{type:'application/json;charset=utf-8'});const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),4000);}
 function exportBackup(){downloadJSON({kind:'wordfield-backup',version:2,exportedAt:new Date().toISOString(),...data},`wordfield-backup-${nDate()}.json`);toast('备份已准备下载。请将文件存放在安全的位置。');}
-async function restoreBackup(){const file=$('#restore-file')?.files?.[0];if(!file){toast('请选择备份文件');return;}try{const raw=JSON.parse(await file.text());if(raw.kind!=='wordfield-backup'||!isValidData(raw))throw Error('不是有效的 Wordfield 完整备份');if(!confirm(`将使用备份中的 ${raw.books.length} 本词书和 ${raw.entries.length} 个词条替换当前所有数据。确定继续吗？`))return;exportBackup();if(!confirm('已触发当前数据的备份下载。再次确认：替换当前所有学习记录并恢复备份？'))return;const restored={version:2,books:raw.books,entries:raw.entries,settings:raw.settings,activity:raw.activity,studySessions:raw.studySessions||{}};data=restored;studySession=null;libraryBookId=data.settings.activeBook;await save();closeModal();page='progress';render();toast('备份恢复成功。');}catch(err){toast('恢复失败：'+err.message);}}
+async function restoreBackup(){const file=$('#restore-file')?.files?.[0];if(!file){toast('请选择备份文件');return;}try{const raw=JSON.parse(await file.text());if(raw.kind!=='wordfield-backup'||!isValidData(raw))throw Error('不是有效的 Wordfield 完整备份');if(!confirm(`将使用备份中的 ${raw.books.length} 本词书和 ${raw.entries.length} 个词条替换当前所有数据。确定继续吗？`))return;exportBackup();if(!confirm('已触发当前数据的备份下载。再次确认：替换当前所有学习记录并恢复备份？'))return;const restored={version:2,books:raw.books,entries:raw.entries,settings:raw.settings,activity:raw.activity,studySessions:raw.studySessions||{}};data=restored;migrateFirstDaySchedules();studySession=null;libraryBookId=data.settings.activeBook;await save();closeModal();page='progress';render();toast('备份恢复成功。');}catch(err){toast('恢复失败：'+err.message);}}
 function speak(text,automatic=false){if(!('speechSynthesis' in window)){if(!automatic)toast('当前浏览器不支持语音朗读');return;}try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='en-US';u.rate=.9;u.pitch=1;speechSynthesis.speak(u);}catch(err){if(!automatic)toast('发音失败：请检查浏览器语音设置。');}}
 function click(ev){if(ev.target=== $('#modal-root')){closeModal();return;}const el=ev.target.closest('[data-action],[data-nav]');if(!el)return;if(el.dataset.nav){page=el.dataset.nav;studySession=null;closeModal();window.scrollTo({top:0,behavior:'instant'});render();return;}const action=el.dataset.action;
 switch(action){case'study-mode':studyMode=el.dataset.mode;studySession=null;answerVisible=false;renderLearn();break;case'start-study':startStudy();break;case'show-answer':typedDraft=$('#typed-answer')?.value||'';answerVisible=true;renderLearn();break;case'grade':grade(Number(el.dataset.rating));break;case'stop-study':studySession=null;answerVisible=false;renderLearn();break;case'finish-study':if(studySession)delete data.studySessions[studySession.mode];studySession=null;save();renderLearn();break;case'settings':modal={type:'settings'};renderModal();break;case'save-settings':data.settings.dailyNew=Number($('#setting-daily').value);data.settings.reviewAll=$('#setting-review-all').checked;studySession=null;save();closeModal();render();toast('设置已保存');break;case'choose-library-book':libraryBookId=el.dataset.id;filterCategory='';filterText='';renderBooks();break;case'set-active':data.settings.activeBook=el.dataset.id;save();renderBooks();toast('已切换当前单词书');break;case'new-book':modal={type:'newBook'};renderModal();$('#new-book-name')?.focus();break;case'confirm-new-book':{const title=$('#new-book-name').value.trim();if(!title){toast('请填写单词书名称');break;}const b=createBook(title,$('#new-book-desc').value.trim());libraryBookId=b.id;data.settings.activeBook=b.id;studySession=null;save();closeModal();page='books';render();toast('新单词书已创建');break;}case'add-word':modal={type:'addWord'};renderModal();break;case'confirm-add-word':{const term=$('#add-term').value.trim(),meaning=$('#add-meaning').value.trim();if(!term||!meaning){toast('英文与中文释义必须填写');break;}if(wordsOf(libraryBookId).some(e=>norm(e.term)===norm(term))){toast('这本词书已经包含同名词条，未进行覆盖');break;}const raw={term,meaning,pos:$('#add-pos').value.trim(),category:$('#add-category').value.trim()||'自定义词汇',patterns:$('#add-patterns').value.split(/[;；]/).map(s=>s.trim()).filter(Boolean),example1:$('#add-example1').value.trim(),translation1:$('#add-trans1').value.trim(),example2:$('#add-example2').value.trim(),translation2:$('#add-trans2').value.trim()};data.entries.push(createWord(raw,libraryBookId));save();closeModal();renderBooks();toast(`已添加 ${term}`);break;}case'word-detail':modal={type:'word',id:el.dataset.id};renderModal();break;case'close-modal':closeModal();break;case'import':pendingImport=null;modal={type:'import'};renderModal();break;case'confirm-import':confirmImport();break;case'backup':modal={type:'backup'};renderModal();break;case'export-backup':exportBackup();break;case'restore-backup':restoreBackup();break;case'speak':speak(el.dataset.text);break;default:break;}}
