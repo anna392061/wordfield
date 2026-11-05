@@ -1,4 +1,4 @@
-/* Wordfield v1.3 — Bahasa V3.7-aligned repetition and next-day review. */
+/* Wordfield v1.6 — focused study view with per-book sessions. */
 (() => {
 'use strict';
 const KEY='wordfield-v1-snapshot';
@@ -16,7 +16,7 @@ function openDb(){return new Promise((resolve,reject)=>{if(!('indexedDB' in wind
 function dbGet(){return new Promise((resolve,reject)=>{const tx=db.transaction('kv','readonly');const rq=tx.objectStore('kv').get('snapshot');rq.onsuccess=()=>resolve(rq.result);rq.onerror=()=>reject(rq.error);});}
 function dbPut(snapshot){return new Promise((resolve,reject)=>{const tx=db.transaction('kv','readwrite');tx.objectStore('kv').put(snapshot,'snapshot');tx.oncomplete=()=>resolve();tx.onerror=()=>reject(tx.error);});}
 function save(){const snapshot=JSON.stringify(data);writeQueue=writeQueue.then(async()=>{if(db){await dbPut(snapshot);}else if(storageKind!=='临时会话（请导出备份）'){localStorage.setItem(KEY,snapshot);}}).catch(err=>{console.error('Save error:',err);toast('保存失败：请立刻导出备份，并检查浏览器空间。');});return writeQueue;}
-async function init(){let raw=null;try{db=await openDb();raw=await dbGet();storageKind='IndexedDB 本地存储';}catch(err){console.warn('IndexedDB unavailable; fallback to localStorage',err);db=null;storageKind='LocalStorage 本地存储';try{raw=localStorage.getItem(KEY);}catch(_){storageKind='临时会话（请导出备份）';}}try{data=raw?(typeof raw==='string'?JSON.parse(raw):raw):stateFactory();if(!isValidData(data))throw Error('Malformed data');}catch(err){console.warn('Invalid saved data:',err);data=stateFactory();toast('检测到无法读取的存档。已加载初始词书，请检查历史备份。');}data.studySessions=data.studySessions||{};const scheduleWasMigrated=migrateFirstDaySchedules();data.settings={activeBook:data.books[0]?.id||null,dailyNew:10,reviewAll:false,...data.settings};const goalsMigrated=upgradeBookSettings(),sessionsMigrated=migrateStudySessionKeys(),personalAdded=syncPersonalBook();if(!data.books.some(b=>b.id===data.settings.activeBook))data.settings.activeBook=data.books[0]?.id||null;data.settings.dailyNew=bookGoal(data.settings.activeBook);data.settings.reviewAll=false;libraryBookId=data.settings.activeBook;const versionBefore=Number(data.version)||0;data.version=3;if(!raw||scheduleWasMigrated||goalsMigrated||sessionsMigrated||personalAdded||versionBefore<3)save();$('#top-date').textContent=new Intl.DateTimeFormat('zh-CN',{year:'numeric',month:'long',day:'numeric',weekday:'long'}).format(new Date());render();openWordfieldImportLink();}
+async function init(){let raw=null;try{db=await openDb();raw=await dbGet();storageKind='IndexedDB 本地存储';}catch(err){console.warn('IndexedDB unavailable; fallback to localStorage',err);db=null;storageKind='LocalStorage 本地存储';try{raw=localStorage.getItem(KEY);}catch(_){storageKind='临时会话（请导出备份）';}}try{data=raw?(typeof raw==='string'?JSON.parse(raw):raw):stateFactory();if(!isValidData(data))throw Error('Malformed data');}catch(err){console.warn('Invalid saved data:',err);data=stateFactory();toast('检测到无法读取的存档。已加载初始词书，请检查历史备份。');}data.studySessions=data.studySessions||{};const scheduleWasMigrated=migrateFirstDaySchedules();data.settings={activeBook:data.books[0]?.id||null,dailyNew:10,reviewAll:false,...data.settings};const goalsMigrated=upgradeBookSettings(),sessionsMigrated=migrateStudySessionKeys(),personalAdded=syncPersonalBook();if(!data.books.some(b=>b.id===data.settings.activeBook))data.settings.activeBook=data.books[0]?.id||null;data.settings.dailyNew=bookGoal(data.settings.activeBook);data.settings.reviewAll=false;libraryBookId=data.settings.activeBook;const versionBefore=Number(data.version)||0;data.version=3;if(!raw||scheduleWasMigrated||goalsMigrated||sessionsMigrated||personalAdded||versionBefore<3)save();$('#top-date').textContent=new Intl.DateTimeFormat('zh-CN',{year:'numeric',month:'long',day:'numeric',weekday:'long'}).format(new Date());restorePageFromUrl();openWordfieldImportLink();}
 function isValidData(d){return d&&Array.isArray(d.books)&&Array.isArray(d.entries)&&d.settings&&Array.isArray(d.activity)&&d.books.every(b=>typeof b.id==='string'&&typeof b.title==='string')&&d.entries.every(e=>typeof e.id==='string'&&typeof e.term==='string'&&typeof e.bookId==='string');}
 function toast(message){const el=$('#toast');if(!el)return;el.textContent=message;el.classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('visible'),3600);}
 const bookById=bid=>data.books.find(b=>b.id===bid);
@@ -53,8 +53,41 @@ function countNewToday(bid=data.settings.activeBook){return wordsOf(bid).filter(
 function dueRecCount(bid=data.settings.activeBook){return wordsOf(bid).filter(e=>learned(e)&&due(e,'recognition')).length;}
 function dueProdCount(bid=data.settings.activeBook){return wordsOf(bid).filter(e=>due(e,'production')).length;}
 function noteHtml(){return `本地存储：${esc(storageKind)} · 学习记录只保存在当前浏览器。请定期在「Progress」中导出完整备份；无账号同步功能。`;}
-function nav(){document.querySelectorAll('[data-nav]').forEach(e=>e.classList.toggle('active',e.dataset.nav===page));}
-function render(){nav();$('#storage-note').textContent=noteHtml();if(page==='learn')renderLearn();else if(page==='books')renderBooks();else renderProgress();if(modal)renderModal();}
+function nav(){document.querySelectorAll('[data-nav]').forEach(e=>e.classList.toggle('active',e.dataset.nav===(page==='study'?'learn':page)));}
+function render(){nav();document.body.classList.toggle('study-view',page==='study');$('#storage-note').textContent=noteHtml();if(page==='learn')renderLearn();else if(page==='study')renderStudy();else if(page==='books')renderBooks();else renderProgress();if(modal)renderModal();}
+
+function setPageRoute(next,bookId,replace=false){
+ const method=replace?'replaceState':'pushState';
+ if(!window.history?.[method])return;
+ const hash=next==='study'?'#study='+encodeURIComponent(bookId):'#'+next;
+ window.history[method]({wordfieldPage:next,bookId:next==='study'?bookId:null},'',window.location.pathname+window.location.search+hash);
+}
+function homeFromStudy(push=true){
+ page='learn';studySession=null;answerVisible=false;typedDraft='';
+ if(push)setPageRoute('learn');
+ window.scrollTo?.({top:0,behavior:'instant'});render();
+}
+function openStudyBook(bookId,{push=true,mode='recognition'}={}){
+ if(!bookById(bookId))return;
+ data.settings.activeBook=bookId;data.settings.dailyNew=bookGoal(bookId);
+ page='study';studyMode=mode;studySession=activeSession(mode);answerVisible=false;typedDraft='';
+ if(push)setPageRoute('study',bookId);
+ save();window.scrollTo?.({top:0,behavior:'instant'});
+ if(studySession){render();autoSpeakCurrent();}
+ else if(buildQueue(studyMode).length)startStudy();
+ else render();
+}
+function restorePageFromUrl(){
+ const hash=window.location.hash||'';
+ if(hash.startsWith('#study=')){
+  const bid=decodeURIComponent(hash.slice('#study='.length));
+  if(bookById(bid)){openStudyBook(bid,{push:false});return;}
+ }
+ if(['#learn','#books','#progress'].includes(hash)){page=hash.slice(1);}
+ else page='learn';
+ studySession=null;answerVisible=false;typedDraft='';
+ render();
+}
 function bookSelectHtml(vid){return `<select class="select selector" id="${esc(vid)}" aria-label="当前学习的单词书">${data.books.map(b=>`<option value="${attrs(b.id)}" ${b.id===data.settings.activeBook?'selected':''}>${esc(b.title)}</option>`).join('')}</select>`;}
 function progressHtml(v){return `<div class="progress-bar"><div class="progress-inner" style="width:${Math.max(0,Math.min(100,v))}%"></div></div>`;}
 /* Mirror Bahasa V3.7 scheduling: FSRS-5/90%, new cards return the next day,
@@ -125,10 +158,10 @@ function buildQueue(mode){
  return pool.filter(e=>due(e,'production')&&canPracticeProduction(e)).sort((a,b)=>(a.production?.reviews||0)-(b.production?.reviews||0)||new Date(a.production?.due||0)-new Date(b.production?.due||0)).map((e,i)=>({id:e.id,mode,isNew:!e.production?.reviews,needed:(!e.production?.reviews)?2:1,streak:0,attempts:0,firstResult:null,hadFailure:false,scored:false,completed:false,nextAt:0,afterTurn:0,seq:i}));
 }
 function startStudy(){
- const existing=activeSession();if(existing){studySession=existing;answerVisible=false;typedDraft='';renderLearn();autoSpeakCurrent();return;}
+ const existing=activeSession();if(existing){studySession=existing;answerVisible=false;typedDraft='';render();autoSpeakCurrent();return;}
  const items=buildQueue(studyMode);if(!items.length){toast('当前没有待学习的词');return;}
  studySession={mode:studyMode,bookId:data.settings.activeBook,day:nDate(),items,turn:0,currentId:null,done:0};
- data.studySessions[sessionKey(studyMode,data.settings.activeBook)]=studySession;answerVisible=false;typedDraft='';save();renderLearn();autoSpeakCurrent();
+ data.studySessions[sessionKey(studyMode,data.settings.activeBook)]=studySession;answerVisible=false;typedDraft='';save();render();autoSpeakCurrent();
 }
 function pickCurrent(ss){
  if(ss.currentId){const current=ss.items.find(t=>t.id===ss.currentId&&!t.completed);if(current)return current;ss.currentId=null;}
@@ -222,7 +255,7 @@ function studyHtml(ss){
 }
 function grade(rating){
  if(!studySession||!answerVisible)return;
- const ss=studySession;if(ss.day!==nDate()){studySession=null;answerVisible=false;renderLearn();toast('已进入新的一天，请开始今日复习。');return;}const task=pickCurrent(ss);if(!task)return;
+ const ss=studySession;if(ss.day!==nDate()){studySession=null;answerVisible=false;render();toast('已进入新的一天，请开始今日复习。');return;}const task=pickCurrent(ss);if(!task)return;
  const e=data.entries.find(w=>w.id===task.id);if(!e)return;
  const remembered=rating===2,first=task.attempts===0;
  if(!e.introducedAt&&task.mode==='recognition')e.introducedAt=nDate();
@@ -254,26 +287,34 @@ function grade(rating){
   task.nextAt=0;
  }
  const stamp=new Date().toISOString();data.activity.push({entryId:e.id,bookId:e.bookId,mode:task.mode,rating,date:nDate(),at:stamp,kind:'intraday',completed:task.completed,deferred:!!task.deferred});
- ss.currentId=null;answerVisible=false;typedDraft='';save();renderLearn();autoSpeakCurrent();
+ ss.currentId=null;answerVisible=false;typedDraft='';save();render();autoSpeakCurrent();
 }
+
 function renderLearn(){
- if(studySession&&(studySession.day!==nDate()||studySession.bookId!==data.settings.activeBook))studySession=null;
- const bid=data.settings.activeBook,book=bookById(bid),stats=book?bookStats(bid):{total:0,learned:0,mastered:0};
- const left=Math.max(0,bookGoal(bid)-countNewToday(bid)),newDone=bookGoal(bid)-left,dueR=dueRecCount(bid),dueP=dueProdCount(bid);
- if(studySession&&studySession.mode!==studyMode)studySession=null;
- const session=studySession&&studySession.mode===studyMode?studySession:null;
- const pending=session?session.items.filter(t=>t.attempts>0&&!t.completed).length:0;
- const pendingSession=activeSession(studyMode);
- let body=`<div class="learn-head"><div><div class="eyebrow">YOUR DAILY WORDS</div><h1>Wordfield <span class="v-tag">V1.5</span></h1></div><button class="btn settings-btn" data-action="settings" aria-label="学习设置">⚙ 设置</button></div>
- <div class="study-head"><div class="seg" role="tablist" aria-label="练习模式"><button data-action="study-mode" data-mode="recognition" class="${studyMode==='recognition'?'active':''}">识别 <span>Recognition</span></button><button data-action="study-mode" data-mode="production" class="${studyMode==='production'?'active':''}">运用 <span>Production</span></button></div></div>
- <div class="today-stats"><div class="today-chip"><span class="chip-icon lavender">▤</span><div><strong>今日新词</strong><span>${newDone} / ${bookGoal(bid)}</span></div></div><div class="today-chip"><span class="chip-icon blush">◷</span><div><strong>待巩固</strong><span>${pending||dueR}</span></div></div></div>
- <div class="learn-book-row"><div><div class="small muted">当前单词书</div>${bookSelectHtml('active-book')}</div><button class="btn small" data-nav="books">全部词书 →</button></div>`;
- const dailyPlan='<div class="panel pad mt24"><div class="row between wrap"><h3>每本词书 · 今日学习任务</h3><span class="small muted">独立新词额度与复习进度</span></div><div class="detail-grid">'+data.books.map(b=>{const goal=bookGoal(b.id),done=countNewToday(b.id),dueN=dueRecCount(b.id);return '<div class="panel pad"><div class="strong">'+esc(b.title)+'</div><p class="small muted">今日新词 '+done+' / '+goal+' · 待复习 '+dueN+'</p>'+progressHtml(pct(done,goal))+'<button class="btn small mt16" data-action="study-book" data-id="'+attrs(b.id)+'">'+(b.id===data.settings.activeBook?'继续这本':'学习这本')+'</button></div>';}).join('')+'</div></div>';
- body+=dailyPlan;
- if(session){body+=studyHtml(session);}
+ const cards=data.books.map(b=>{
+  const goal=bookGoal(b.id),done=countNewToday(b.id),dueN=dueRecCount(b.id),dueOut=dueProdCount(b.id),stats=bookStats(b.id);
+  const session=data.studySessions?.[sessionKey('recognition',b.id)],inProgress=session?.day===nDate()&&session.items?.some(t=>!t.completed);
+  return `<article class="panel task-card"><div class="task-card-heading"><div><div class="eyebrow">WORD BOOK</div><h2>${esc(b.title)}</h2></div><span class="pill green">${stats.learned} / ${stats.total} 已学</span></div>
+   <div class="task-card-metrics"><div><span class="task-metric-label">今日新词</span><strong>${done} <small>/ ${goal}</small></strong></div><div><span class="task-metric-label">待复习</span><strong>${dueN}</strong></div><div><span class="task-metric-label">待运用</span><strong>${dueOut}</strong></div></div>
+   ${progressHtml(pct(done,goal))}
+   <div class="task-card-bottom"><span class="small muted">每天独立学习 ${goal} 词</span><button class="btn primary task-enter" data-action="study-book" data-id="${attrs(b.id)}">${inProgress?'继续学习':'学习这本'} <span aria-hidden="true">→</span></button></div></article>`;
+ }).join('');
+ $('#content').innerHTML=`<div class="learn-head dashboard-head"><div><div class="eyebrow">YOUR DAILY WORDS</div><h1>今日学习任务 <span class="v-tag">V1.6</span></h1><p class="subtext">每本词书独立安排新词和复习，选择一本开始学习。</p></div><button class="btn small" data-nav="books">管理词书 →</button></div><div class="task-grid">${cards}</div>`;
+}
+function renderStudy(){
+ if(studySession&&(studySession.day!==nDate()||studySession.bookId!==data.settings.activeBook||studySession.mode!==studyMode))studySession=null;
+ const bid=data.settings.activeBook,book=bookById(bid);
+ if(!book){homeFromStudy(false);return;}
+ if(!studySession)studySession=activeSession(studyMode);
+ const left=Math.max(0,bookGoal(bid)-countNewToday(bid)),done=bookGoal(bid)-left,dueR=dueRecCount(bid),dueP=dueProdCount(bid);
+ const session=studySession,modeText=studyMode==='recognition'?'词汇识别':'主动运用';
+ let body=`<div class="study-page-header"><button class="study-back" data-action="back-to-dashboard" aria-label="返回今日学习任务">← 返回今日任务</button>
+   <div class="study-page-title"><div class="eyebrow">CURRENT WORD BOOK</div><h1>${esc(book.title)}</h1><p class="subtext">今日新词 ${done} / ${bookGoal(bid)} <span aria-hidden="true">·</span> 待复习 ${dueR}</p></div></div>
+  <div class="study-head"><div class="seg" role="tablist" aria-label="练习模式"><button data-action="study-mode" data-mode="recognition" class="${studyMode==='recognition'?'active':''}">识别 <span>Recognition</span></button><button data-action="study-mode" data-mode="production" class="${studyMode==='production'?'active':''}">运用 <span>Production</span></button></div></div>`;
+ if(session)body+=studyHtml(session);
  else{
   const available=studyMode==='recognition'?dueR+Math.min(left,wordsOf(bid).filter(e=>!learned(e)).length):dueP;
-  body+=`<div class="panel empty start-card"><div class="empty-icon">✦</div><h3>${studyMode==='recognition'?'今天的词汇练习':'主动输出练习'}</h3><p>${studyMode==='recognition'?`${dueR} 个到期复习词 · 最多 ${left} 个新词`:`${dueP} 个待练习的表达（需有中英对照例句）`}</p><button class="btn primary large" data-action="start-study" ${available||pendingSession?'':'disabled'}>${pendingSession?'继续学习':available?`开始学习 · ${available} 词`:'今日已完成'}</button></div>`;
+  body+=`<div class="panel empty start-card study-start"><div class="empty-icon">✦</div><h3>${available?'开始'+modeText:'本项今日任务已完成'}</h3><p>${studyMode==='recognition'?`${dueR} 个到期复习词 · 最多 ${left} 个新词`:`${dueP} 个待练习的表达`}</p>${available?`<button class="btn primary large" data-action="start-study">开始学习 · ${available} 词</button>`:`<button class="btn" data-action="back-to-dashboard">返回今日任务</button>`}</div>`;
  }
  $('#content').innerHTML=body;
 }
@@ -348,10 +389,10 @@ function downloadJSON(obj,filename){const blob=new Blob([JSON.stringify(obj,null
 function exportBackup(){downloadJSON({kind:'wordfield-backup',version:3,exportedAt:new Date().toISOString(),...data},`wordfield-backup-${nDate()}.json`);toast('备份已准备下载。请将文件存放在安全的位置。');}
 async function restoreBackup(){const file=$('#restore-file')?.files?.[0];if(!file){toast('请选择备份文件');return;}try{const raw=JSON.parse(await file.text());if(raw.kind!=='wordfield-backup'||!isValidData(raw))throw Error('不是有效的 Wordfield 完整备份');if(!confirm(`将使用备份中的 ${raw.books.length} 本词书和 ${raw.entries.length} 个词条替换当前所有数据。确定继续吗？`))return;exportBackup();if(!confirm('已触发当前数据的备份下载。再次确认：替换当前所有学习记录并恢复备份？'))return;const restored={version:3,books:raw.books,entries:raw.entries,settings:raw.settings,activity:raw.activity,studySessions:raw.studySessions||{}};data=restored;migrateFirstDaySchedules();studySession=null;libraryBookId=data.settings.activeBook;await save();closeModal();page='progress';render();toast('备份恢复成功。');}catch(err){toast('恢复失败：'+err.message);}}
 function speak(text,automatic=false){if(!('speechSynthesis' in window)){if(!automatic)toast('当前浏览器不支持语音朗读');return;}try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='en-US';u.rate=.9;u.pitch=1;speechSynthesis.speak(u);}catch(err){if(!automatic)toast('发音失败：请检查浏览器语音设置。');}}
-function click(ev){if(ev.target=== $('#modal-root')){closeModal();return;}const el=ev.target.closest('[data-action],[data-nav]');if(!el)return;if(el.dataset.nav){page=el.dataset.nav;studySession=null;closeModal();window.scrollTo({top:0,behavior:'instant'});render();return;}const action=el.dataset.action;
-switch(action){case'study-mode':studyMode=el.dataset.mode;studySession=null;answerVisible=false;renderLearn();break;case'start-study':startStudy();break;case'study-book':data.settings.activeBook=el.dataset.id;data.settings.dailyNew=bookGoal(el.dataset.id);studyMode='recognition';studySession=null;save();startStudy();break;case'show-answer':typedDraft=$('#typed-answer')?.value||'';answerVisible=true;renderLearn();break;case'grade':grade(Number(el.dataset.rating));break;case'stop-study':studySession=null;answerVisible=false;renderLearn();break;case'finish-study':if(studySession)delete data.studySessions[sessionKey(studySession.mode,studySession.bookId)];studySession=null;save();renderLearn();break;case'settings':modal={type:'settings'};renderModal();break;case'book-goal':modal={type:'bookGoal',bookId:el.dataset.id};renderModal();break;case'save-book-goal':{const b=bookById(modal?.bookId);if(b){b.dailyNew=Number($('#book-daily-goal').value);if(b.id===data.settings.activeBook)data.settings.dailyNew=b.dailyNew;save();closeModal();render();toast('这本词书的每日目标已更新');}break;}case'save-settings':data.settings.dailyNew=Number($('#setting-daily').value);bookById(data.settings.activeBook).dailyNew=data.settings.dailyNew;data.settings.reviewAll=false;studySession=null;save();closeModal();render();toast('设置已保存');break;case'choose-library-book':libraryBookId=el.dataset.id;filterCategory='';filterText='';renderBooks();break;case'set-active':data.settings.activeBook=el.dataset.id;data.settings.dailyNew=bookGoal(el.dataset.id);studySession=null;save();renderBooks();toast('已切换当前单词书');break;case'new-book':modal={type:'newBook'};renderModal();$('#new-book-name')?.focus();break;case'confirm-new-book':{const title=$('#new-book-name').value.trim();if(!title){toast('请填写单词书名称');break;}const b=createBook(title,$('#new-book-desc').value.trim());libraryBookId=b.id;data.settings.activeBook=b.id;data.settings.dailyNew=bookGoal(b.id);studySession=null;save();closeModal();page='books';render();toast('新单词书已创建');break;}case'add-word':modal={type:'addWord'};renderModal();break;case'confirm-add-word':{const term=$('#add-term').value.trim(),meaning=$('#add-meaning').value.trim();if(!term||!meaning){toast('英文与中文释义必须填写');break;}if(wordsOf(libraryBookId).some(e=>norm(e.term)===norm(term))){toast('这本词书已经包含同名词条，未进行覆盖');break;}const raw={term,meaning,pos:$('#add-pos').value.trim(),category:$('#add-category').value.trim()||'自定义词汇',patterns:$('#add-patterns').value.split(/[;；]/).map(s=>s.trim()).filter(Boolean),example1:$('#add-example1').value.trim(),translation1:$('#add-trans1').value.trim(),example2:$('#add-example2').value.trim(),translation2:$('#add-trans2').value.trim()};data.entries.push(createWord(raw,libraryBookId));save();closeModal();renderBooks();toast(`已添加 ${term}`);break;}case'word-detail':modal={type:'word',id:el.dataset.id};renderModal();break;case'close-modal':closeModal();break;case'import':pendingImport=null;modal={type:'import'};renderModal();break;case'confirm-import':confirmImport();break;case'backup':modal={type:'backup'};renderModal();break;case'export-backup':exportBackup();break;case'restore-backup':restoreBackup();break;case'speak':speak(el.dataset.text);break;default:break;}}
-function changes(e){if(e.target.id==='active-book'){data.settings.activeBook=e.target.value;data.settings.dailyNew=bookGoal(e.target.value);studySession=null;save();renderLearn();}if(e.target.id==='category-filter'){filterCategory=e.target.value;filterRows();}if(e.target.id==='import-file')loadImportFile(e.target.files[0]);if(e.target.id==='import-mode'){$('#import-new-wrap').style.display=e.target.value==='new'?'':'none';$('#import-existing-wrap').style.display=e.target.value==='existing'?'':'none';updateImportPreview();}if(e.target.id==='import-existing-book')updateImportPreview();}
+function click(ev){if(ev.target=== $('#modal-root')){closeModal();return;}const el=ev.target.closest('[data-action],[data-nav]');if(!el)return;if(el.dataset.nav){page=el.dataset.nav;studySession=null;answerVisible=false;closeModal();setPageRoute(page);window.scrollTo({top:0,behavior:'instant'});render();return;}const action=el.dataset.action;
+switch(action){case'study-mode':studyMode=el.dataset.mode;studySession=null;answerVisible=false;if(page==='study'){const ss=activeSession(studyMode);if(ss){studySession=ss;render();autoSpeakCurrent();}else if(buildQueue(studyMode).length)startStudy();else render();}else render();break;case'start-study':startStudy();break;case'study-book':openStudyBook(el.dataset.id);break;case'back-to-dashboard':homeFromStudy();break;case'show-answer':typedDraft=$('#typed-answer')?.value||'';answerVisible=true;render();break;case'grade':grade(Number(el.dataset.rating));break;case'stop-study':homeFromStudy();break;case'finish-study':if(studySession)delete data.studySessions[sessionKey(studySession.mode,studySession.bookId)];studySession=null;save();homeFromStudy();break;case'settings':modal={type:'settings'};renderModal();break;case'book-goal':modal={type:'bookGoal',bookId:el.dataset.id};renderModal();break;case'save-book-goal':{const b=bookById(modal?.bookId);if(b){b.dailyNew=Number($('#book-daily-goal').value);if(b.id===data.settings.activeBook)data.settings.dailyNew=b.dailyNew;save();closeModal();render();toast('这本词书的每日目标已更新');}break;}case'save-settings':data.settings.dailyNew=Number($('#setting-daily').value);bookById(data.settings.activeBook).dailyNew=data.settings.dailyNew;data.settings.reviewAll=false;studySession=null;save();closeModal();render();toast('设置已保存');break;case'choose-library-book':libraryBookId=el.dataset.id;filterCategory='';filterText='';renderBooks();break;case'set-active':data.settings.activeBook=el.dataset.id;data.settings.dailyNew=bookGoal(el.dataset.id);studySession=null;save();renderBooks();toast('已切换当前单词书');break;case'new-book':modal={type:'newBook'};renderModal();$('#new-book-name')?.focus();break;case'confirm-new-book':{const title=$('#new-book-name').value.trim();if(!title){toast('请填写单词书名称');break;}const b=createBook(title,$('#new-book-desc').value.trim());libraryBookId=b.id;data.settings.activeBook=b.id;data.settings.dailyNew=bookGoal(b.id);studySession=null;save();closeModal();page='books';render();toast('新单词书已创建');break;}case'add-word':modal={type:'addWord'};renderModal();break;case'confirm-add-word':{const term=$('#add-term').value.trim(),meaning=$('#add-meaning').value.trim();if(!term||!meaning){toast('英文与中文释义必须填写');break;}if(wordsOf(libraryBookId).some(e=>norm(e.term)===norm(term))){toast('这本词书已经包含同名词条，未进行覆盖');break;}const raw={term,meaning,pos:$('#add-pos').value.trim(),category:$('#add-category').value.trim()||'自定义词汇',patterns:$('#add-patterns').value.split(/[;；]/).map(s=>s.trim()).filter(Boolean),example1:$('#add-example1').value.trim(),translation1:$('#add-trans1').value.trim(),example2:$('#add-example2').value.trim(),translation2:$('#add-trans2').value.trim()};data.entries.push(createWord(raw,libraryBookId));save();closeModal();renderBooks();toast(`已添加 ${term}`);break;}case'word-detail':modal={type:'word',id:el.dataset.id};renderModal();break;case'close-modal':closeModal();break;case'import':pendingImport=null;modal={type:'import'};renderModal();break;case'confirm-import':confirmImport();break;case'backup':modal={type:'backup'};renderModal();break;case'export-backup':exportBackup();break;case'restore-backup':restoreBackup();break;case'speak':speak(el.dataset.text);break;default:break;}}
+function changes(e){if(e.target.id==='active-book'){data.settings.activeBook=e.target.value;data.settings.dailyNew=bookGoal(e.target.value);studySession=null;save();render();}if(e.target.id==='category-filter'){filterCategory=e.target.value;filterRows();}if(e.target.id==='import-file')loadImportFile(e.target.files[0]);if(e.target.id==='import-mode'){$('#import-new-wrap').style.display=e.target.value==='new'?'':'none';$('#import-existing-wrap').style.display=e.target.value==='existing'?'':'none';updateImportPreview();}if(e.target.id==='import-existing-book')updateImportPreview();}
 function onInput(e){if(e.target.id==='word-search'){filterText=e.target.value;filterRows();}}
 function keydown(e){if(e.key==='Escape'&&modal){closeModal();return;}if((e.key==='Enter'||e.key===' ')&&e.target.matches('[role="button"][data-action]')){e.preventDefault();e.target.click();}}
-document.addEventListener('click',click);document.addEventListener('change',changes);document.addEventListener('input',onInput);document.addEventListener('keydown',keydown);window.addEventListener('hashchange',openWordfieldImportLink);init();
+document.addEventListener('click',click);document.addEventListener('change',changes);document.addEventListener('input',onInput);document.addEventListener('keydown',keydown);window.addEventListener('hashchange',openWordfieldImportLink);window.addEventListener('popstate',restorePageFromUrl);init();
 })();
