@@ -157,3 +157,48 @@ body{background:radial-gradient(ellipse at 97% 11%,#e8e0f6 0%,transparent 39%),r
  .output-answer{font-size:15px}
  .answer-area textarea{min-height:92px}
 }
+
+
+/* V1.6 — distinct daily-task dashboard and distraction-free study screen. */
+.task-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px;max-width:880px}
+.dashboard-head{max-width:880px;margin-bottom:22px}
+.dashboard-head .subtext{margin-top:10px}
+.task-card{padding:25px 26px;display:flex;flex-direction:column;gap:20px;min-width:0}
+.task-card-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+.task-card-heading h2{font-size:19px;font-weight:700;line-height:1.4;margin:6px 0 0;overflow-wrap:anywhere}
+.task-card-heading .pill{font-size:10px;white-space:nowrap;flex-shrink:0}
+.task-card-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.task-card-metrics>div{min-width:0}
+.task-metric-label{display:block;color:var(--muted);font-size:11px;margin-bottom:3px}
+.task-card-metrics strong{display:block;font-size:23px;line-height:1.2;font-weight:700;font-variant-numeric:tabular-nums}
+.task-card-metrics strong small{font-size:12px;font-weight:500;color:var(--muted)}
+.task-card-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.task-enter{border-radius:14px}
+.study-view .sidebar,.study-view .mobile-nav,.study-view .topline,.study-view .footer-note{display:none!important}
+.study-view .main{max-width:880px;padding-top:28px;padding-bottom:42px}
+.study-page-header{max-width:780px;margin:0 auto 24px}
+.study-back{display:inline-flex;align-items:center;gap:6px;color:#517b78;border:0;background:transparent;padding:8px 4px;font-size:14px;font-weight:650;margin-bottom:20px}
+.study-back:hover{text-decoration:underline}
+.study-page-title h1{margin:5px 0 4px;font-size:27px;line-height:1.35;overflow-wrap:anywhere}
+.study-page-title .subtext{margin:4px 0}
+.study-view .study-head{max-width:780px;margin:0 auto 16px}
+.study-view .study-card-wrap,.study-view .study-start{max-width:780px;margin-left:auto;margin-right:auto}
+.study-view .study-foot{padding-bottom:0}
+@media(max-width:700px){
+ .dashboard-head{align-items:flex-start}
+ .dashboard-head h1{font-size:26px}
+ .dashboard-head>.btn{font-size:11px;padding:8px 10px}
+ .task-grid{grid-template-columns:1fr;gap:13px}
+ .task-card{padding:20px;gap:17px;border-radius:27px}
+ .task-card-heading h2{font-size:18px}
+ .task-card-heading .pill{font-size:10px;padding:5px 9px}
+ .task-card-metrics strong{font-size:23px}
+ .task-card-bottom{gap:10px}
+ .study-view .main{padding:18px 16px calc(24px + env(safe-area-inset-bottom))}
+ .study-page-header{margin-bottom:22px}
+ .study-back{margin-bottom:14px;font-size:13px}
+ .study-page-title h1{font-size:24px;margin-bottom:5px}
+ .study-view .study-controls{bottom:env(safe-area-inset-bottom)}
+ .study-view .study-card{margin-top:14px}
+ .study-view .study-foot{padding-bottom:12px}
+}
