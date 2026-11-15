@@ -32,7 +32,8 @@ function syncPersonalBook(){
  const title='Personal Expressions · 口语积累',fixedId='book-personal-expressions-2026-11-05';
  let b=data.books.find(x=>x.id===fixedId)||data.books.find(x=>norm(x.title)===norm(title));
  let changed=false;
- if(!b){b={id:fixedId,title,description:'精选口语词汇、固定搭配与可迁移句型 · 39 张',icon:'✦',createdAt:new Date().toISOString(),dailyNew:10};data.books.push(b);changed=true;}
+ if(!b){b={id:fixedId,title,description:'精选口语词汇、固定搭配与可迁移句型',icon:'✦',createdAt:new Date().toISOString(),dailyNew:10};data.books.push(b);changed=true;}
+ if(b.description==='精选口语词汇、固定搭配与可迁移句型 · 39 张'){b.description='精选口语词汇、固定搭配与可迁移句型';changed=true;}
  if(![5,10,15,20,25].includes(Number(b.dailyNew))){b.dailyNew=10;changed=true;}
  const existingIds=new Set(data.entries.map(e=>e.id)),existingTerms=new Set(wordsOf(b.id).map(e=>norm(e.term)));
  for(let i=0;i<source.length;i++){
