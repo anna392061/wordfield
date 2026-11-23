@@ -1,0 +1,29 @@
+/* WordField Stage 2 V2.1 · narrow overrides only. */
+.wf2-answer{margin-top:10px}
+.wf2-answer .flash-meaning{margin-bottom:12px}
+.wf2-example{padding:4px 0 12px}
+.wf2-example-en{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;color:#263d43;font-size:16px;line-height:1.65}
+.wf2-example-en>span{flex:1;min-width:0;overflow-wrap:anywhere}
+.wf2-example-zh{margin:6px 0 0;color:#8e9ca4;font-size:13px;line-height:1.65}
+.wf2-audio,.study-view .wf2-speak-word{display:inline-flex;align-items:center;justify-content:center;flex:none;height:34px;width:34px;padding:5px;border:0!important;background:transparent!important;box-shadow:none!important;border-radius:50%;color:#52706d}
+.wf2-audio:hover,.study-view .wf2-speak-word:hover{background:#f0f5f2!important}
+.wf2-insight{margin:13px 0 17px;background:#f2f7f4;color:#4c6960;border-radius:12px;padding:13px 15px;line-height:1.7;font-size:13px}
+.wf2-usage-note{font-size:12px;color:#728783;line-height:1.7;margin:8px 0 12px}
+.wf2-sense{border-top:1px solid #e8eeea}
+.wf2-sense summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 0;font-weight:620;font-size:14px;line-height:1.5}
+.wf2-sense summary::-webkit-details-marker{display:none}
+.wf2-chevron{color:#829992;font-size:18px;transition:transform .15s ease}
+.wf2-sense[open] .wf2-chevron{transform:rotate(180deg)}
+.wf2-sense-body{padding-bottom:12px}
+.wf2-reference-open{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;border:0;border-top:1px solid #e8eeea;padding:18px 0;background:transparent;color:#55796c;font-size:13px;text-align:left}
+.wf2-reference-dialog{border:0;width:min(92vw,680px);height:min(88vh,820px);max-height:88vh;border-radius:24px;padding:0;box-shadow:0 26px 90px #21372e44;background:white;color:#243d42;overflow:hidden}
+.wf2-reference-dialog::backdrop{background:rgba(17,39,34,.5)}
+.wf2-ref-head{display:flex;gap:15px;align-items:center;padding:22px 25px;border-bottom:1px solid #e8eeea;background:white}
+.wf2-ref-close{border:0;background:none;font-size:24px;line-height:1;color:#29443c;padding:3px 6px}
+.wf2-ref-title{font-size:18px;font-weight:700}
+.wf2-ref-subtitle{font-size:12px;color:#8c9c98;margin-top:3px}
+.wf2-ref-scroll{overflow:auto;height:calc(100% - 92px);padding:10px 27px 35px;overscroll-behavior:contain}
+.wf2-ref-entry{padding:18px 0;border-bottom:1px solid #e8eeea}
+.wf2-ref-entry h3{font-size:16px;line-height:1.5;margin:4px 0 8px}
+.wf2-ref-ordinal{color:#91a49d;font-size:11px;letter-spacing:.12em}
+@media(max-width:700px){.wf2-reference-dialog{width:100vw;height:100dvh;max-height:100dvh;border-radius:0;margin:0}.wf2-ref-scroll{height:calc(100% - 92px)} }
