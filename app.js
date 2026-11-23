@@ -267,6 +267,8 @@ function reviewAnswerHtml(e,output,task){
    ${e.patterns?.length?`<div class="patterns-title">COMMON PATTERNS</div><div class="patterns">${e.patterns.map(p=>`<span class="pattern">${esc(p)}</span>`).join('')}</div>`:''}
    <div class="output-check">表达准确、符合中文语境且自然使用了 <strong>${esc(e.term)}</strong>（允许词形变化），即可选择「记住了」。参考答案不是唯一正确表达。</div>`;
  }
+ const stage2=window.WordFieldStage2Renderer?.render(e,{bookTitle:bookById(e.bookId)?.title||''});
+ if(stage2)return stage2;
  if(e.coreImage)return semanticBackHtml(e);
  return `<div class="flash-meaning">${esc(e.meaning)}</div>${e.patterns?.length?`<div class="patterns-title">COMMON PATTERNS</div><div class="patterns">${e.patterns.map(p=>`<span class="pattern">${esc(p)}</span>`).join('')}</div>`:''}${e.example1?`<div class="example"><div class="example-en">${esc(e.example1)} <button class="example-speak" data-action="speak" data-text="${attrs(e.example1)}" aria-label="朗读例句1">🔊</button></div><div class="example-zh">${esc(e.translation1)}</div></div>`:''}${e.example2?`<div class="example"><div class="example-en">${esc(e.example2)} <button class="example-speak" data-action="speak" data-text="${attrs(e.example2)}" aria-label="朗读例句2">🔊</button></div><div class="example-zh">${esc(e.translation2)}</div></div>`:''}`;
 }
@@ -279,12 +281,12 @@ function studyHtml(ss){
  const output=ss.mode==='production';let html=`<div class="study-card-wrap"><div class="panel study-card"><div class="card-top"><span class="pill ${output?'pink':'green'}">${output?'ACTIVE OUTPUT':'WORD RECOGNITION'}</span><div class="study-progress"><span class="small muted">${ss.done} / ${total}</span>${progressHtml(progress)}</div></div>`;
  if(output){
   const exercise=practiceFor(e,task);
-  html+=`<div class="output-word-row"><div><div class="output-word-label">TARGET WORD</div><div class="output-target">${esc(e.term)}</div></div><button class="btn small speak-btn" data-action="speak" data-text="${attrs(e.term)}" aria-label="朗读目标词">🔊 发音</button></div>
+  html+=`<div class="output-word-row"><div><div class="output-word-label">TARGET WORD</div><div class="output-target">${esc(e.term)}</div></div><button class="btn small speak-btn wf2-speak-word" data-action="speak" data-text="${attrs(e.term)}" aria-label="朗读目标词"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg></button></div>
    <div class="output-context-label">真实语境 · 中文句子 ${productionExercises(e).length>1?`<span class="context-variant">${((Number(e.production?.reviews)||0)+task.attempts)%productionExercises(e).length+1}/${productionExercises(e).length}</span>`:''}</div>
    <div class="production-prompt">${esc(exercise?.prompt||'')}</div>
    ${!answerVisible?`<div class="answer-area"><textarea class="textarea" id="typed-answer" placeholder="写下英文句子，也可以直接口头造句（可留空）" spellcheck="false" aria-label="我的英文句子"></textarea></div>`:''}`;
  }
- else{html+=`<div class="flash-word">${esc(e.term)}</div><div class="word-meta"><span>${esc(e.pos||'')}</span><button class="btn small speak-btn" data-action="speak" data-text="${attrs(e.term)}" aria-label="朗读单词">🔊 发音</button></div>`;}
+ else{html+=`<div class="flash-word">${esc(e.term)}</div><div class="word-meta"><span>${esc(e.pos||'')}</span><button class="btn small speak-btn wf2-speak-word" data-action="speak" data-text="${attrs(e.term)}" aria-label="朗读单词"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg></button></div>`;}
  if(answerVisible){html+=reviewAnswerHtml(e,output,task);}
  else{html+=`<div class="reveal-area"><button class="btn primary reveal-btn" data-action="show-answer">显示答案 <span aria-hidden="true">→</span></button></div>`;}
  html+='</div>';
