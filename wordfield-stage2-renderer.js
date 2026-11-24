@@ -26,11 +26,26 @@
     if (opts?.allowPreview === true) return true;
     return /personal expressions/i.test(String(bookTitle || ''));
   }
+  // One-time owner-authorized release of the exact 64-word preview (2026-11-24).
+  // This is publication approval, not a dictionary review. All other drafts stay blocked.
+  function ownerApprovedSnapshot() {
+    const d = window.WORDFIELD_STAGE2_V21;
+    if (!d || d.version !== '2.1-64-content-preview' || d.entries?.length !== 64) return false;
+    try {
+      const canonical = v => Array.isArray(v) ? v.map(canonical) : v && typeof v === 'object'
+        ? Object.fromEntries(Object.keys(v).sort().map(k => [k, canonical(v[k])])) : v;
+      const bytes = new TextEncoder().encode(JSON.stringify(canonical(d)));
+      if (bytes.length !== 70510) return false;
+      let h = 0xcbf29ce484222325n;
+      for (const b of bytes) h = ((h ^ BigInt(b)) * 0x100000001b3n) & 0xffffffffffffffffn;
+      return h.toString(16) === 'baa56526152f162a';
+    } catch (_) { return false; }
+  }
   function render(word, opts = {}) {
     if (!eligible(opts.bookTitle, opts)) return null;
     const entry = wordByTerm(word?.term);
     if (!validate(entry)) return null; // Fallback to existing WordField rendering.
-    if (!opts.allowPreview && entry.reviewStatus !== 'reviewed') return null; // Never publish draft content.
+    if (!opts.allowPreview && entry.reviewStatus !== 'reviewed' && !ownerApprovedSnapshot()) return null;
     const focus = unitsOf(entry, 'focus')[0];
     const visible = unitsOf(entry, 'visible');
     const overflow = unitsOf(entry, 'overflow');
