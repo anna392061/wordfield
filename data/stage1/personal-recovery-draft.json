@@ -8,7 +8,8 @@
     "19 historical entries (53 sense records) exactly restored from stage1_20_reviewed_draft.json, verified against canonical FNV-1a-64 checksum 30b474c3bba4e5a4. Remaining 45 entries (72 senses) reconstructed from current Stage 2; historical archive's raise is outside this book scope.",
     "All historical review statuses remain draft. Reconstructed entries use neutral placeholder ratings and meaning/frequency grade C; do not use placeholders for priority ranking.",
     "Original focus mapping reflects prior candidate focus and stored gloss/example, not verbatim user utterances. brownish-green source example conflicts with headword and is left uncertain.",
-    "No Language Patterns. This is not a fully audited Stage 1 inventory."
+    "No Language Patterns. This is not a fully audited Stage 1 inventory.",
+    "2026-11-24: targeted meaning audit batch 1 upgraded 46 individual current senses from C to B. No review promotion, no changes to sense identity, scores, frequency evidence, labels, or Stage 2. See data/evidence/stage1-meaning-audit-batch-01.json."
   ],
   "entries": [
     {
@@ -246,9 +247,12 @@
             "personalRelevance": 5,
             "score": 68,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 物理位置在下方。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.collinsdictionary.com/dictionary/english/beneath",
+                "https://www.collinsdictionary.com/english-language-learning/beneath"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -276,9 +280,12 @@
             "personalRelevance": null,
             "score": 60,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 隐在外在表象之下。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.collinsdictionary.com/dictionary/english/beneath",
+                "https://www.collinsdictionary.com/english-language-learning/beneath"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -306,9 +313,12 @@
             "personalRelevance": null,
             "score": 60,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 被认为不符合自身身份或标准。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.collinsdictionary.com/dictionary/english/beneath",
+                "https://www.collinsdictionary.com/english-language-learning/beneath"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -863,9 +873,11 @@
             "personalRelevance": 5,
             "score": 68,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 持续时间长。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.collinsdictionary.com/dictionary/english/long-lasting"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -915,9 +927,11 @@
             "personalRelevance": 5,
             "score": 68,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 提前详细安排。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.collinsdictionary.com/us/dictionary/english/plan-out"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -967,9 +981,11 @@
             "personalRelevance": 5,
             "score": 96,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "本轮未充分交叉核实；暂定语义/搭配",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 注意力分散；词典支持 distracted 的形容词用法，get 构式本身尚待语法核验。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.collinsdictionary.com/us/dictionary/english/distracted"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -1142,9 +1158,11 @@
             "personalRelevance": 5,
             "score": 93,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "本轮未充分交叉核实；暂定语义/搭配",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 没有意识到时间流逝；不要求一定沉浸于某件事。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.collinsdictionary.com/us/dictionary/english/to-lose-track-of"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -1687,9 +1705,11 @@
             "personalRelevance": 5,
             "score": 68,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 食物酸涩的味道。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.collinsdictionary.com/us/dictionary/english/tartness"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -1769,9 +1789,12 @@
             "personalRelevance": null,
             "score": 60,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 碎裂或碾压时的响声。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.collinsdictionary.com/dictionary/english/crunch",
+                "https://www.collinsdictionary.com/us/dictionary/english/crunch"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -1799,9 +1822,12 @@
             "personalRelevance": null,
             "score": 60,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 咀嚼时发出碎裂声。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.collinsdictionary.com/dictionary/english/crunch",
+                "https://www.collinsdictionary.com/us/dictionary/english/crunch"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -1829,9 +1855,12 @@
             "personalRelevance": null,
             "score": 60,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 紧缺或经济压力。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.collinsdictionary.com/dictionary/english/crunch",
+                "https://www.collinsdictionary.com/us/dictionary/english/crunch"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -2008,9 +2037,12 @@
             "personalRelevance": 5,
             "score": 68,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 迅速准备食物等。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.collinsdictionary.com/dictionary/english/whip-up",
+                "https://www.collinsdictionary.com/us/dictionary/english/whip-up"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -2038,9 +2070,12 @@
             "personalRelevance": null,
             "score": 60,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 激起情绪。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.collinsdictionary.com/dictionary/english/whip-up",
+                "https://www.collinsdictionary.com/us/dictionary/english/whip-up"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -2142,9 +2177,11 @@
             "personalRelevance": 5,
             "score": 68,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 长期形成、不易改变的习惯或观念；deeply 为程度修饰。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.oxfordlearnersdictionaries.com/us/definition/english/ingrained"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -2194,9 +2231,11 @@
             "personalRelevance": 5,
             "score": 68,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 使进展受阻或倒退的事件。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.collinsdictionary.com/us/dictionary/english/setback"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -2298,9 +2337,11 @@
             "personalRelevance": 5,
             "score": 68,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 不着急、按自己的节奏做事。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.collinsdictionary.com/dictionary/english/take-ones-time"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -2432,9 +2473,11 @@
             "personalRelevance": null,
             "score": 60,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 摆脱、从疾病中恢复。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.collinsdictionary.com/dictionary/english/throw-off"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -2462,9 +2505,11 @@
             "personalRelevance": null,
             "score": 60,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 丢开或脱掉；词典支持 discard/cast off，当前例句的迅速脱衣语境合理。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.collinsdictionary.com/dictionary/english/throw-off"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -3589,9 +3634,11 @@
             "personalRelevance": 5,
             "score": 68,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 非常频繁。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.collinsdictionary.com/dictionary/english/all-the-time"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -3619,9 +3666,11 @@
             "personalRelevance": null,
             "score": 60,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 持续不断。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.collinsdictionary.com/dictionary/english/all-the-time"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -3671,9 +3720,11 @@
             "personalRelevance": 5,
             "score": 68,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 相对同类物品重量轻。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.collinsdictionary.com/dictionary/english/lightweight"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -3753,9 +3804,11 @@
             "personalRelevance": 5,
             "score": 68,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 空间宽敞。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.collinsdictionary.com/dictionary/english/spacious"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -3805,9 +3858,11 @@
             "personalRelevance": 5,
             "score": 68,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 内部空间充足。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.collinsdictionary.com/dictionary/english-collocations/roomy"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -3835,9 +3890,11 @@
             "personalRelevance": null,
             "score": 60,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 衣物宽松。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.collinsdictionary.com/dictionary/english-collocations/roomy"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -3939,9 +3996,12 @@
             "personalRelevance": 5,
             "score": 68,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 尺寸允许放入。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://dictionary.cambridge.org/dictionary/english/fit",
+                "https://www.collinsdictionary.com/dictionary/english/fit"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -3969,9 +4029,12 @@
             "personalRelevance": null,
             "score": 60,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 衣物尺寸合适。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://dictionary.cambridge.org/dictionary/english/fit",
+                "https://www.collinsdictionary.com/dictionary/english/fit"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -3999,9 +4062,12 @@
             "personalRelevance": null,
             "score": 60,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 符合需求。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://dictionary.cambridge.org/dictionary/english/fit",
+                "https://www.collinsdictionary.com/dictionary/english/fit"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -4029,9 +4095,12 @@
             "personalRelevance": null,
             "score": 60,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 身体健康。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://dictionary.cambridge.org/dictionary/english/fit",
+                "https://www.collinsdictionary.com/dictionary/english/fit"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -4290,9 +4359,11 @@
             "personalRelevance": 5,
             "score": 68,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 少量或一丝可感知的痕迹。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.collinsdictionary.com/dictionary/english/hint"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -4342,9 +4413,11 @@
             "personalRelevance": 5,
             "score": 68,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 协调相配。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.collinsdictionary.com/dictionary/english/go-with"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -4372,9 +4445,11 @@
             "personalRelevance": null,
             "score": 60,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 选定一个选项。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.collinsdictionary.com/dictionary/english/go-with"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -4402,9 +4477,11 @@
             "personalRelevance": null,
             "score": 60,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 与某人同行。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.collinsdictionary.com/dictionary/english/go-with"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -4454,9 +4531,11 @@
             "personalRelevance": 5,
             "score": 68,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 因长期使用而损坏。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.collinsdictionary.com/dictionary/english/wear-out"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -4484,9 +4563,11 @@
             "personalRelevance": null,
             "score": 60,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 使人极度疲倦。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.collinsdictionary.com/dictionary/english/wear-out"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -4536,9 +4617,11 @@
             "personalRelevance": 5,
             "score": 68,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 向外突出。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.collinsdictionary.com/dictionary/english/stick-out"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -4566,9 +4649,11 @@
             "personalRelevance": null,
             "score": 60,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 格外显眼。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.collinsdictionary.com/dictionary/english/stick-out"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -4908,9 +4993,12 @@
             "personalRelevance": 5,
             "score": 68,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 足底拱形结构。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.collinsdictionary.com/dictionary/english/arch",
+                "https://www.collinsdictionary.com/us/english-language-learning/arch"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -4938,9 +5026,12 @@
             "personalRelevance": null,
             "score": 60,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 建筑拱形结构。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.collinsdictionary.com/dictionary/english/arch",
+                "https://www.collinsdictionary.com/us/english-language-learning/arch"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -4968,9 +5059,12 @@
             "personalRelevance": null,
             "score": 60,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 使弯曲呈拱形。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.collinsdictionary.com/dictionary/english/arch",
+                "https://www.collinsdictionary.com/us/english-language-learning/arch"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -5072,9 +5166,11 @@
             "personalRelevance": 5,
             "score": 68,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 软木材料。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.collinsdictionary.com/dictionary/english/cork"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -5102,9 +5198,11 @@
             "personalRelevance": null,
             "score": 60,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 瓶塞；不一定是软木材质。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.collinsdictionary.com/dictionary/english/cork"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -5154,9 +5252,12 @@
             "personalRelevance": 5,
             "score": 68,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 不松软、有一定硬度。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://dictionary.cambridge.org/dictionary/english/firm",
+                "https://www.collinsdictionary.com/us/dictionary/english/firm"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -5184,9 +5285,12 @@
             "personalRelevance": null,
             "score": 60,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 立场确定不动摇。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://dictionary.cambridge.org/dictionary/english/firm",
+                "https://www.collinsdictionary.com/us/dictionary/english/firm"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -5214,9 +5318,12 @@
             "personalRelevance": null,
             "score": 60,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 商业公司。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://dictionary.cambridge.org/dictionary/english/firm",
+                "https://www.collinsdictionary.com/us/dictionary/english/firm"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -5318,9 +5425,11 @@
             "personalRelevance": 5,
             "score": 68,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 特定目的下惯常依赖的首选。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.collinsdictionary.com/dictionary/english/go-to"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
@@ -5370,9 +5479,11 @@
             "personalRelevance": 5,
             "score": 68,
             "meaningEvidence": {
-              "grade": "C",
-              "note": "Reconstruction from published draft Stage 2 and source lexical record; definition and grammar await independent sense review. Neutral 3 ratings are placeholders, not measured frequency.",
-              "urls": []
+              "grade": "B",
+              "note": "2026-11-24: dictionary text or indexed definition inspected; 短途休闲外出。仅确认当前语义，不表示义项清单完整或频率已证实。",
+              "urls": [
+                "https://www.collinsdictionary.com/dictionary/english/outing"
+              ]
             },
             "frequencyEvidence": {
               "grade": "C",
