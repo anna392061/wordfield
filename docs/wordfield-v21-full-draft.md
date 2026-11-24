@@ -45,3 +45,11 @@ Status: **DRAFT / NOT PRODUCTION DEPLOYED**
 ## Deployment contract
 
 Release after these conditions pass: all content marked reviewed with evidence; no unmatched original sense; back up live data; run full-app tests on isolated origin; confirm functionality and rollback point. The draft branch must not be merged or published as the fully upgraded experience prior to this gate.
+
+## 2026-11-24 · V0.5.1 editorial checkpoint
+
+- Release scope: the existing 64 Personal Expressions terms and original V2.1 learning UI only. Language Patterns V0.1/V0.2 is explicitly deferred; no experiment code, sidecar schema, new pattern fields or UI are included.
+- Learning Content Skill is V0.5.1 (Meaning precision & Economy is FROZEN); Semantic Knowledge remains V1.1.
+- Candidate editorial revision: commit 206d25f792f555d9858f71676675d0aa62960ee1 changed 24 labels and six existing insight texts across 27 entries. The other 37 entries are unchanged. All 64 entry IDs, 122 unit IDs, source sense IDs, placements, original English examples, translations, and review statuses are unchanged. The existing brownish-green insight is retained without extending -ish.
+- Structural regression checks passed before writing: exactly one focus and at most two visible units per entry, nonempty examples and labels, preserved original focus IDs and overflow-only mode, come in overflow ordinals 04–13. These are data-level checks, not a new browser/PWA or evidence audit.
+- Publication remains blocked: all 64 entries are still draft because a complete source-backed Stage 1 audit is unavailable in this checkpoint; browser-only vocabulary reconciliation, backup/rollback, and real-device end-to-end QA remain unverified. The reviewed-only publication guard is unchanged. Do not merge/deploy until release gates are met.
