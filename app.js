@@ -340,7 +340,7 @@ function renderLearn(){
    ${progressHtml(pct(done,goal))}
    <div class="task-card-bottom"><span class="small muted">每天独立学习 ${goal} 词</span><button class="btn primary task-enter" data-action="study-book" data-id="${attrs(b.id)}">${inProgress?'继续学习':'学习这本'} <span aria-hidden="true">→</span></button></div></article>`;
  }).join('');
- $('#content').innerHTML=`<div class="learn-head dashboard-head"><div><div class="eyebrow">YOUR DAILY WORDS</div><h1>今日学习任务 <span class="v-tag">V1.6</span></h1><p class="subtext">每本词书独立安排新词和复习，选择一本开始学习。</p></div><button class="btn small" data-nav="books">管理词书 →</button></div><div class="task-grid">${cards}</div>`;
+ $('#content').innerHTML=`<div class="learn-head dashboard-head"><div><div class="eyebrow">YOUR DAILY WORDS</div><h1>今日学习任务 <span class="v-tag">V2.1</span></h1><p class="subtext">每本词书独立安排新词和复习，选择一本开始学习。</p></div><button class="btn small" data-nav="books">管理词书 →</button></div><div class="task-grid">${cards}</div>`;
 }
 function renderStudy(){
  if(studySession&&(studySession.day!==nDate()||studySession.bookId!==data.settings.activeBook||studySession.mode!==studyMode))studySession=null;
