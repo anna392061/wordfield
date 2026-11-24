@@ -1,0 +1,537 @@
+{
+  "version": "2.1",
+  "scope": "25 new candidate sense IDs of exact owner-approved 64-word preview",
+  "datasetBlob": "5b91e84a465a9acda88808e43ae2cc4c717acdeb",
+  "reviewStatus": "draft",
+  "notes": [
+    "Keep separate from original 125-sense recovery inventory; references are candidate evidence, no review promotion.",
+    "No Language Patterns experiment."
+  ],
+  "entries": [
+    {
+      "entryId": "personal-beneath",
+      "term": "beneath",
+      "senseId": "beneath--adverb",
+      "pos": "adv.",
+      "label": "在下方",
+      "example": {
+        "en": "The floorboards were rotten beneath.",
+        "zh": "地板下侧已经腐烂了。"
+      },
+      "sourceCandidate": "https://www.collinsdictionary.com/dictionary/english/beneath",
+      "reviewStatus": "draft",
+      "meaningEvidence": {
+        "grade": "C",
+        "note": "Candidate from owner-approved preview; URL is a review lead, not a claim of complete source verification."
+      },
+      "frequencyEvidence": {
+        "grade": "C",
+        "note": "Unverified."
+      }
+    },
+    {
+      "entryId": "personal-tartness",
+      "term": "tartness",
+      "senseId": "tartness--speech",
+      "pos": "n.",
+      "label": "言辞尖刻",
+      "example": {
+        "en": "There was a hint of tartness in her reply.",
+        "zh": "她的回答带着一丝尖刻。"
+      },
+      "sourceCandidate": "https://www.collinsdictionary.com/dictionary/english/tartness",
+      "reviewStatus": "draft",
+      "meaningEvidence": {
+        "grade": "C",
+        "note": "Candidate from owner-approved preview; URL is a review lead, not a claim of complete source verification."
+      },
+      "frequencyEvidence": {
+        "grade": "C",
+        "note": "Unverified."
+      }
+    },
+    {
+      "entryId": "personal-crunch",
+      "term": "crunch",
+      "senseId": "crunch--numbers",
+      "pos": "v.",
+      "label": "大量运算、处理数据",
+      "example": {
+        "en": "We need to crunch the numbers first.",
+        "zh": "我们得先算一下这些数据。"
+      },
+      "sourceCandidate": "https://www.collinsdictionary.com/dictionary/english/crunch",
+      "reviewStatus": "draft",
+      "meaningEvidence": {
+        "grade": "C",
+        "note": "Candidate from owner-approved preview; URL is a review lead, not a claim of complete source verification."
+      },
+      "frequencyEvidence": {
+        "grade": "C",
+        "note": "Unverified."
+      }
+    },
+    {
+      "entryId": "personal-crunch",
+      "term": "crunch",
+      "senseId": "crunch--exercise",
+      "pos": "n.",
+      "label": "卷腹",
+      "example": {
+        "en": "I did twenty crunches this morning.",
+        "zh": "我今早做了二十个卷腹。"
+      },
+      "sourceCandidate": "https://www.collinsdictionary.com/dictionary/english/crunch",
+      "reviewStatus": "draft",
+      "meaningEvidence": {
+        "grade": "C",
+        "note": "Candidate from owner-approved preview; URL is a review lead, not a claim of complete source verification."
+      },
+      "frequencyEvidence": {
+        "grade": "C",
+        "note": "Unverified."
+      }
+    },
+    {
+      "entryId": "personal-crunch",
+      "term": "crunch",
+      "senseId": "crunch--decision",
+      "pos": "n.",
+      "label": "关键关头",
+      "example": {
+        "en": "When it comes to the crunch, we have to make a decision.",
+        "zh": "到了关键关头，我们就得做出决定。"
+      },
+      "sourceCandidate": "https://www.collinsdictionary.com/dictionary/english/crunch",
+      "reviewStatus": "draft",
+      "meaningEvidence": {
+        "grade": "C",
+        "note": "Candidate from owner-approved preview; URL is a review lead, not a claim of complete source verification."
+      },
+      "frequencyEvidence": {
+        "grade": "C",
+        "note": "Unverified."
+      }
+    },
+    {
+      "entryId": "personal-crunch",
+      "term": "crunch",
+      "senseId": "crunch--sound-verb",
+      "pos": "v.",
+      "label": "发出碎裂声",
+      "example": {
+        "en": "Snow crunched beneath our boots.",
+        "zh": "雪在我们靴子下面嘎吱作响。"
+      },
+      "sourceCandidate": "https://www.collinsdictionary.com/dictionary/english/crunch",
+      "reviewStatus": "draft",
+      "meaningEvidence": {
+        "grade": "C",
+        "note": "Candidate from owner-approved preview; URL is a review lead, not a claim of complete source verification."
+      },
+      "frequencyEvidence": {
+        "grade": "C",
+        "note": "Unverified."
+      }
+    },
+    {
+      "entryId": "pilot-filling",
+      "term": "filling",
+      "senseId": "filling--material",
+      "pos": "n.",
+      "label": "填充材料",
+      "example": {
+        "en": "The cushion has a foam filling.",
+        "zh": "这个靠垫填充了泡沫材料。"
+      },
+      "sourceCandidate": "https://www.collinsdictionary.com/dictionary/english/filling",
+      "reviewStatus": "draft",
+      "meaningEvidence": {
+        "grade": "C",
+        "note": "Candidate from owner-approved preview; URL is a review lead, not a claim of complete source verification."
+      },
+      "frequencyEvidence": {
+        "grade": "C",
+        "note": "Unverified."
+      }
+    },
+    {
+      "entryId": "personal-throw-off",
+      "term": "throw off",
+      "senseId": "throw-off--escape",
+      "pos": "phr. v.",
+      "label": "甩掉追踪者",
+      "example": {
+        "en": "They managed to throw off their pursuers.",
+        "zh": "他们设法甩掉了追赶者。"
+      },
+      "sourceCandidate": "https://www.collinsdictionary.com/dictionary/english/throw-off",
+      "reviewStatus": "draft",
+      "meaningEvidence": {
+        "grade": "C",
+        "note": "Candidate from owner-approved preview; URL is a review lead, not a claim of complete source verification."
+      },
+      "frequencyEvidence": {
+        "grade": "C",
+        "note": "Unverified."
+      }
+    },
+    {
+      "entryId": "personal-throw-off",
+      "term": "throw off",
+      "senseId": "throw-off--emit",
+      "pos": "phr. v.",
+      "label": "散发、释放",
+      "example": {
+        "en": "The fire threw off a lot of heat.",
+        "zh": "火堆散发出大量热量。"
+      },
+      "sourceCandidate": "https://www.collinsdictionary.com/dictionary/english/throw-off",
+      "reviewStatus": "draft",
+      "meaningEvidence": {
+        "grade": "C",
+        "note": "Candidate from owner-approved preview; URL is a review lead, not a claim of complete source verification."
+      },
+      "frequencyEvidence": {
+        "grade": "C",
+        "note": "Unverified."
+      }
+    },
+    {
+      "entryId": "personal-throw-off",
+      "term": "throw off",
+      "senseId": "throw-off--confuse",
+      "pos": "phr. v.",
+      "label": "使人困惑、打乱思路",
+      "example": {
+        "en": "The unexpected question threw me off.",
+        "zh": "那个意料之外的问题让我一下子乱了思路。"
+      },
+      "sourceCandidate": "https://www.collinsdictionary.com/dictionary/english/throw-off",
+      "reviewStatus": "draft",
+      "meaningEvidence": {
+        "grade": "C",
+        "note": "Candidate from owner-approved preview; URL is a review lead, not a claim of complete source verification."
+      },
+      "frequencyEvidence": {
+        "grade": "C",
+        "note": "Unverified."
+      }
+    },
+    {
+      "entryId": "personal-have-has",
+      "term": "have / has",
+      "senseId": "have-has--eat-drink",
+      "pos": "v.",
+      "label": "吃、喝",
+      "example": {
+        "en": "I usually have coffee after my ride.",
+        "zh": "我通常骑完车后喝杯咖啡。"
+      },
+      "sourceCandidate": "https://dictionary.cambridge.org/grammar/british-grammar/have",
+      "reviewStatus": "draft",
+      "meaningEvidence": {
+        "grade": "C",
+        "note": "Candidate from owner-approved preview; URL is a review lead, not a claim of complete source verification."
+      },
+      "frequencyEvidence": {
+        "grade": "C",
+        "note": "Unverified."
+      }
+    },
+    {
+      "entryId": "personal-have-has",
+      "term": "have / has",
+      "senseId": "have-has--perfect",
+      "pos": "aux. v.",
+      "label": "构成完成时",
+      "example": {
+        "en": "I've finished my work.",
+        "zh": "我已经完成工作了。"
+      },
+      "sourceCandidate": "https://dictionary.cambridge.org/grammar/british-grammar/have",
+      "reviewStatus": "draft",
+      "meaningEvidence": {
+        "grade": "C",
+        "note": "Candidate from owner-approved preview; URL is a review lead, not a claim of complete source verification."
+      },
+      "frequencyEvidence": {
+        "grade": "C",
+        "note": "Unverified."
+      }
+    },
+    {
+      "entryId": "personal-have-has",
+      "term": "have / has",
+      "senseId": "have-has--obligation",
+      "pos": "v. phr.",
+      "label": "必须（have to）",
+      "example": {
+        "en": "I have to leave early tomorrow.",
+        "zh": "我明天必须早点走。"
+      },
+      "sourceCandidate": "https://dictionary.cambridge.org/grammar/british-grammar/have",
+      "reviewStatus": "draft",
+      "meaningEvidence": {
+        "grade": "C",
+        "note": "Candidate from owner-approved preview; URL is a review lead, not a claim of complete source verification."
+      },
+      "frequencyEvidence": {
+        "grade": "C",
+        "note": "Unverified."
+      }
+    },
+    {
+      "entryId": "pilot-feature",
+      "term": "feature",
+      "senseId": "feature--face",
+      "pos": "n. plural",
+      "label": "五官",
+      "example": {
+        "en": "She has delicate features.",
+        "zh": "她的五官很精致。"
+      },
+      "sourceCandidate": "https://dictionary.cambridge.org/dictionary/english/feature",
+      "reviewStatus": "draft",
+      "meaningEvidence": {
+        "grade": "C",
+        "note": "Candidate from owner-approved preview; URL is a review lead, not a claim of complete source verification."
+      },
+      "frequencyEvidence": {
+        "grade": "C",
+        "note": "Unverified."
+      }
+    },
+    {
+      "entryId": "pilot-feature",
+      "term": "feature",
+      "senseId": "feature--film",
+      "pos": "n.",
+      "label": "长片",
+      "example": {
+        "en": "The director is working on her first feature.",
+        "zh": "这位导演正在制作她的第一部长片。"
+      },
+      "sourceCandidate": "https://dictionary.cambridge.org/dictionary/english/feature",
+      "reviewStatus": "draft",
+      "meaningEvidence": {
+        "grade": "C",
+        "note": "Candidate from owner-approved preview; URL is a review lead, not a claim of complete source verification."
+      },
+      "frequencyEvidence": {
+        "grade": "C",
+        "note": "Unverified."
+      }
+    },
+    {
+      "entryId": "pilot-feature",
+      "term": "feature",
+      "senseId": "feature--in",
+      "pos": "v.",
+      "label": "在……中占重要位置",
+      "example": {
+        "en": "Music features prominently in the film.",
+        "zh": "音乐在这部电影中占有重要地位。"
+      },
+      "sourceCandidate": "https://dictionary.cambridge.org/dictionary/english/feature",
+      "reviewStatus": "draft",
+      "meaningEvidence": {
+        "grade": "C",
+        "note": "Candidate from owner-approved preview; URL is a review lead, not a claim of complete source verification."
+      },
+      "frequencyEvidence": {
+        "grade": "C",
+        "note": "Unverified."
+      }
+    },
+    {
+      "entryId": "personal-lightweight",
+      "term": "lightweight",
+      "senseId": "lightweight--shallow",
+      "pos": "adj.",
+      "label": "缺乏深度的",
+      "example": {
+        "en": "It is a lightweight comedy.",
+        "zh": "这是一部没什么深度的喜剧。"
+      },
+      "sourceCandidate": "https://dictionary.cambridge.org/dictionary/english/lightweight",
+      "reviewStatus": "draft",
+      "meaningEvidence": {
+        "grade": "C",
+        "note": "Candidate from owner-approved preview; URL is a review lead, not a claim of complete source verification."
+      },
+      "frequencyEvidence": {
+        "grade": "C",
+        "note": "Unverified."
+      }
+    },
+    {
+      "entryId": "personal-lightweight",
+      "term": "lightweight",
+      "senseId": "lightweight--sports",
+      "pos": "n.",
+      "label": "轻量级选手",
+      "example": {
+        "en": "He competes as a lightweight.",
+        "zh": "他是轻量级选手。"
+      },
+      "sourceCandidate": "https://dictionary.cambridge.org/dictionary/english/lightweight",
+      "reviewStatus": "draft",
+      "meaningEvidence": {
+        "grade": "C",
+        "note": "Candidate from owner-approved preview; URL is a review lead, not a claim of complete source verification."
+      },
+      "frequencyEvidence": {
+        "grade": "C",
+        "note": "Unverified."
+      }
+    },
+    {
+      "entryId": "personal-lightweight",
+      "term": "lightweight",
+      "senseId": "lightweight--person",
+      "pos": "n.",
+      "label": "无足轻重的人",
+      "example": {
+        "en": "They dismissed him as a political lightweight.",
+        "zh": "他们认为他是个无足轻重的政坛人物。"
+      },
+      "sourceCandidate": "https://dictionary.cambridge.org/dictionary/english/lightweight",
+      "reviewStatus": "draft",
+      "meaningEvidence": {
+        "grade": "C",
+        "note": "Candidate from owner-approved preview; URL is a review lead, not a claim of complete source verification."
+      },
+      "frequencyEvidence": {
+        "grade": "C",
+        "note": "Unverified."
+      }
+    },
+    {
+      "entryId": "personal-go-with",
+      "term": "go with",
+      "senseId": "go-with--cooccur",
+      "pos": "phr. v.",
+      "label": "与……伴随发生",
+      "example": {
+        "en": "Stress often goes with a lack of sleep.",
+        "zh": "压力常伴随睡眠不足而出现。"
+      },
+      "sourceCandidate": "https://dictionary.cambridge.org/dictionary/english/go-with",
+      "reviewStatus": "draft",
+      "meaningEvidence": {
+        "grade": "C",
+        "note": "Candidate from owner-approved preview; URL is a review lead, not a claim of complete source verification."
+      },
+      "frequencyEvidence": {
+        "grade": "C",
+        "note": "Unverified."
+      }
+    },
+    {
+      "entryId": "personal-go-with",
+      "term": "go with",
+      "senseId": "go-with--romance",
+      "pos": "phr. v.",
+      "label": "与……交往",
+      "example": {
+        "en": "She used to go with someone from our class.",
+        "zh": "她以前和我们班的一个人交往过。"
+      },
+      "sourceCandidate": "https://dictionary.cambridge.org/dictionary/english/go-with",
+      "reviewStatus": "draft",
+      "meaningEvidence": {
+        "grade": "C",
+        "note": "Candidate from owner-approved preview; URL is a review lead, not a claim of complete source verification."
+      },
+      "frequencyEvidence": {
+        "grade": "C",
+        "note": "Unverified."
+      }
+    },
+    {
+      "entryId": "personal-quite-a-lot",
+      "term": "quite a lot",
+      "senseId": "quite-a-lot--degree",
+      "pos": "adv. phr.",
+      "label": "程度相当大",
+      "example": {
+        "en": "I've improved quite a lot.",
+        "zh": "我进步了不少。"
+      },
+      "sourceCandidate": "https://dictionary.cambridge.org/us/grammar/british-grammar/much-a-lot-lots-a-good-deal-adverbs",
+      "reviewStatus": "draft",
+      "meaningEvidence": {
+        "grade": "C",
+        "note": "Candidate from owner-approved preview; URL is a review lead, not a claim of complete source verification."
+      },
+      "frequencyEvidence": {
+        "grade": "C",
+        "note": "Unverified."
+      }
+    },
+    {
+      "entryId": "personal-cork",
+      "term": "cork",
+      "senseId": "cork--seal",
+      "pos": "v.",
+      "label": "用瓶塞封住",
+      "example": {
+        "en": "Cork the bottle tightly.",
+        "zh": "把瓶塞塞紧。"
+      },
+      "sourceCandidate": "https://www.collinsdictionary.com/dictionary/english/cork",
+      "reviewStatus": "draft",
+      "meaningEvidence": {
+        "grade": "C",
+        "note": "Candidate from owner-approved preview; URL is a review lead, not a claim of complete source verification."
+      },
+      "frequencyEvidence": {
+        "grade": "C",
+        "note": "Unverified."
+      }
+    },
+    {
+      "entryId": "personal-go-to",
+      "term": "go-to",
+      "senseId": "go-to--noun",
+      "pos": "n.",
+      "label": "惯常首选",
+      "example": {
+        "en": "This café is my go-to for breakfast.",
+        "zh": "这家咖啡馆是我吃早餐时的首选。"
+      },
+      "sourceCandidate": "https://www.collinsdictionary.com/dictionary/english/go-to",
+      "reviewStatus": "draft",
+      "meaningEvidence": {
+        "grade": "C",
+        "note": "Candidate from owner-approved preview; URL is a review lead, not a claim of complete source verification."
+      },
+      "frequencyEvidence": {
+        "grade": "C",
+        "note": "Unverified."
+      }
+    },
+    {
+      "entryId": "personal-outings",
+      "term": "outings",
+      "senseId": "outings--sports",
+      "pos": "n. plural",
+      "label": "参赛、出场",
+      "example": {
+        "en": "She has won her last three outings.",
+        "zh": "她最近三次出赛都赢了。"
+      },
+      "sourceCandidate": "https://www.collinsdictionary.com/dictionary/english/outing",
+      "reviewStatus": "draft",
+      "meaningEvidence": {
+        "grade": "C",
+        "note": "Candidate from owner-approved preview; URL is a review lead, not a claim of complete source verification."
+      },
+      "frequencyEvidence": {
+        "grade": "C",
+        "note": "Unverified."
+      }
+    }
+  ]
+}
