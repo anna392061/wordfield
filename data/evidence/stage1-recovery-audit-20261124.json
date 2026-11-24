@@ -1,0 +1,69 @@
+{
+  "snapshot": "2fe592616f4e5cfea736b1fb24967396c13e6125",
+  "checkedDate": "2026-11-24",
+  "meaningEvidence": [
+    {
+      "term": "quite a lot",
+      "url": "https://dictionary.cambridge.org/us/grammar/british-grammar/much-a-lot-lots-a-good-deal-adverbs",
+      "note": "Frequency, quantity and degree attested in Cambridge grammar; degree candidate recorded separately.",
+      "scope": "term-level evidence; not a complete sense-by-sense review"
+    },
+    {
+      "term": "filling",
+      "url": "https://dictionary.cambridge.org/dictionary/english/filling",
+      "note": "Food adjective, food filling and dental filling; also general filling material.",
+      "scope": "term-level evidence; not a complete sense-by-sense review"
+    },
+    {
+      "term": "fit",
+      "url": "https://dictionary.cambridge.org/dictionary/english/fit",
+      "note": "Size, suitability and health verified in dictionary; other senses still need inventory review.",
+      "scope": "term-level evidence; not a complete sense-by-sense review"
+    },
+    {
+      "term": "spot",
+      "url": "https://dictionary.cambridge.org/dictionary/english/spot",
+      "note": "Notice, location and mark supported by dictionary; split and full inventory still need review.",
+      "scope": "term-level evidence; not a complete sense-by-sense review"
+    }
+  ],
+  "pendingCandidates": [
+    {
+      "term": "quite a lot",
+      "senseId": "quite-a-lot--degree",
+      "pos": "adv. phr.",
+      "label": "程度相当大",
+      "example": {
+        "en": "I've improved quite a lot.",
+        "zh": "我进步了不少。"
+      },
+      "source": "https://dictionary.cambridge.org/us/grammar/british-grammar/much-a-lot-lots-a-good-deal-adverbs",
+      "status": "verified usage; pending Stage 1 inventory / integration decision"
+    },
+    {
+      "term": "filling",
+      "senseId": "filling--material",
+      "pos": "n.",
+      "label": "填充材料",
+      "example": {
+        "en": "The cushion has a foam filling.",
+        "zh": "这个靠垫的填充材料是泡沫。"
+      },
+      "source": "https://dictionary.cambridge.org/dictionary/english/filling",
+      "status": "verified usage; pending Stage 1 inventory / integration decision"
+    },
+    {
+      "term": "throw off",
+      "senseId": "throw-off--escape",
+      "pos": "phr. v.",
+      "label": "甩掉追踪者",
+      "example": {
+        "en": "They managed to throw off their pursuers.",
+        "zh": "他们设法甩掉了追赶者。"
+      },
+      "source": "https://dictionary.cambridge.org/us/dictionary/english/throw-off",
+      "status": "verified usage; pending Stage 1 inventory / integration decision"
+    }
+  ],
+  "releaseStatus": "blocked; no changes to Stage 2 or app"
+}
