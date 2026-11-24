@@ -1,0 +1,522 @@
+{
+  "date": "2026-11-24",
+  "base": "772b4debfdc5c8d8561c8fdc0a7466ee33eb5438",
+  "scope": "Current sense meaning evidence only; review status and Stage 2 unchanged",
+  "records": [
+    {
+      "senseId": "beneath--original",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.collinsdictionary.com/dictionary/english/beneath",
+        "https://www.collinsdictionary.com/english-language-learning/beneath"
+      ],
+      "assessment": "物理位置在下方"
+    },
+    {
+      "senseId": "beneath--1",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.collinsdictionary.com/dictionary/english/beneath",
+        "https://www.collinsdictionary.com/english-language-learning/beneath"
+      ],
+      "assessment": "隐在外在表象之下"
+    },
+    {
+      "senseId": "beneath--2",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.collinsdictionary.com/dictionary/english/beneath",
+        "https://www.collinsdictionary.com/english-language-learning/beneath"
+      ],
+      "assessment": "被认为不符合自身身份或标准"
+    },
+    {
+      "senseId": "long-lasting--original",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.collinsdictionary.com/dictionary/english/long-lasting"
+      ],
+      "assessment": "持续时间长"
+    },
+    {
+      "senseId": "plan-out--original",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.collinsdictionary.com/us/dictionary/english/plan-out"
+      ],
+      "assessment": "提前详细安排"
+    },
+    {
+      "senseId": "get-distracted--attention",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.collinsdictionary.com/us/dictionary/english/distracted"
+      ],
+      "assessment": "注意力分散；词典支持 distracted 的形容词用法，get 构式本身尚待语法核验"
+    },
+    {
+      "senseId": "lose-track-of-time--time",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.collinsdictionary.com/us/dictionary/english/to-lose-track-of"
+      ],
+      "assessment": "没有意识到时间流逝；不要求一定沉浸于某件事"
+    },
+    {
+      "senseId": "tartness--original",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.collinsdictionary.com/us/dictionary/english/tartness"
+      ],
+      "assessment": "食物酸涩的味道"
+    },
+    {
+      "senseId": "crunch--1",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.collinsdictionary.com/dictionary/english/crunch",
+        "https://www.collinsdictionary.com/us/dictionary/english/crunch"
+      ],
+      "assessment": "碎裂或碾压时的响声"
+    },
+    {
+      "senseId": "crunch--2",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.collinsdictionary.com/dictionary/english/crunch",
+        "https://www.collinsdictionary.com/us/dictionary/english/crunch"
+      ],
+      "assessment": "咀嚼时发出碎裂声"
+    },
+    {
+      "senseId": "crunch--3",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.collinsdictionary.com/dictionary/english/crunch",
+        "https://www.collinsdictionary.com/us/dictionary/english/crunch"
+      ],
+      "assessment": "紧缺或经济压力"
+    },
+    {
+      "senseId": "whip-up--original",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.collinsdictionary.com/dictionary/english/whip-up",
+        "https://www.collinsdictionary.com/us/dictionary/english/whip-up"
+      ],
+      "assessment": "迅速准备食物等"
+    },
+    {
+      "senseId": "whip-up--1",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.collinsdictionary.com/dictionary/english/whip-up",
+        "https://www.collinsdictionary.com/us/dictionary/english/whip-up"
+      ],
+      "assessment": "激起情绪"
+    },
+    {
+      "senseId": "deeply-ingrained--original",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.oxfordlearnersdictionaries.com/us/definition/english/ingrained"
+      ],
+      "assessment": "长期形成、不易改变的习惯或观念；deeply 为程度修饰"
+    },
+    {
+      "senseId": "a-setback--original",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.collinsdictionary.com/us/dictionary/english/setback"
+      ],
+      "assessment": "使进展受阻或倒退的事件"
+    },
+    {
+      "senseId": "take-my-time-with-something--original",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.collinsdictionary.com/dictionary/english/take-ones-time"
+      ],
+      "assessment": "不着急、按自己的节奏做事"
+    },
+    {
+      "senseId": "throw-off--1",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.collinsdictionary.com/dictionary/english/throw-off"
+      ],
+      "assessment": "摆脱、从疾病中恢复"
+    },
+    {
+      "senseId": "throw-off--2",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.collinsdictionary.com/dictionary/english/throw-off"
+      ],
+      "assessment": "丢开或脱掉；词典支持 discard/cast off，当前例句的迅速脱衣语境合理"
+    },
+    {
+      "senseId": "all-the-time--original",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.collinsdictionary.com/dictionary/english/all-the-time"
+      ],
+      "assessment": "非常频繁"
+    },
+    {
+      "senseId": "all-the-time--1",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.collinsdictionary.com/dictionary/english/all-the-time"
+      ],
+      "assessment": "持续不断"
+    },
+    {
+      "senseId": "lightweight--original",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.collinsdictionary.com/dictionary/english/lightweight"
+      ],
+      "assessment": "相对同类物品重量轻"
+    },
+    {
+      "senseId": "spacious--original",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.collinsdictionary.com/dictionary/english/spacious"
+      ],
+      "assessment": "空间宽敞"
+    },
+    {
+      "senseId": "roomy--original",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.collinsdictionary.com/dictionary/english-collocations/roomy"
+      ],
+      "assessment": "内部空间充足"
+    },
+    {
+      "senseId": "roomy--1",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.collinsdictionary.com/dictionary/english-collocations/roomy"
+      ],
+      "assessment": "衣物宽松"
+    },
+    {
+      "senseId": "fit--original",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://dictionary.cambridge.org/dictionary/english/fit",
+        "https://www.collinsdictionary.com/dictionary/english/fit"
+      ],
+      "assessment": "尺寸允许放入"
+    },
+    {
+      "senseId": "fit--1",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://dictionary.cambridge.org/dictionary/english/fit",
+        "https://www.collinsdictionary.com/dictionary/english/fit"
+      ],
+      "assessment": "衣物尺寸合适"
+    },
+    {
+      "senseId": "fit--2",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://dictionary.cambridge.org/dictionary/english/fit",
+        "https://www.collinsdictionary.com/dictionary/english/fit"
+      ],
+      "assessment": "符合需求"
+    },
+    {
+      "senseId": "fit--3",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://dictionary.cambridge.org/dictionary/english/fit",
+        "https://www.collinsdictionary.com/dictionary/english/fit"
+      ],
+      "assessment": "身体健康"
+    },
+    {
+      "senseId": "a-hint-of--original",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.collinsdictionary.com/dictionary/english/hint"
+      ],
+      "assessment": "少量或一丝可感知的痕迹"
+    },
+    {
+      "senseId": "go-with--original",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.collinsdictionary.com/dictionary/english/go-with"
+      ],
+      "assessment": "协调相配"
+    },
+    {
+      "senseId": "go-with--1",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.collinsdictionary.com/dictionary/english/go-with"
+      ],
+      "assessment": "选定一个选项"
+    },
+    {
+      "senseId": "go-with--2",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.collinsdictionary.com/dictionary/english/go-with"
+      ],
+      "assessment": "与某人同行"
+    },
+    {
+      "senseId": "wear-out--original",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.collinsdictionary.com/dictionary/english/wear-out"
+      ],
+      "assessment": "因长期使用而损坏"
+    },
+    {
+      "senseId": "wear-out--1",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.collinsdictionary.com/dictionary/english/wear-out"
+      ],
+      "assessment": "使人极度疲倦"
+    },
+    {
+      "senseId": "stick-out--original",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.collinsdictionary.com/dictionary/english/stick-out"
+      ],
+      "assessment": "向外突出"
+    },
+    {
+      "senseId": "stick-out--1",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.collinsdictionary.com/dictionary/english/stick-out"
+      ],
+      "assessment": "格外显眼"
+    },
+    {
+      "senseId": "arch--original",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.collinsdictionary.com/dictionary/english/arch",
+        "https://www.collinsdictionary.com/us/english-language-learning/arch"
+      ],
+      "assessment": "足底拱形结构"
+    },
+    {
+      "senseId": "arch--1",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.collinsdictionary.com/dictionary/english/arch",
+        "https://www.collinsdictionary.com/us/english-language-learning/arch"
+      ],
+      "assessment": "建筑拱形结构"
+    },
+    {
+      "senseId": "arch--2",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.collinsdictionary.com/dictionary/english/arch",
+        "https://www.collinsdictionary.com/us/english-language-learning/arch"
+      ],
+      "assessment": "使弯曲呈拱形"
+    },
+    {
+      "senseId": "cork--original",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.collinsdictionary.com/dictionary/english/cork"
+      ],
+      "assessment": "软木材料"
+    },
+    {
+      "senseId": "cork--1",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.collinsdictionary.com/dictionary/english/cork"
+      ],
+      "assessment": "瓶塞；不一定是软木材质"
+    },
+    {
+      "senseId": "firm--original",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://dictionary.cambridge.org/dictionary/english/firm",
+        "https://www.collinsdictionary.com/us/dictionary/english/firm"
+      ],
+      "assessment": "不松软、有一定硬度"
+    },
+    {
+      "senseId": "firm--1",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://dictionary.cambridge.org/dictionary/english/firm",
+        "https://www.collinsdictionary.com/us/dictionary/english/firm"
+      ],
+      "assessment": "立场确定不动摇"
+    },
+    {
+      "senseId": "firm--2",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://dictionary.cambridge.org/dictionary/english/firm",
+        "https://www.collinsdictionary.com/us/dictionary/english/firm"
+      ],
+      "assessment": "商业公司"
+    },
+    {
+      "senseId": "go-to--original",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.collinsdictionary.com/dictionary/english/go-to"
+      ],
+      "assessment": "特定目的下惯常依赖的首选"
+    },
+    {
+      "senseId": "outings--original",
+      "oldGrade": "C",
+      "newGrade": "B",
+      "urls": [
+        "https://www.collinsdictionary.com/dictionary/english/outing"
+      ],
+      "assessment": "短途休闲外出"
+    }
+  ],
+  "omissions": [
+    {
+      "term": "crunch",
+      "candidates": [
+        "crunch numbers（大量处理数字）",
+        "crunch（卷腹）",
+        "crunch（物体碎裂作响，非咀嚼）",
+        "crunch（关键关头）"
+      ],
+      "source": "https://www.collinsdictionary.com/dictionary/english/crunch"
+    },
+    {
+      "term": "go with",
+      "candidates": [
+        "伴随出现",
+        "通常一同提供",
+        "非正式恋爱关系"
+      ],
+      "source": "https://www.collinsdictionary.com/dictionary/english/go-with"
+    },
+    {
+      "term": "throw off",
+      "candidates": [
+        "摆脱追踪",
+        "释放物质",
+        "使人困惑"
+      ],
+      "source": "https://www.collinsdictionary.com/dictionary/english/throw-off"
+    },
+    {
+      "term": "lightweight",
+      "candidates": [
+        "轻量级选手/级别",
+        "缺乏深度的",
+        "不重要或能力不足的人"
+      ],
+      "source": "https://www.collinsdictionary.com/dictionary/english/lightweight"
+    },
+    {
+      "term": "go-to",
+      "candidates": [
+        "惯常首选（名词）"
+      ],
+      "source": "https://www.collinsdictionary.com/dictionary/english/go-to"
+    },
+    {
+      "term": "tartness",
+      "candidates": [
+        "言辞尖刻"
+      ],
+      "source": "https://www.collinsdictionary.com/us/dictionary/english/tartness"
+    },
+    {
+      "term": "cork",
+      "candidates": [
+        "用瓶塞封住（动词，待完整词条核查）"
+      ],
+      "source": "https://www.collinsdictionary.com/dictionary/english/cork"
+    },
+    {
+      "term": "outings",
+      "candidates": [
+        "体育比赛出场",
+        "公开他人身份（名词；语境限制）"
+      ],
+      "source": "https://www.collinsdictionary.com/dictionary/english/outing"
+    },
+    {
+      "term": "beneath",
+      "candidates": [
+        "副词：在下方"
+      ],
+      "source": "https://www.collinsdictionary.com/dictionary/english/beneath"
+    }
+  ],
+  "accessNote": "Cambridge page requests returned HTTP 403; where indexed Cambridge definitions explicitly supported the sense, these were used with Collins corroboration. Collins full entries accessible via search for many terms. No corpus frequency changes.",
+  "limitations": [
+    "Not a full sense inventory audit",
+    "Historical B evidence not re-reviewed",
+    "For get distracted the adjective meaning is supported but grammatical construction requires separate review",
+    "For crunch food texture nominal sense evidence remains C until directly attested",
+    "throw off schedule and lightweight software usage remain C until directly attested"
+  ]
+}
